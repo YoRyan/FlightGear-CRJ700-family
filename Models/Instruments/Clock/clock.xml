@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Bombardier CRJ700 series -->
+<!-- Clock -->
+
+<PropertyList>
+
+	<path>clock.ac</path>
+
+	<params>
+		<lightmap-texture-path>Aircraft/Generic/generic-lightmap.png</lightmap-texture-path>
+	</params>
+
+	<colors>
+		<white>
+			<red>0.7</red>
+			<green>0.7</green>
+			<blue>0.7</blue>
+		</white>
+	</colors>
+
+	<!-- Visible only within 1/2 km -->
+	<animation>
+		<type>range</type>
+		<min-m>0</min-m>
+		<max-m>500</max-m>
+	</animation>
+
+	<text>
+		<name>Date day/month</name>
+		<type>string-value</type>
+		<property>instrumentation/clock/indicated-date-string</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1</character-aspect-ratio>
+		<font>lcd.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0002</x-m>
+			<y-m>0.00834</y-m>
+			<z-m>0.00848</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Date day/month</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/clock/time-display-mode</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>UTC hours/minutes</name>
+		<type>string-value</type>
+		<property>instrumentation/clock/indicated-short-string</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1</character-aspect-ratio>
+		<font>lcd.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0002</x-m>
+			<y-m>0.00834</y-m>
+			<z-m>0.00848</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>UTC hours/minutes</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/clock/time-display-mode</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>Local hours/minutes</name>
+		<type>string-value</type>
+		<property>instrumentation/clock/local-short-string</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1</character-aspect-ratio>
+		<font>lcd.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0002</x-m>
+			<y-m>0.00834</y-m>
+			<z-m>0.00848</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Local hours/minutes</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/clock/time-display-mode</property>
+				<value>2</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>Date year</name>
+		<type>string-value</type>
+		<property>instrumentation/clock/indicated-short-year</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1</character-aspect-ratio>
+		<font>lcd.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0002</x-m>
+			<y-m>0.0098</y-m>
+			<z-m>0.00848</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Date year</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/clock/time-display-mode</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>Time seconds</name>
+		<type>number-value</type>
+		<property>sim/time/real/second</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1</character-aspect-ratio>
+		<font>lcd.txf</font>
+		<format>%02.f</format>
+		<offsets>
+			<x-m>0.0002</x-m>
+			<y-m>0.0098</y-m>
+			<z-m>0.00848</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Time seconds</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>instrumentation/clock/time-display-mode</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>instrumentation/clock/time-display-mode</property>
+					<value>2</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<text>
+		<name>Date display mode</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.3</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>DT</text>
+		<offsets>
+			<x-m>0.0002</x-m>
+			<y-m>-0.01369</y-m>
+			<z-m>0</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Date display mode</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/clock/time-display-mode</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>UTC display mode</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.3</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>INT</text>
+		<offsets>
+			<x-m>0.0002</x-m>
+			<y-m>0.00673</y-m>
+			<z-m>0</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>UTC display mode</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/clock/time-display-mode</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>Local display mode</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.3</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>LT</text>
+		<offsets>
+			<x-m>0.0002</x-m>
+			<y-m>0.01726</y-m>
+			<z-m>0</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Local display mode</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/clock/time-display-mode</property>
+				<value>2</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>Elapsed display mode</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.3</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>ET</text>
+		<offsets>
+			<x-m>0.0002</x-m>
+			<y-m>-0.01462</y-m>
+			<z-m>-0.00516</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Elapsed display mode</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/clock/chronometer-display-mode</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>Chronometer display mode</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.3</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>CHR</text>
+		<offsets>
+			<x-m>0.0002</x-m>
+			<y-m>-0.01462</y-m>
+			<z-m>-0.01111</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Chronometer display mode</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/clock/chronometer-display-mode</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>Elapsed time</name>
+		<type>string-value</type>
+		<property>instrumentation/clock/elapsed-time-fmt</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1</character-aspect-ratio>
+		<font>lcd.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0002</x-m>
+			<y-m>0.01769</y-m>
+			<z-m>-0.00731</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Elapsed time</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/clock/chronometer-display-mode</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>Chronometer time</name>
+		<type>string-value</type>
+		<property>instrumentation/clock/chronometer-time-fmt</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1</character-aspect-ratio>
+		<font>lcd.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0002</x-m>
+			<y-m>0.01769</y-m>
+			<z-m>-0.00731</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Chronometer time</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/clock/chronometer-display-mode</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<name>Text</name>
+		<type>material</type>
+		<object-name>Date day/month</object-name>
+		<object-name>UTC hours/minutes</object-name>
+		<object-name>Local hours/minutes</object-name>
+		<object-name>Date year</object-name>
+		<object-name>Time seconds</object-name>
+		<object-name>Date display mode</object-name>
+		<object-name>UTC display mode</object-name>
+		<object-name>Local display mode</object-name>
+		<object-name>Elapsed display mode</object-name>
+		<object-name>Chronometer display mode</object-name>
+		<object-name>Elapsed time</object-name>
+		<object-name>Chronometer time</object-name>
+		<ambient>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</ambient>
+		<diffuse>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</diffuse>
+		<emission>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</emission>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Text</object-name>
+		<condition>
+			<and>
+				<property>sim/current-view/internal</property>
+				<greater-than-equals>
+					<property>systems/electrical/outputs/clock</property>
+					<value>15</value>
+				</greater-than-equals>
+			</and>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>MODE</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>instrumentation/clock/time-display-mode</property>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>CHR</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					if (CRJ700.chrono_timer.running)
+					{
+						CRJ700.chrono_timer.stop();
+					}
+					else
+					{
+						CRJ700.chrono_timer.start();
+					}
+				</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/clock/chronometer-display-mode</property>
+				<value>1</value>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.chrono_timer.reset();
+				</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/clock/chronometer-display-mode</property>
+				<value>1</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>RST</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					if (props.globals.getNode("gear/gear[1]/wow").getBoolValue()) CRJ700.et_timer.reset();
+				</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>SEL</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.chrono_timer.stop();
+				</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/clock/chronometer-display-mode</property>
+				<value>0</value>
+			</binding>
+		</action>
+	</animation>
+
+	<!-- Lightmaps -->
+	<effect>
+		<inherits-from>Aircraft/CRJ700-family/Models/Effects/CRJ700lightmap</inherits-from>
+		<parameters>
+			<lightmap-factor-prop>sim/model/lights/panel-lightmap</lightmap-factor-prop>
+			<lightmap-factor n="0">
+				<use alias="../../lightmap-factor-prop" />
+			</lightmap-factor>
+			<lightmap-factor n="1">
+				<use alias="../../lightmap-factor-prop" />
+			</lightmap-factor>
+			<lightmap-factor n="2">
+				<use alias="../../lightmap-factor-prop" />
+			</lightmap-factor>
+			<texture n="3">
+				<image alias="../../../../params/lightmap-texture-path" />
+			</texture>
+		</parameters>
+		<object-name>Bezel</object-name>
+	</effect>
+
+</PropertyList>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<sim>
+		<model>
+			<livery>
+				<name>American Eagle</name>
+				<texture>Liveries/CRJ700/EXK.tga</texture>
+				<registration>N515AE</registration>
+			</livery>
+		</model>
+	</sim>
+
+</PropertyList>

@@ -1,0 +1,3583 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Bombardier CRJ700 series -->
+<!-- Engine instrumentation and crew alert system -->
+
+<PropertyList>
+
+	<path>eicas.ac</path>
+
+	<params>
+		<page>instrumentation/eicas/page</page>
+		<lightmap-texture-path>Aircraft/Generic/generic-lightmap.png</lightmap-texture-path>
+	</params>
+
+	<lb-to-kg type="float">0.45359237</lb-to-kg>
+	<min-bus-amp type="int">24</min-bus-amp>
+
+	<colors>
+		<amber>
+			<red>1</red>
+			<green>0.682</green>
+			<blue>0</blue>
+		</amber>
+		<blue>
+			<red>0.349</red>
+			<green>0.767</green>
+			<blue>0.808</blue>
+		</blue>
+		<green>
+			<red>0.133</red>
+			<green>0.663</green>
+			<blue>0.145</blue>
+		</green>
+		<red>
+			<red>1</red>
+			<green>0</green>
+			<blue>0</blue>
+		</red>
+		<white>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+		</white>
+	</colors>
+
+	<!-- Visible only within 1/2 km -->
+	<animation>
+		<type>range</type>
+		<min-m>0</min-m>
+		<max-m>500</max-m>
+	</animation>
+	<!-- Instrument elements only visible inside -->
+	<animation>
+		<type>select</type>
+		<object-name>LCD</object-name>
+		<condition>
+			<property>sim/current-view/internal</property>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>material</type>
+		<object-name>LCD</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+
+	<!-- Begin page 1 text -->
+	<text>
+		<name>N1</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.009</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>N1</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.033</y-m>
+			<z-m>0.052</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>N1 TO/GA</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.009</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>TO/GA</text>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.033</y-m>
+			<z-m>0.045</z-m>
+		</offsets>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>N1 TO/GA</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/engines/engine[0]/thrust-mode</property>
+					<value>2</value>
+				</equals>
+				<equals>
+					<property>controls/engines/engine[1]/thrust-mode</property>
+					<value>2</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<text>
+		<name>N1 CLB</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.009</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>CLB</text>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.033</y-m>
+			<z-m>0.045</z-m>
+		</offsets>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>N1 CLB</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/engines/engine[0]/thrust-mode</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/engines/engine[1]/thrust-mode</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<text>
+		<name>N11 APR</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.009</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>APR</text>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.05239</y-m>
+			<z-m>0.05695</z-m>
+		</offsets>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>N11 APR</object-name>
+		<condition>
+			<equals>
+				<property>controls/engines/engine[0]/thrust-mode</property>
+				<value>3</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>N12 APR</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.009</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>APR</text>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.01413</y-m>
+			<z-m>0.05695</z-m>
+		</offsets>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>N12 APR</object-name>
+		<condition>
+			<equals>
+				<property>controls/engines/engine[1]/thrust-mode</property>
+				<value>3</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>N11 REV</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.009</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>REV</text>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.05239</y-m>
+			<z-m>0.05695</z-m>
+		</offsets>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>N11 REV</object-name>
+		<condition>
+			<and>
+				<greater-than>
+					<property>engines/engine[0]/reverser-pos-norm</property>
+					<value>0</value>
+				</greater-than>
+			</and>
+		</condition>
+	</animation>
+	<text>
+		<name>N12 REV</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.009</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>REV</text>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.01413</y-m>
+			<z-m>0.05695</z-m>
+		</offsets>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>N12 REV</object-name>
+		<condition>
+			<and>
+				<greater-than>
+					<property>engines/engine[1]/reverser-pos-norm</property>
+					<value>0</value>
+				</greater-than>
+			</and>
+		</condition>
+	</animation>
+	<text>
+		<name>N11 text</name>
+		<type>number-value</type>
+		<property>engines/engine[0]/rpm</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%03.1f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.0457</y-m>
+			<z-m>0.06755</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>N12 text</name>
+		<type>number-value</type>
+		<property>engines/engine[1]/rpm</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%03.1f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.00734</y-m>
+			<z-m>0.06755</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>ITT</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.009</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>ITT</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.033</y-m>
+			<z-m>0.015</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>ITT1 text</name>
+		<type>number-value</type>
+		<property>engines/engine[0]/itt-norm</property>
+		<scale>1006</scale>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%4.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.0457</y-m>
+			<z-m>0.03055</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>ITT2 text</name>
+		<type>number-value</type>
+		<property>engines/engine[1]/itt-norm</property>
+		<scale>1006</scale>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%4.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.00734</y-m>
+			<z-m>0.03055</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>N2</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.009</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>N2</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.033</y-m>
+			<z-m>-0.022</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>N21 text</name>
+		<type>number-value</type>
+		<property>engines/engine[0]/n2</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%03.1f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.0457</y-m>
+			<z-m>-0.00645</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>N22 text</name>
+		<type>number-value</type>
+		<property>engines/engine[1]/n2</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%03.1f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.00734</y-m>
+			<z-m>-0.00645</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>FF</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>FF (KPH)</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.033</y-m>
+			<z-m>-0.032</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>FF1</name>
+		<type>number-value</type>
+		<property>engines/engine[0]/fuel-flow_pph</property>
+		<scale alias="../../lb-to-kg" />
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%-3.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.067</y-m>
+			<z-m>-0.032</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>FF2</name>
+		<type>number-value</type>
+		<property>engines/engine[0]/fuel-flow_pph</property>
+		<scale alias="../../lb-to-kg" />
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%3.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.001</y-m>
+			<z-m>-0.032</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Oil temp</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>OIL TEMP</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.033</y-m>
+			<z-m>-0.042</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Oil temp 1</name>
+		<type>number-value</type>
+		<property>engines/engine[0]/oilt-norm</property>
+		<scale>163</scale>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%-3.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.067</y-m>
+			<z-m>-0.042</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Oil temp 2</name>
+		<type>number-value</type>
+		<property>engines/engine[1]/oilt-norm</property>
+		<scale>163</scale>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%3.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.001</y-m>
+			<z-m>-0.042</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Oil pressure</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>OIL PRESS</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.033</y-m>
+			<z-m>-0.052</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Oil pressure 1</name>
+		<type>number-value</type>
+		<property>engines/engine[0]/oilp-norm</property>
+		<scale>116</scale>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%-3.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.067</y-m>
+			<z-m>-0.052</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Oil pressure 2</name>
+		<type>number-value</type>
+		<property>engines/engine[1]/oilp-norm</property>
+		<scale>116</scale>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%3.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.001</y-m>
+			<z-m>-0.052</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Oil temp2</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>OIL TEMP</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.03326</y-m>
+			<z-m>-0.08519</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Gear</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>GEAR</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.03787</y-m>
+			<z-m>-0.0212</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Gear</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>gear/gear[0]/position-norm</property>
+					<value>0</value>
+				</greater-than>
+				<greater-than>
+					<property>gear/gear[1]/position-norm</property>
+					<value>0</value>
+				</greater-than>
+				<greater-than>
+					<property>gear/gear[2]/position-norm</property>
+					<value>0</value>
+				</greater-than>
+			</or>
+		</condition>
+	</animation>
+	<text>
+		<name>Flap/slat indicator</name>
+		<type>number-value</type>
+		<property>controls/flight/flaps</property>
+		<scale>45</scale>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>SLATS / FLAPS %-2.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.03787</y-m>
+			<z-m>-0.04147</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Fuel</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>FUEL QTY (KG)</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.03787</y-m>
+			<z-m>-0.06805</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Left tank fuel</name>
+		<type>number-value</type>
+		<property>consumables/fuel/tank[0]/level-lbs</property>
+		<scale alias="../../lb-to-kg" />
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%4.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.02787</y-m>
+			<z-m>-0.07505</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Center tank fuel</name>
+		<type>number-value</type>
+		<property>consumables/fuel/tank[2]/level-lbs</property>
+		<scale alias="../../lb-to-kg" />
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%4.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.03787</y-m>
+			<z-m>-0.07505</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Right tank fuel</name>
+		<type>number-value</type>
+		<property>consumables/fuel/tank[1]/level-lbs</property>
+		<scale alias="../../lb-to-kg" />
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%-4.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.04787</y-m>
+			<z-m>-0.07505</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Total fuel</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>TOTAL FUEL </text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.03787</y-m>
+			<z-m>-0.08305</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Total fuel 2</name>
+		<type>number-value</type>
+		<property>consumables/fuel/total-fuel-lbs</property>
+		<scale alias="../../lb-to-kg" />
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format> %5.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.03787</y-m>
+			<z-m>-0.08305</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<!-- End page 1 text -->
+	<!-- Begin page 2 text -->
+	<text>
+		<name>Flight number</name>
+		<type>string-value</type>
+		<property>instrumentation/fms/flight-number</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>FLT NO. %s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.00173</y-m>
+			<z-m>0.08168</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Aileron trim</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>AIL</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.02195</y-m>
+			<z-m>0.06518</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Trim</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>-TRIM-</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.03695</y-m>
+			<z-m>0.06718</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Aileron trim left</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>LWD</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.00983</y-m>
+			<z-m>0.03083</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Aileron trim right</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>RWD</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.03032</y-m>
+			<z-m>0.03083</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Stabilizer trim</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>STAB</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.05195</y-m>
+			<z-m>0.06518</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Stabilizer trim nose up</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>NU</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.04734</y-m>
+			<z-m>0.06018</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Stabilizer trim value</name>
+		<type>number-value</type>
+		<property>controls/flight/elevator-trim</property>
+		<scale>-100</scale>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%+-3.1f%%</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.05324</y-m>
+			<z-m>0.04466</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Stabilizer trim nose down</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>ND</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.04734</y-m>
+			<z-m>0.03007</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Rudder trim nose left</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>NL</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.0231</y-m>
+			<z-m>0.00749</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Rudder trim</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>RUDDER</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.0351</y-m>
+			<z-m>0.01207</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Rudder trim nose right</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>NR</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.0471</y-m>
+			<z-m>0.00749</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>APU</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>APU</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.039</y-m>
+			<z-m>-0.032</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>APU RPM</name>
+		<type>number-value</type>
+		<property>engines/apu/rpm</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%3.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.0502</y-m>
+			<z-m>-0.04185</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>APU EGT</name>
+		<type>number-value</type>
+		<property>engines/apu/egt-degc</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%3.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.01194</y-m>
+			<z-m>-0.04185</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>APU RPM text</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>RPM</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.05239</y-m>
+			<z-m>-0.07829</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>APU EGT text</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>EGT</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.01413</y-m>
+			<z-m>-0.07829</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<!-- End page 2 text -->
+	<!-- Begin page 3 text -->
+	<text>
+		<name>Page 3 title</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.009</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>AC ELECTRICAL</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0</y-m>
+			<z-m>0.079</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Service configuration</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>SERVICE
+CONFIGURATION</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.065</y-m>
+			<z-m>0.062</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Service configuration</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/external-power-amp-v</property>
+				<value alias="../../../../min-bus-amp" />
+			</greater-than-equals>
+		</condition>
+	</animation>
+	<text>
+		<name>Service bus</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>SERV BUS</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.02233</y-m>
+			<z-m>0.04837</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Bus 1</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>BUS 1</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.03313</y-m>
+			<z-m>0.03456</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Bus 2</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>BUS 2</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.02823</y-m>
+			<z-m>0.03456</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>ESS bus</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>ESS
+BUS</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.00226</y-m>
+			<z-m>0.02405</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>External power amperage</name>
+		<type>number-value</type>
+		<property>systems/electrical/external-power-amp-v</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%2.1f
+AMPS</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.007</y-m>
+			<z-m>0.005</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>External power</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>AC
+EXT</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.029</y-m>
+			<z-m>0.005</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Generator 1 amperage</name>
+		<type>number-value</type>
+		<property>engines/engine[0]/amp-v</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%2.1f
+AMPS</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.03753</y-m>
+			<z-m>-0.0285</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>APU generator amperage</name>
+		<type>number-value</type>
+		<property>engines/apu/amp-v</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%2.1f
+AMPS</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.0285</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Generator 2 amperage</name>
+		<type>number-value</type>
+		<property>engines/engine[1]/amp-v</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%2.1f
+AMPS</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.03753</y-m>
+			<z-m>-0.0285</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Generator 1</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>GEN
+1</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.03753</y-m>
+			<z-m>-0.05285</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>APU generator</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>GEN
+APU</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.05285</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Generator 2</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<text>GEN
+2</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.03753</y-m>
+			<z-m>-0.05285</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<!-- End page 3 text -->
+	<!-- Begin page 1 messages -->
+	<text>
+		<name>Page 1 message 1</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[0]/line[0]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.00768</y-m>
+			<z-m>0.07369</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 1 message 1</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[0]/line[0]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 1 message 1</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[0]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[0]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[0]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[0]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[0]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[0]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[0]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[0]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[0]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 1 message 2</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[0]/line[1]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.00768</y-m>
+			<z-m>0.06569</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 1 message 2</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[0]/line[1]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 1 message 2</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[1]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[1]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[1]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[1]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[1]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[1]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[1]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[1]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[1]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 1 message 3</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[0]/line[2]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.00768</y-m>
+			<z-m>0.05769</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 1 message 3</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[0]/line[2]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 1 message 3</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[2]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[2]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[2]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[2]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[2]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[2]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[2]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[2]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[2]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 1 message 4</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[0]/line[3]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.00768</y-m>
+			<z-m>0.04969</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 1 message 4</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[0]/line[3]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 1 message 4</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[3]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[3]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[3]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[3]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[3]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[3]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[3]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[3]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[3]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 1 message 5</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[0]/line[4]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.00768</y-m>
+			<z-m>0.04169</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 1 message 5</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[0]/line[4]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 1 message 5</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[4]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[4]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[4]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[4]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[4]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[4]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[4]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[4]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[4]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 1 message 6</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[0]/line[5]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.00768</y-m>
+			<z-m>0.03369</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 1 message 6</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[0]/line[5]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 1 message 6</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[5]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[5]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[5]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[5]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[5]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[5]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[5]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[5]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[5]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 1 message 7</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[0]/line[6]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.00768</y-m>
+			<z-m>0.02569</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 1 message 7</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[0]/line[6]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 1 message 7</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[6]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[6]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[6]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[6]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[6]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[6]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[6]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[6]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[6]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 1 message 8</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[0]/line[7]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.00768</y-m>
+			<z-m>0.01769</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 1 message 8</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[0]/line[7]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 1 message 8</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[7]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[7]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[7]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[7]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[7]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[7]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[7]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[7]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[7]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 1 message 9</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[0]/line[8]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.00768</y-m>
+			<z-m>0.00969</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 1 message 9</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[0]/line[8]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 1 message 9</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[8]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[8]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[8]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[8]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[8]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[8]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[8]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[8]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[8]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 1 message 10</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[0]/line[9]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.00768</y-m>
+			<z-m>0.00169</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 1 message 10</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[0]/line[9]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 1 message 10</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[9]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[9]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[9]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[9]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[9]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[9]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[9]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[9]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[9]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 1 message 11</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[0]/line[10]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.00768</y-m>
+			<z-m>-0.00631</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 1 message 11</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[0]/line[10]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 1 message 11</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[10]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[10]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[10]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[10]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[10]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[10]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[10]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[10]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[10]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 1 message 12</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[0]/line[11]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.00768</y-m>
+			<z-m>-0.01431</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 1 message 12</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[0]/line[11]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 1 message 12</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[11]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[11]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[11]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[11]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[11]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[11]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[0]/line[11]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[0]/line[11]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[0]/line[11]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<!-- End page 1 messages -->
+	<!-- Begin page 2 messages -->
+	<text>
+		<name>Page 2 message 1</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[1]/line[0]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.063</y-m>
+			<z-m>0.07369</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 2 message 1</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[1]/line[0]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 2 message 1</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[0]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[0]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[0]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[0]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[0]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[0]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[0]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[0]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[0]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 2 message 2</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[1]/line[1]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.063</y-m>
+			<z-m>0.06569</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 2 message 2</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[1]/line[1]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 2 message 2</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[1]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[1]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[1]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[1]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[1]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[1]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[1]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[1]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[1]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 2 message 3</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[1]/line[2]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.063</y-m>
+			<z-m>0.05769</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 2 message 3</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[1]/line[2]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 2 message 3</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[2]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[2]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[2]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[2]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[2]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[2]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[2]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[2]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[2]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 2 message 4</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[1]/line[3]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.063</y-m>
+			<z-m>0.04969</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 2 message 4</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[1]/line[3]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 2 message 4</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[3]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[3]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[3]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[3]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[3]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[3]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[3]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[3]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[3]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 2 message 5</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[1]/line[4]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.063</y-m>
+			<z-m>0.04169</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 2 message 5</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[1]/line[4]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 2 message 5</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[4]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[4]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[4]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[4]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[4]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[4]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[4]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[4]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[4]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 2 message 6</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[1]/line[5]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.063</y-m>
+			<z-m>0.03369</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 2 message 6</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[1]/line[5]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 2 message 6</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[5]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[5]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[5]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[5]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[5]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[5]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[5]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[5]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[5]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 2 message 7</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[1]/line[6]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.063</y-m>
+			<z-m>0.02569</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 2 message 7</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[1]/line[6]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 2 message 7</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[6]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[6]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[6]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[6]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[6]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[6]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[6]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[6]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[6]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 2 message 8</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[1]/line[7]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.063</y-m>
+			<z-m>0.01769</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 2 message 8</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[1]/line[7]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 2 message 8</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[7]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[7]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[7]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[7]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[7]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[7]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[7]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[7]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[7]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 2 message 9</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[1]/line[8]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.063</y-m>
+			<z-m>0.00969</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 2 message 9</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[1]/line[8]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 2 message 9</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[8]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[8]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[8]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[8]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[8]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[8]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[8]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[8]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[8]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 2 message 10</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[1]/line[9]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.063</y-m>
+			<z-m>0.00169</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 2 message 10</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[1]/line[9]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 2 message 10</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[9]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[9]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[9]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[9]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[9]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[9]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[9]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[9]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[9]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 2 message 11</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[1]/line[10]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.063</y-m>
+			<z-m>-0.00631</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 2 message 11</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[1]/line[10]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 2 message 11</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[10]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[10]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[10]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[10]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[10]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[10]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[10]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[10]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[10]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 2 message 12</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[1]/line[11]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.063</y-m>
+			<z-m>-0.01431</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 2 message 12</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[1]/line[11]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 2 message 12</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[11]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[11]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[11]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[11]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[11]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[11]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[11]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[11]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[11]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<text>
+		<name>Page 2 message 13</name>
+		<type>string-value</type>
+		<property>instrumentation/eicas-messages/page[1]/line[12]/message</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.2</character-aspect-ratio>
+		<font>Helvetica.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.063</y-m>
+			<z-m>-0.02231</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Page 2 message 13</object-name>
+		<condition>
+			<property>instrumentation/eicas-messages/page[1]/line[12]/enabled</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Page 2 message 13</object-name>
+		<ambient>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[12]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[12]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[12]/color-blue-norm</blue-prop>
+		</ambient>
+		<diffuse>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[12]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[12]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[12]/color-blue-norm</blue-prop>
+		</diffuse>
+		<emission>
+			<red-prop>instrumentation/eicas-messages/page[1]/line[12]/color-red-norm</red-prop>
+			<green-prop>instrumentation/eicas-messages/page[1]/line[12]/color-green-norm</green-prop>
+			<blue-prop>instrumentation/eicas-messages/page[1]/line[12]/color-blue-norm</blue-prop>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<!-- End page 2 messages -->
+
+	<animation>
+		<type>material</type>
+		<object-name>Engine 1 oil pressure</object-name>
+		<object-name>Engine 2 oil pressure</object-name>
+		<object-name>Generator 1 off</object-name>
+		<object-name>Generator 2 off</object-name>
+		<object-name>Engine 1 reverse thrust armed</object-name>
+		<object-name>Engine 2 reverse thrust armed</object-name>
+		<object-name>APU generator off</object-name>
+		<object-name>Ram air turbine deployed</object-name>
+		<object-name>Engine 1 extinguisher</object-name>
+		<object-name>Engine 2 extinguisher</object-name>
+		<object-name>APU extinguisher</object-name>
+		<object-name>Service configuration</object-name>
+		<ambient>
+			<red alias="../../../colors/amber/red" />
+			<green alias="../../../colors/amber/green" />
+			<blue alias="../../../colors/amber/blue" />
+		</ambient>
+		<diffuse>
+			<red alias="../../../colors/amber/red" />
+			<green alias="../../../colors/amber/green" />
+			<blue alias="../../../colors/amber/blue" />
+		</diffuse>
+		<emission>
+			<red alias="../../../colors/amber/red" />
+			<green alias="../../../colors/amber/green" />
+			<blue alias="../../../colors/amber/blue" />
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>N1 TO/GA</object-name>
+		<object-name>N1 CLB</object-name>
+		<ambient>
+			<red alias="../../../colors/blue/red" />
+			<green alias="../../../colors/blue/green" />
+			<blue alias="../../../colors/blue/blue" />
+		</ambient>
+		<diffuse>
+			<red alias="../../../colors/blue/red" />
+			<green alias="../../../colors/blue/green" />
+			<blue alias="../../../colors/blue/blue" />
+		</diffuse>
+		<emission>
+			<red alias="../../../colors/blue/red" />
+			<green alias="../../../colors/blue/green" />
+			<blue alias="../../../colors/blue/blue" />
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>N11 text</object-name>
+		<object-name>N12 text</object-name>
+		<object-name>N11 APR</object-name>
+		<object-name>N12 APR</object-name>
+		<object-name>N11 REV</object-name>
+		<object-name>N12 REV</object-name>
+		<object-name>ITT1 text</object-name>
+		<object-name>ITT2 text</object-name>
+		<object-name>N21 text</object-name>
+		<object-name>N22 text</object-name>
+		<object-name>FF1</object-name>
+		<object-name>FF2</object-name>
+		<object-name>Oil temp 1</object-name>
+		<object-name>Oil temp 2</object-name>
+		<object-name>Oil temp2</object-name>
+		<object-name>Oil pressure 1</object-name>
+		<object-name>Oil pressure 2</object-name>
+		<object-name>Left tank fuel</object-name>
+		<object-name>Center tank fuel</object-name>
+		<object-name>Right tank fuel</object-name>
+		<object-name>Total fuel 2</object-name>
+		<object-name>Stabilizer trim value</object-name>
+		<object-name>APU RPM</object-name>
+		<object-name>APU EGT</object-name>
+		<object-name>Parking brake</object-name>
+		<object-name>Generator 1 amperage</object-name>
+		<object-name>APU generator amperage</object-name>
+		<object-name>Generator 2 amperage</object-name>
+		<object-name>External power amperage</object-name>
+		<ambient>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</ambient>
+		<diffuse>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</diffuse>
+		<emission>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>N1</object-name>
+		<object-name>ITT</object-name>
+		<object-name>N2</object-name>
+		<object-name>FF</object-name>
+		<object-name>Oil temp</object-name>
+		<object-name>Oil pressure</object-name>
+		<object-name>Gear</object-name>
+		<object-name>Flap/slat indicator</object-name>
+		<object-name>Fuel</object-name>
+		<object-name>Total fuel</object-name>
+		<object-name>Flight number</object-name>
+		<object-name>Aileron trim</object-name>
+		<object-name>Trim</object-name>
+		<object-name>Aileron trim left</object-name>
+		<object-name>Aileron trim right</object-name>
+		<object-name>Stabilizer trim</object-name>
+		<object-name>Stabilizer trim nose up</object-name>
+		<object-name>Stabilizer trim nose down</object-name>
+		<object-name>Rudder trim nose left</object-name>
+		<object-name>Rudder trim</object-name>
+		<object-name>Rudder trim nose right</object-name>
+		<object-name>APU</object-name>
+		<object-name>APU RPM text</object-name>
+		<object-name>APU EGT text</object-name>
+		<object-name>APU starting</object-name>
+		<object-name>APU running</object-name>
+		<object-name>Engine 1 shut down</object-name>
+		<object-name>Engine 2 shut down</object-name>
+		<object-name>Page 3 title</object-name>
+		<object-name>Service bus</object-name>
+		<object-name>Bus 1</object-name>
+		<object-name>Bus 2</object-name>
+		<object-name>ESS bus</object-name>
+		<object-name>Generator 1</object-name>
+		<object-name>APU generator</object-name>
+		<object-name>Generator 2</object-name>
+		<object-name>External power</object-name>
+		<ambient>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</ambient>
+		<diffuse>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</diffuse>
+		<emission>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<animation>
+		<name>Page1Text</name>
+		<object-name>Page 1 message 1</object-name>
+		<object-name>Page 1 message 2</object-name>
+		<object-name>Page 1 message 3</object-name>
+		<object-name>Page 1 message 4</object-name>
+		<object-name>Page 1 message 5</object-name>
+		<object-name>Page 1 message 6</object-name>
+		<object-name>Page 1 message 7</object-name>
+		<object-name>Page 1 message 8</object-name>
+		<object-name>Page 1 message 9</object-name>
+		<object-name>Page 1 message 10</object-name>
+		<object-name>Page 1 message 11</object-name>
+		<object-name>Page 1 message 12</object-name>
+		<object-name>N1</object-name>
+		<object-name>N1 TO/GA</object-name>
+		<object-name>N1 CLB</object-name>
+		<object-name>N11 APR</object-name>
+		<object-name>N12 APR</object-name>
+		<object-name>N11 REV</object-name>
+		<object-name>N12 REV</object-name>
+		<object-name>N11 text</object-name>
+		<object-name>N12 text</object-name>
+		<object-name>ITT</object-name>
+		<object-name>ITT1 text</object-name>
+		<object-name>ITT2 text</object-name>
+		<object-name>N2</object-name>
+		<object-name>N21 text</object-name>
+		<object-name>N22 text</object-name>
+		<object-name>FF1</object-name>
+		<object-name>FF2</object-name>
+		<object-name>Oil temp 1</object-name>
+		<object-name>Oil temp 2</object-name>
+		<object-name>Oil temp2</object-name>
+		<object-name>Oil pressure 1</object-name>
+		<object-name>Oil pressure 2</object-name>
+		<object-name>FF</object-name>
+		<object-name>Oil temp</object-name>
+		<object-name>Oil pressure</object-name>
+		<object-name>Gear</object-name>
+		<object-name>Flap/slat indicator</object-name>
+		<object-name>Fuel</object-name>
+		<object-name>Left tank fuel</object-name>
+		<object-name>Center tank fuel</object-name>
+		<object-name>Right tank fuel</object-name>
+		<object-name>Total fuel</object-name>
+		<object-name>Total fuel 2</object-name>
+	</animation>
+	<animation>
+		<name>Page2Text</name>
+		<object-name>Page 2 message 1</object-name>
+		<object-name>Page 2 message 2</object-name>
+		<object-name>Page 2 message 3</object-name>
+		<object-name>Page 2 message 4</object-name>
+		<object-name>Page 2 message 5</object-name>
+		<object-name>Page 2 message 6</object-name>
+		<object-name>Page 2 message 7</object-name>
+		<object-name>Page 2 message 8</object-name>
+		<object-name>Page 2 message 9</object-name>
+		<object-name>Page 2 message 10</object-name>
+		<object-name>Page 2 message 11</object-name>
+		<object-name>Page 2 message 12</object-name>
+		<object-name>Page 2 message 13</object-name>
+		<object-name>Flight number</object-name>
+		<object-name>Aileron trim</object-name>
+		<object-name>Trim</object-name>
+		<object-name>Aileron trim left</object-name>
+		<object-name>Aileron trim right</object-name>
+		<object-name>Stabilizer trim</object-name>
+		<object-name>Stabilizer trim nose up</object-name>
+		<object-name>Stabilizer trim value</object-name>
+		<object-name>Stabilizer trim nose down</object-name>
+		<object-name>Rudder trim nose left</object-name>
+		<object-name>Rudder trim</object-name>
+		<object-name>Rudder trim nose right</object-name>
+		<object-name>APU</object-name>
+		<object-name>APU RPM</object-name>
+		<object-name>APU EGT</object-name>
+		<object-name>APU RPM text</object-name>
+		<object-name>APU EGT text</object-name>
+		<object-name>Parking brake</object-name>
+		<object-name>APU starting</object-name>
+		<object-name>APU running</object-name>
+		<object-name>Engine 1 shut down</object-name>
+		<object-name>Engine 2 shut down</object-name>
+		<object-name>Ram air turbine deployed</object-name>
+		<object-name>Engine 1 extinguisher</object-name>
+		<object-name>Engine 2 extinguisher</object-name>
+		<object-name>APU extinguisher</object-name>
+	</animation>
+	<animation>
+		<name>Page3Text</name>
+		<object-name>Page 3 title</object-name>
+		<object-name>Service configuration</object-name>
+		<object-name>Service bus</object-name>
+		<object-name>Bus 1</object-name>
+		<object-name>Bus 2</object-name>
+		<object-name>ESS bus</object-name>
+		<object-name>Generator 1</object-name>
+		<object-name>APU generator</object-name>
+		<object-name>Generator 2</object-name>
+		<object-name>External power</object-name>
+		<object-name>Generator 1 amperage</object-name>
+		<object-name>APU generator amperage</object-name>
+		<object-name>Generator 2 amperage</object-name>
+		<object-name>External power amperage</object-name>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>Off</object-name>
+		<condition>
+			<less-than>
+				<property>systems/electrical/outputs/efis</property>
+				<value>15</value>
+			</less-than>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>Page1</object-name>
+		<object-name>Page1Text</object-name>
+		<condition>
+			<equals>
+				<property alias="../../../../params/page" />
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Page2</object-name>
+		<object-name>Page2Text</object-name>
+		<condition>
+			<equals>
+				<property alias="../../../../params/page" />
+				<value>2</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Page3</object-name>
+		<object-name>Page3Text</object-name>
+		<condition>
+			<equals>
+				<property alias="../../../../params/page" />
+				<value>3</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>LeftControl</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property alias="../../../../params/page" />
+				<step>-1</step>
+				<min>1</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>RightControl</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property alias="../../../../params/page" />
+				<step>1</step>
+				<max>3</max>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>N11</object-name>
+		<property>engines/engine[0]/rpm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>180</dep></entry>
+			<entry><ind>100</ind><dep>-58</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.05239</y-m>
+			<z-m>0.06384</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>N12</object-name>
+		<property>engines/engine[1]/rpm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>180</dep></entry>
+			<entry><ind>100</ind><dep>-58</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.01413</y-m>
+			<z-m>0.06384</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>ITT1</object-name>
+		<property>engines/engine[0]/itt-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>180</dep></entry>
+			<entry><ind>1</ind><dep>-58</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.05239</y-m>
+			<z-m>0.02684</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>ITT2</object-name>
+		<property>engines/engine[1]/itt-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>180</dep></entry>
+			<entry><ind>1</ind><dep>-58</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.01413</y-m>
+			<z-m>0.02684</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>N21</object-name>
+		<property>engines/engine[0]/n2</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>180</dep></entry>
+			<entry><ind>100</ind><dep>-58</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.05239</y-m>
+			<z-m>-0.01016</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>N22</object-name>
+		<property>engines/engine[1]/n2</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>180</dep></entry>
+			<entry><ind>100</ind><dep>-58</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.01413</y-m>
+			<z-m>-0.01016</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>OilPress1</object-name>
+		<property>engines/engine[0]/oilp-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>180</dep></entry>
+			<entry><ind>1</ind><dep>-58</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.05239</y-m>
+			<z-m>-0.07028</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>OilPress2</object-name>
+		<property>engines/engine[1]/oilp-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>180</dep></entry>
+			<entry><ind>1</ind><dep>-58</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.01413</y-m>
+			<z-m>-0.07028</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>GearLInd</object-name>
+		<condition>
+			<greater-than>
+				<property>gear/gear[1]/position-norm</property>
+				<value>0</value>
+			</greater-than>
+		</condition>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>GearLInd</object-name>
+		<property>gear/gear[1]/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0.1640625</dep></entry>
+			<entry><ind>0.999999999</ind><dep>0.1640625</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>GearNInd</object-name>
+		<property>gear/gear[0]/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0.1640625</dep></entry>
+			<entry><ind>0.999999999</ind><dep>0.1640625</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>GearNInd</object-name>
+		<condition>
+			<greater-than>
+				<property>gear/gear[0]/position-norm</property>
+				<value>0</value>
+			</greater-than>
+		</condition>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>GearRInd</object-name>
+		<property>gear/gear[2]/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0.1640625</dep></entry>
+			<entry><ind>0.999999999</ind><dep>0.1640625</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>GearRInd</object-name>
+		<condition>
+			<greater-than>
+				<property>gear/gear[2]/position-norm</property>
+				<value>0</value>
+			</greater-than>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>Flaps1</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>surface-positions/flap-pos-norm</property>
+				<value>0.022</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Flaps8</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>surface-positions/flap-pos-norm</property>
+				<value>0.177</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Flaps20</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>surface-positions/flap-pos-norm</property>
+				<value>0.444</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Flaps30</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>surface-positions/flap-pos-norm</property>
+				<value>0.666</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Flaps45</object-name>
+		<condition>
+			<equals>
+				<property>surface-positions/flap-pos-norm</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>AileronTrim</object-name>
+		<property>controls/flight/aileron-trim</property>
+		<factor>58</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.02001</y-m>
+			<z-m>0.04509</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>ElevatorTrim</object-name>
+		<object-name>Stabilizer trim value</object-name>
+		<property>controls/flight/elevator-trim</property>
+		<factor>0.0117</factor>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>-1</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>RudderTrim</object-name>
+		<property>controls/flight/rudder-trim</property>
+		<factor>58</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.03536</y-m>
+			<z-m>0.011</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>APU</object-name>
+		<object-name>APURPM</object-name>
+		<object-name>APU RPM</object-name>
+		<object-name>APU RPM text</object-name>
+		<object-name>APUEGT</object-name>
+		<object-name>APU EGT</object-name>
+		<object-name>APU EGT text</object-name>
+		<object-name>APUReadings</object-name>
+		<condition>
+			<property>controls/APU/electronic-control-unit</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>APURPM</object-name>
+		<property>engines/apu/rpm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>180</dep></entry>
+			<entry><ind>100</ind><dep>-58</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.05239</y-m>
+			<z-m>-0.05301</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>APUEGT</object-name>
+		<property>engines/apu/egt-degc</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>180</dep></entry>
+			<entry><ind>600</ind><dep>-58</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.01413</y-m>
+			<z-m>-0.05301</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>ElecBus1</object-name>
+		<object-name>ElecSeg1</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/left-bus</property>
+				<value alias="../../../../min-bus-amp" />
+			</greater-than-equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ElecBus2</object-name>
+		<object-name>ElecSeg2</object-name>
+		<object-name>ElecServBus</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/right-bus</property>
+				<value alias="../../../../min-bus-amp" />
+			</greater-than-equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ElecExtAC</object-name>
+		<object-name>External power</object-name>
+		<object-name>External power amperage</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/external-power-amp-v</property>
+				<value alias="../../../../min-bus-amp" />
+			</greater-than-equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ElecGen1</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>engines/engine[0]/amp-v</property>
+				<value alias="../../../../min-bus-amp" />
+			</greater-than-equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ElecAPUGen</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>engines/apu/amp-v</property>
+				<value alias="../../../../min-bus-amp" />
+			</greater-than-equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ElecGen2</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>engines/engine[1]/amp-v</property>
+				<value alias="../../../../min-bus-amp" />
+			</greater-than-equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ElecSeg3</object-name>
+		<condition>
+			<or>
+				<and>
+					<greater-than-equals>
+						<property>systems/electrical/left-bus</property>
+						<value alias="../../../../../../min-bus-amp" />
+					</greater-than-equals>
+					<greater-than-equals>
+						<property>systems/electrical/right-bus</property>
+						<value alias="../../../../../../min-bus-amp" />
+					</greater-than-equals>
+				</and>
+				<and>
+					<greater-than-equals>
+						<property>systems/electrical/left-bus</property>
+						<value alias="../../../../../../min-bus-amp" />
+					</greater-than-equals>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/external-power-amp-v</property>
+							<value alias="../../../../../../../min-bus-amp" />
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>engines/apu/amp-v</property>
+							<value alias="../../../../../../../min-bus-amp" />
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>engines/engine[1]/amp-v</property>
+							<value alias="../../../../../../../min-bus-amp" />
+						</greater-than-equals>
+					</or>
+				</and>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ElecSeg4</object-name>
+		<condition>
+			<or>
+				<and>
+					<greater-than-equals>
+						<property>systems/electrical/left-bus</property>
+						<value alias="../../../../../../min-bus-amp" />
+					</greater-than-equals>
+					<greater-than-equals>
+						<property>systems/electrical/right-bus</property>
+						<value alias="../../../../../../min-bus-amp" />
+					</greater-than-equals>
+				</and>
+				<and>
+					<greater-than-equals>
+						<property>systems/electrical/left-bus</property>
+						<value alias="../../../../../../min-bus-amp" />
+					</greater-than-equals>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/external-power-amp-v</property>
+							<value alias="../../../../../../../min-bus-amp" />
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>engines/apu/amp-v</property>
+							<value alias="../../../../../../../min-bus-amp" />
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>engines/engine[1]/amp-v</property>
+							<value alias="../../../../../../../min-bus-amp" />
+						</greater-than-equals>
+					</or>
+				</and>
+				<and>
+					<greater-than-equals>
+						<property>systems/electrical/right-bus</property>
+						<value alias="../../../../../../min-bus-amp" />
+					</greater-than-equals>
+					<greater-than-equals>
+						<property>systems/electrical/external-power-amp-v</property>
+						<value alias="../../../../../../min-bus-amp" />
+					</greater-than-equals>
+				</and>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ElecSeg5</object-name>
+		<condition>
+			<or>
+				<and>
+					<greater-than-equals>
+						<property>systems/electrical/left-bus</property>
+						<value alias="../../../../../../min-bus-amp" />
+					</greater-than-equals>
+					<greater-than-equals>
+						<property>systems/electrical/right-bus</property>
+						<value alias="../../../../../../min-bus-amp" />
+					</greater-than-equals>
+				</and>
+				<and>
+					<greater-than-equals>
+						<property>systems/electrical/left-bus</property>
+						<value alias="../../../../../../min-bus-amp" />
+					</greater-than-equals>
+					<greater-than-equals>
+						<property>engines/engine[1]/amp-v</property>
+						<value alias="../../../../../../min-bus-amp" />
+					</greater-than-equals>
+				</and>
+				<and>
+					<greater-than-equals>
+						<property>systems/electrical/right-bus</property>
+						<value alias="../../../../../../min-bus-amp" />
+					</greater-than-equals>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/external-power-amp-v</property>
+							<value alias="../../../../../../../min-bus-amp" />
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>engines/apu/amp-v</property>
+							<value alias="../../../../../../../min-bus-amp" />
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>engines/engine[0]/amp-v</property>
+							<value alias="../../../../../../../min-bus-amp" />
+						</greater-than-equals>
+					</or>
+				</and>
+			</or>
+		</condition>
+	</animation>
+
+	<!-- Lightmaps -->
+	<effect>
+		<inherits-from>Aircraft/CRJ700-family/Models/Effects/CRJ700lightmap</inherits-from>
+		<parameters>
+			<lightmap-factor-prop>sim/model/lights/panel-lightmap</lightmap-factor-prop>
+			<lightmap-factor n="0">
+				<use alias="../../lightmap-factor-prop" />
+			</lightmap-factor>
+			<lightmap-factor n="1">
+				<use alias="../../lightmap-factor-prop" />
+			</lightmap-factor>
+			<lightmap-factor n="2">
+				<use alias="../../lightmap-factor-prop" />
+			</lightmap-factor>
+			<texture n="3">
+				<image alias="../../../../params/lightmap-texture-path" />
+			</texture>
+		</parameters>
+		<object-name>Border</object-name>
+	</effect>
+	
+	<!-- Rembrandt !! -->
+	<effect>
+		<name>REMBRANDT transparency</name>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>N11</object-name>
+		<object-name>N12</object-name>
+		<object-name>ITT1</object-name>
+		<object-name>ITT2</object-name>
+		<object-name>N21</object-name>
+		<object-name>N22</object-name>
+		<object-name>Symbols1</object-name>
+		<object-name>Symbols2</object-name>
+		<object-name>Symbols3</object-name>
+		<object-name>GearLInd</object-name>
+		<object-name>GearNInd</object-name>
+		<object-name>GearRInd</object-name>
+	</effect>
+
+</PropertyList>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Bombardier CRJ700 series -->
+<!-- Standby magnetic compass -->
+
+<PropertyList>
+
+	<path>compass.ac</path>
+
+	<!-- Visible only within 1/2 km -->
+	<animation>
+		<type>range</type>
+		<min-m>0</min-m>
+		<max-m>500</max-m>
+	</animation>
+
+	<animation>
+		<type>material</type>
+		<object-name>Airplane</object-name>
+		<object-name>Ring</object-name>
+		<condition>
+			<and>
+				<property>controls/lighting/standby-compass</property>
+				<greater-than-equals>
+					<property>systems/electrical/outputs/magnetic-compass</property>
+					<value>15</value>
+				</greater-than-equals>
+			</and>
+		</condition>
+		<emission>
+			<red>0.6</red>
+			<green>0.579</green>
+			<blue>0.252</blue>
+		</emission>
+	</animation>
+
+	<animation>
+		<type>texrotate</type>
+		<object-name>Ring</object-name>
+		<property>instrumentation/magnetic-compass/indicated-heading-deg</property>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>-1</z>
+		</axis>
+		<center>
+			<x>0.5</x>
+			<y>0.5</y>
+		</center>
+	</animation>
+
+</PropertyList>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Bombardier CRJ700 series -->
+<!-- Interior, CRJ1000 -->
+
+<PropertyList>
+
+	<path>CRJ1000-interior.ac</path>
+
+	<animation>
+		<type>range</type>
+		<min-m>0</min-m>
+		<max-m>1000</max-m>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Bins</object-name>
+		<object-name>LeftBinDoors</object-name>
+		<object-name>RightBinDoors</object-name>
+		<object-name>Seats</object-name>
+		<condition>
+			<property>sim/current-view/internal</property>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>LeftBinDoors</object-name>
+		<object-name>RightBinDoors</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.doors.overhead_bins.toggle();
+				</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>LeftBinDoors</object-name>
+		<property>sim/model/door-positions/overhead-bins/position-norm</property>
+		<factor>65</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.444</y-m>
+			<z-m>0.15</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>RightBinDoors</object-name>
+		<property>sim/model/door-positions/overhead-bins/position-norm</property>
+		<factor>65</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.444</y-m>
+			<z-m>0.15</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>FastenSeatbelts</object-name>
+		<condition>
+			<and>
+				<property>sim/model/lights/seatbelt-sign</property>
+				<greater-than-equals>
+					<property>systems/electrical/outputs/cabin</property>
+					<value>5</value>
+				</greater-than-equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>NoSmoking</object-name>
+		<condition>
+			<and>
+				<property>sim/model/lights/no-smoking-sign</property>
+				<greater-than-equals>
+					<property>systems/electrical/outputs/cabin</property>
+					<value>5</value>
+				</greater-than-equals>
+			</and>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>material</type>
+		<object-name>Bins</object-name>
+		<object-name>LeftBinDoors</object-name>
+		<object-name>RightBinDoors</object-name>
+		<object-name>Carpet</object-name>
+		<object-name>Seats</object-name>
+		<object-name>Walls</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/outputs/cabin</property>
+				<value>15</value>
+			</greater-than-equals>
+		</condition>
+		<emission>
+			<red>0.475</red>
+			<green>0.5</green>
+			<blue>0.37</blue>
+			<factor-prop>controls/lighting/cabin-norm</factor-prop>
+		</emission>
+	</animation>
+
+	<!-- Lightmaps -->
+	<effect>
+		<inherits-from>Aircraft/CRJ700-family/Models/Effects/CRJ700lightmap</inherits-from>
+		<parameters>
+			<lightmap-factor-prop>sim/model/lights/cabin-lightmap</lightmap-factor-prop>
+			<lightmap-factor n="0">
+				<use alias="../../lightmap-factor-prop" />
+			</lightmap-factor>
+			<lightmap-factor n="1">
+				<use alias="../../lightmap-factor-prop" />
+			</lightmap-factor>
+			<lightmap-factor n="2">
+				<use alias="../../lightmap-factor-prop" />
+			</lightmap-factor>
+			<texture n="3">
+				<image>Aircraft/CRJ700-family/Models/Effects/Lightmaps/CRJ1000-interior-lightmap.tga</image>
+			</texture>
+		</parameters>
+		<object-name>Cabin</object-name>
+	</effect>
+
+</PropertyList>

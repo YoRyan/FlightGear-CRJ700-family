@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Bombardier CRJ700 series -->
+<!-- Engine Instrumentation and Crew Alert System messages -->
+<!-- Page 1 -->
+
+<!-- Source: http://www.flycrj.com/downloads/eicasmessagesdodl/CRJ200-EICAS-Message-List.pdf -->
+
+<PropertyList>
+
+	<colors>
+		<amber>
+			<red>1</red>
+			<green>0.682</green>
+			<blue>0</blue>
+		</amber>
+		<green>
+			<red>0.133</red>
+			<green>0.663</green>
+			<blue>0.145</blue>
+		</green>
+		<red>
+			<red>1</red>
+			<green>0</green>
+			<blue>0</blue>
+		</red>
+		<white>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+		</white>
+	</colors>
+
+	<!-- Warnings -->
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">APU fire</text>
+		<color>
+			<red alias="../../../colors/red/red" />
+			<green alias="../../../colors/red/green" />
+			<blue alias="../../../colors/red/blue" />
+		</color>
+		<condition>
+			<property>engines/apu/on-fire</property>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Config aileron</text>
+		<color>
+			<red alias="../../../colors/red/red" />
+			<green alias="../../../colors/red/green" />
+			<blue alias="../../../colors/red/blue" />
+		</color>
+		<condition>
+			<and>
+				<or>
+					<greater-than>
+						<property>controls/flight/aileron-trim</property>
+						<value>0.033333333</value>
+					</greater-than>
+					<less-than>
+						<property>controls/flight/aileron-trim</property>
+						<value>-0.033333333</value>
+					</less-than>
+				</or>
+				<property>gear/gear[1]/wow</property>
+				<property>gear/gear[2]/wow</property>
+				<greater-than>
+					<property>engines/engine[0]/rpm</property>
+					<value>70</value>
+				</greater-than>
+				<greater-than>
+					<property>engines/engine[1]/rpm</property>
+					<value>70</value>
+				</greater-than>
+				<not>
+					<property>controls/engines/engine[0]/reverser</property>
+				</not>
+				<not>
+					<property>controls/engines/engine[1]/reverser</property>
+				</not>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Config AP</text>
+		<color>
+			<red alias="../../../colors/red/red" />
+			<green alias="../../../colors/red/green" />
+			<blue alias="../../../colors/red/blue" />
+		</color>
+		<condition>
+			<and>
+				<property>controls/autoflight/autopilot/engage</property>
+				<property>gear/gear[1]/wow</property>
+				<property>gear/gear[2]/wow</property>
+				<greater-than>
+					<property>engines/engine[0]/rpm</property>
+					<value>70</value>
+				</greater-than>
+				<greater-than>
+					<property>engines/engine[1]/rpm</property>
+					<value>70</value>
+				</greater-than>
+				<not>
+					<property>controls/engines/engine[0]/reverser</property>
+				</not>
+				<not>
+					<property>controls/engines/engine[1]/reverser</property>
+				</not>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Config flaps</text>
+		<color>
+			<red alias="../../../colors/red/red" />
+			<green alias="../../../colors/red/green" />
+			<blue alias="../../../colors/red/blue" />
+		</color>
+		<condition>
+			<and>
+				<or>
+					<equals>
+						<property>controls/flight/flaps</property>
+						<value>0</value>
+					</equals>
+					<greater-than>
+						<property>controls/flight/flaps</property>
+						<value>0.444</value>
+					</greater-than>
+				</or>
+				<property>gear/gear[1]/wow</property>
+				<property>gear/gear[2]/wow</property>
+				<greater-than>
+					<property>engines/engine[0]/rpm</property>
+					<value>70</value>
+				</greater-than>
+				<greater-than>
+					<property>engines/engine[1]/rpm</property>
+					<value>70</value>
+				</greater-than>
+				<not>
+					<property>controls/engines/engine[0]/reverser</property>
+				</not>
+				<not>
+					<property>controls/engines/engine[1]/reverser</property>
+				</not>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Config rudder</text>
+		<color>
+			<red alias="../../../colors/red/red" />
+			<green alias="../../../colors/red/green" />
+			<blue alias="../../../colors/red/blue" />
+		</color>
+		<condition>
+			<and>
+				<or>
+					<greater-than>
+						<property>controls/flight/rudder-trim</property>
+						<value>0.033333333</value>
+					</greater-than>
+					<less-than>
+						<property>controls/flight/rudder-trim</property>
+						<value>-0.033333333</value>
+					</less-than>
+				</or>
+				<property>gear/gear[1]/wow</property>
+				<property>gear/gear[2]/wow</property>
+				<greater-than>
+					<property>engines/engine[0]/rpm</property>
+					<value>70</value>
+				</greater-than>
+				<greater-than>
+					<property>engines/engine[1]/rpm</property>
+					<value>70</value>
+				</greater-than>
+				<not>
+					<property>controls/engines/engine[0]/reverser</property>
+				</not>
+				<not>
+					<property>controls/engines/engine[1]/reverser</property>
+				</not>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Config splrs</text>
+		<color>
+			<red alias="../../../colors/red/red" />
+			<green alias="../../../colors/red/green" />
+			<blue alias="../../../colors/red/blue" />
+		</color>
+		<condition>
+			<and>
+				<or>
+					<greater-than>
+						<property>controls/flight/speedbrake</property>
+						<value>0</value>
+					</greater-than>
+					<equals>
+						<property>controls/flight/ground-lift-dump</property>
+						<value>2</value>
+					</equals>
+				</or>
+				<property>gear/gear[1]/wow</property>
+				<property>gear/gear[2]/wow</property>
+				<greater-than>
+					<property>engines/engine[0]/rpm</property>
+					<value>70</value>
+				</greater-than>
+				<greater-than>
+					<property>engines/engine[1]/rpm</property>
+					<value>70</value>
+				</greater-than>
+				<not>
+					<property>controls/engines/engine[0]/reverser</property>
+				</not>
+				<not>
+					<property>controls/engines/engine[1]/reverser</property>
+				</not>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">L eng fire</text>
+		<color>
+			<red alias="../../../colors/red/red" />
+			<green alias="../../../colors/red/green" />
+			<blue alias="../../../colors/red/blue" />
+		</color>
+		<condition>
+			<property>engines/engine[0]/on-fire</property>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">R eng fire</text>
+		<color>
+			<red alias="../../../colors/red/red" />
+			<green alias="../../../colors/red/green" />
+			<blue alias="../../../colors/red/blue" />
+		</color>
+		<condition>
+			<property>engines/engine[1]/on-fire</property>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">L eng oil press</text>
+		<color>
+			<red alias="../../../colors/red/red" />
+			<green alias="../../../colors/red/green" />
+			<blue alias="../../../colors/red/blue" />
+		</color>
+		<condition>
+			<less-than>
+				<property>engines/engine[0]/oilp-norm</property>
+				<value>0.215517241</value> <!-- 25 PSI -->
+			</less-than>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">R eng oil press</text>
+		<color>
+			<red alias="../../../colors/red/red" />
+			<green alias="../../../colors/red/green" />
+			<blue alias="../../../colors/red/blue" />
+		</color>
+		<condition>
+			<less-than>
+				<property>engines/engine[1]/oilp-norm</property>
+				<value>0.215517241</value> <!-- 25 PSI -->
+			</less-than>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Gear disagree</text>
+		<color>
+			<red alias="../../../colors/red/red" />
+			<green alias="../../../colors/red/green" />
+			<blue alias="../../../colors/red/blue" />
+		</color>
+		<condition>
+			<and>
+				<or>
+					<equals>
+						<property>gear/gear[0]/position-norm</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>gear/gear[0]/position-norm</property>
+						<value>1</value>
+					</equals>
+				</or>
+				<or>
+					<equals>
+						<property>gear/gear[1]/position-norm</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>gear/gear[1]/position-norm</property>
+						<value>1</value>
+					</equals>
+				</or>
+				<or>
+					<equals>
+						<property>gear/gear[2]/position-norm</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>gear/gear[2]/position-norm</property>
+						<value>1</value>
+					</equals>
+				</or>
+				<or>
+					<not>
+						<equals>
+							<property>gear/gear[0]/position-norm</property>
+							<property>controls/gear/gear-down</property>
+						</equals>
+					</not>
+					<not>
+						<equals>
+							<property>gear/gear[1]/position-norm</property>
+							<property>controls/gear/gear-down</property>
+						</equals>
+					</not>
+					<not>
+						<equals>
+							<property>gear/gear[2]/position-norm</property>
+							<property>controls/gear/gear-down</property>
+						</equals>
+					</not>
+				</or>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Nose door open</text>
+		<color>
+			<red alias="../../../colors/red/red" />
+			<green alias="../../../colors/red/green" />
+			<blue alias="../../../colors/red/blue" />
+		</color>
+		<condition>
+			<and>
+				<greater-than>
+					<property>gear/gear[0]/position-norm</property>
+					<value>0</value>
+				</greater-than>
+				<greater-than>
+					<property>instrumentation/airspeed-indicator[0]/indicated-speed-kt</property>
+					<value>250</value>
+				</greater-than>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Parking brake</text>
+		<color>
+			<red alias="../../../colors/red/red" />
+			<green alias="../../../colors/red/green" />
+			<blue alias="../../../colors/red/blue" />
+		</color>
+		<condition>
+			<and>
+				<property>controls/gear/brake-parking</property>
+				<or>
+					<not>
+						<property>gear/gear[1]/wow</property>
+					</not>
+					<not>
+						<property>gear/gear[2]/wow</property>
+					</not>
+					<and>
+						<greater-than>
+							<property>engines/engine[0]/rpm</property>
+							<value>70</value>
+						</greater-than>
+						<greater-than>
+							<property>engines/engine[1]/rpm</property>
+							<value>70</value>
+						</greater-than>
+					</and>
+				</or>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Passenger door</text>
+		<color>
+			<red alias="../../../colors/red/red" />
+			<green alias="../../../colors/red/green" />
+			<blue alias="../../../colors/red/blue" />
+		</color>
+		<condition>
+			<greater-than>
+				<property>sim/model/door-positions/pax-left/position-norm</property>
+				<value>0</value>
+			</greater-than>
+		</condition>
+	</message>
+
+	<!-- Cautions -->
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">APU bleed on</text>
+		<color>
+			<red alias="../../../colors/amber/red" />
+			<green alias="../../../colors/amber/green" />
+			<blue alias="../../../colors/amber/blue" />
+		</color>
+		<condition>
+			<and>
+				<equals>
+					<property>controls/pneumatic/bleed-source</property>
+					<value>2</value>
+				</equals>
+				<greater-than>
+					<property>instrumentation/altimeter/indicated-altitude-ft</property>
+					<value>15000</value>
+				</greater-than>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">Flt splr deploy</text>
+		<color>
+			<red alias="../../../colors/amber/red" />
+			<green alias="../../../colors/amber/green" />
+			<blue alias="../../../colors/amber/blue" />
+		</color>
+		<condition>
+			<and>
+				<or>
+					<greater-than>
+						<property>surface-positions/left-speedbrake-pos-norm</property>
+						<value>0.125</value> <!-- 5 degrees -->
+					</greater-than>
+					<greater-than>
+						<property>surface-positions/right-speedbrake-pos-norm</property>
+						<value>0.125</value> <!-- 5 degrees -->
+					</greater-than>
+					<greater-than>
+						<property>surface-positions/spoiler-ground-pos-norm</property>
+						<value>0.1</value> <!-- 4 degrees -->
+					</greater-than>
+				</or>
+				<or>
+					<not>
+						<property>gear/gear[1]/wow</property>
+					</not>
+					<not>
+						<property>gear/gear[2]/wow</property>
+					</not>
+				</or>
+				<or>
+					<greater-than>
+						<property>instrumentation/radar-altimeter[0]/radar-altitude-ft</property>
+						<value>10</value>
+					</greater-than>
+					<less-than-equals>
+						<property>instrumentation/radar-altimeter[0]/radar-altitude-ft</property>
+						<value>300</value>
+					</less-than-equals>
+				</or>
+				<greater-than-equals>
+					<property>engines/engine[0]/rpm</property>
+					<value>79</value>
+				</greater-than-equals>
+				<greater-than-equals>
+					<property>engines/engine[1]/rpm</property>
+					<value>79</value>
+				</greater-than-equals>
+			</and>
+		</condition>
+	</message>
+	<!-- FIXME: <expression> is unsupported in <condition> when evaluated by Nasal via props.condition() -->
+	<!--message>
+		<priority type="int">1</priority>
+		<text type="string">Fuel imbalance</text>
+		<color>
+			<red alias="../../../colors/amber/red" />
+			<green alias="../../../colors/amber/green" />
+			<blue alias="../../../colors/amber/blue" />
+		</color>
+		<condition>
+			<greater-than>
+				<expression>
+					<abs>
+						<dif>
+							<property>consumables/fuel/tank[0]/level-lbs</property>
+							<property>consumables/fuel/tank[1]/level-lbs</property>
+						</dif>
+					</abs>
+				</expression>
+				<value>800</value>
+			</greater-than>
+		</condition>
+	</message-->
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">Gen 1 off</text>
+		<color>
+			<red alias="../../../colors/amber/red" />
+			<green alias="../../../colors/amber/green" />
+			<blue alias="../../../colors/amber/blue" />
+		</color>
+		<condition>
+			<and>
+				<property>engines/engine[0]/running</property>
+				<not>
+					<property>controls/electric/engine[0]/generator</property>
+				</not>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">Gen 2 off</text>
+		<color>
+			<red alias="../../../colors/amber/red" />
+			<green alias="../../../colors/amber/green" />
+			<blue alias="../../../colors/amber/blue" />
+		</color>
+		<condition>
+			<and>
+				<property>engines/engine[1]/running</property>
+				<not>
+					<property>controls/electric/engine[1]/generator</property>
+				</not>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">GLD not armed</text>
+		<color>
+			<red alias="../../../colors/amber/red" />
+			<green alias="../../../colors/amber/green" />
+			<blue alias="../../../colors/amber/blue" />
+		</color>
+		<condition>
+			<equals>
+				<property>controls/flight/ground-lift-dump</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">GLD splr deploy</text>
+		<color>
+			<red alias="../../../colors/amber/red" />
+			<green alias="../../../colors/amber/green" />
+			<blue alias="../../../colors/amber/blue" />
+		</color>
+		<condition>
+			<and>
+				<greater-than>
+					<property>instrumentation/radar-altimeter[0]/radar-altitude-ft</property>
+					<value>10</value>
+				</greater-than>
+				<greater-than>
+					<property>surface-positions/spoiler-ground-pos-norm</property>
+					<value>0</value>
+				</greater-than>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">Service door</text>
+		<color>
+			<red alias="../../../colors/amber/red" />
+			<green alias="../../../colors/amber/green" />
+			<blue alias="../../../colors/amber/blue" />
+		</color>
+		<condition>
+			<greater-than>
+				<property>sim/model/door-positions/pax-right/position-norm</property>
+				<value>0</value>
+			</greater-than>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">Yaw damper</text>
+		<color>
+			<red alias="../../../colors/amber/red" />
+			<green alias="../../../colors/amber/green" />
+			<blue alias="../../../colors/amber/blue" />
+		</color>
+		<condition>
+			<and>
+				<not>
+					<property>controls/autoflight/yaw-damper[0]/engage</property>
+				</not>
+				<not>
+					<property>controls/autoflight/yaw-damper[1]/engage</property>
+				</not>
+			</and>
+		</condition>
+	</message>
+
+</PropertyList>

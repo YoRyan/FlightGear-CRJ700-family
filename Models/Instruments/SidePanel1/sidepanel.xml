@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Bombardier CRJ700 series -->
+<!-- Side panel 1 -->
+
+<PropertyList>
+
+	<path>sidepanel.ac</path>
+
+	<params>
+		<mfd-tcas>instrumentation/mfd/tcas</mfd-tcas>
+		<mfd-wx>instrumentation/mfd/wx</mfd-wx>
+		<mfd-page>instrumentation/mfd/page</mfd-page>
+		<radar-range>instrumentation/radar/range</radar-range>
+		<lightmap-texture-path>Aircraft/Generic/generic-lightmap.png</lightmap-texture-path>
+	</params>
+
+	<panel-marking-emit>
+		<red>1</red>
+		<green>0.871</green>
+		<blue>0.427</blue>
+	</panel-marking-emit>
+	<button-translate-m type="float">0.001</button-translate-m>
+
+	<!-- Visible only within 1/2 km -->
+	<animation>
+		<type>range</type>
+		<min-m>0</min-m>
+		<max-m>500</max-m>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>NeedsPower</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/outputs/efis</property>
+				<value>15</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Markings</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/outputs/panel-lights</property>
+				<value>15</value>
+			</greater-than-equals>
+		</condition>
+		<emission>
+			<red alias="../../../panel-marking-emit/red" />
+			<green alias="../../../panel-marking-emit/green" />
+			<blue alias="../../../panel-marking-emit/blue" />
+			<factor-prop>controls/lighting/panel-norm</factor-prop>
+		</emission>
+	</animation>
+
+	<!-- Display control panel -->
+	<animation>
+		<type>pick</type>
+		<object-name>FormatKnob</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property alias="../../../../params/mfd-page" />
+				<!--value>1</value>
+				<value>2</value>
+				<value>3</value>
+				<value>4</value>
+				<value>5</value>
+				<value>6</value-->
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property alias="../../../../params/mfd-page" />
+				<!--value>6</value>
+				<value>5</value>
+				<value>4</value>
+				<value>3</value>
+				<value>2</value>
+				<value>1</value-->
+				<value>3</value>
+				<value>2</value>
+				<value>1</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>FormatKnob</object-name>
+		<property alias="../../params/mfd-page" />
+		<factor>60</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.0012</y-m>
+			<z-m>0.0708</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>RangeKnob</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property alias="../../../../params/radar-range" />
+				<value>5</value>
+				<value>10</value>
+				<value>20</value>
+				<value>40</value>
+				<value>80</value>
+				<value>160</value>
+				<value>320</value>
+				<value>640</value>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property alias="../../../../params/radar-range" />
+				<value>640</value>
+				<value>320</value>
+				<value>160</value>
+				<value>80</value>
+				<value>40</value>
+				<value>20</value>
+				<value>10</value>
+				<value>5</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>RangeKnob</object-name>
+		<property alias="../../params/radar-range" />
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.0012</y-m>
+			<z-m>0.0708</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>RadarTerrainBtn</object-name>
+		<object-name>RadarTerrainBtnOn</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property alias="../../../../params/mfd-wx" />
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>RadarTerrainBtn</object-name>
+		<object-name>RadarTerrainBtnOn</object-name>
+		<property alias="../../params/mfd-wx" />
+		<factor alias="../../button-translate-m" />
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>RadarTerrainBtnOn</object-name>
+		<condition>
+			<property alias="../../../params/mfd-wx" />
+		</condition>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>TrafficBtn</object-name>
+		<object-name>TrafficBtnOn</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property alias="../../../../params/mfd-tcas" />
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>TrafficBtn</object-name>
+		<object-name>TrafficBtnOn</object-name>
+		<property alias="../../params/mfd-tcas" />
+		<factor alias="../../button-translate-m" />
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>TrafficBtnOn</object-name>
+		<condition>
+			<property alias="../../../params/mfd-tcas" />
+		</condition>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>NavSourceKnob</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/autoflight/nav-mode</property>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/autoflight/nav-mode</property>
+				<value>2</value>
+				<value>1</value>
+				<value>0</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>NavSourceKnob</object-name>
+		<property>controls/autoflight/nav-mode</property>
+		<factor>90</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.057</y-m>
+			<z-m>0.054</z-m>
+		</center>
+	</animation>
+
+	<!-- Lightmaps -->
+	<effect>
+		<inherits-from>Aircraft/CRJ700-family/Models/Effects/CRJ700lightmap</inherits-from>
+		<parameters>
+			<lightmap-factor-prop>sim/model/lights/panel-lightmap</lightmap-factor-prop>
+			<lightmap-factor n="0">
+				<use alias="../../lightmap-factor-prop" />
+			</lightmap-factor>
+			<lightmap-factor n="1">
+				<use alias="../../lightmap-factor-prop" />
+			</lightmap-factor>
+			<lightmap-factor n="2">
+				<use alias="../../lightmap-factor-prop" />
+			</lightmap-factor>
+			<texture n="3">
+				<image alias="../../../../params/lightmap-texture-path" />
+			</texture>
+		</parameters>
+		<object-name>Panel</object-name>
+	</effect>
+	
+	<!-- Rembrandt !! -->
+	<effect>
+		<name>REMBRANDT transparency</name>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>Markings</object-name>
+	</effect>
+
+</PropertyList>

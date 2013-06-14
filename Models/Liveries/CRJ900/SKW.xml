@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<sim>
+		<model>
+			<livery>
+				<name>Delta Connection/SkyWest Airlines</name>
+				<texture>Liveries/CRJ900/SKW.tga</texture>
+				<registration>N823SK</registration>
+			</livery>
+		</model>
+	</sim>
+
+</PropertyList>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<sim>
+		<model>
+			<livery>
+				<name>Star Alliance/Lufthansa</name>
+				<texture>Liveries/CRJ700ER/SAL.tga</texture>
+				<registration>D-ACPB</registration>
+			</livery>
+		</model>
+	</sim>
+
+</PropertyList>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<name>Takeoff and climb</name>
+	<description>This tutorial starts you at the end of runway 28R at San Francisco International Airport. You will learn how to take off and climb to 10,000 feet.</description>
+	<timeofday type="string">noon</timeofday>
+	<presets>
+		<on-ground type="bool">true</on-ground>
+		<latitude-deg>37.61415757</latitude-deg>
+		<longitude-deg>-122.3570337</longitude-deg>
+		<heading-deg>208.6</heading-deg>
+		<airspeed-kt>0</airspeed-kt>
+	</presets>
+
+	<init>
+		<set>
+			<property>controls/flight/flaps</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>controls/gear/brake-parking</property>
+			<value type="bool">true</value>
+		</set>
+		<set>
+			<property>controls/lighting/nav-lights</property>
+			<value type="bool">true</value>
+		</set>
+		<set>
+			<property>controls/lighting/beacon</property>
+			<value type="bool">true</value>
+		</set>
+		<set>
+			<property>controls/lighting/logo-lights</property>
+			<value type="bool">false</value>
+		</set>
+		<set>
+			<property>controls/lighting/wing-lights</property>
+			<value type="bool">false</value>
+		</set>
+		<set>
+			<property>controls/lighting/taxi-lights</property>
+			<value type="bool">true</value>
+		</set>
+		<set>
+			<property>controls/lighting/landing-lights[0]</property>
+			<value type="bool">false</value>
+		</set>
+		<set>
+			<property>controls/lighting/landing-lights[1]</property>
+			<value type="bool">false</value>
+		</set>
+		<set>
+			<property>controls/lighting/landing-lights[2]</property>
+			<value type="bool">false</value>
+		</set>
+		<set>
+			<property>controls/engines/engine[0]/throttle</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>controls/engines/engine[0]/thrust-mode</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>controls/engines/engine[1]/throttle</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>controls/engines/engine[1]/thrust-mode</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>engines/engine[0]/running</property>
+			<value type="bool">true</value>
+		</set>
+		<set>
+			<property>engines/engine[1]/running</property>
+			<value type="bool">true</value>
+		</set>
+		<nasal>
+			<script><![CDATA[
+				CRJ700.instastart();
+			]]></script>
+		</nasal>
+	</init>
+
+	<step>
+		<message>In this tutorial, we will learn how to take off and climb to 10,000 feet.</message>
+	</step>
+
+	<step>
+		<message>First, deploy the flaps and slats to 8 degrees. Use [ and ] to extend/retract the flaps,
+or use the control on the pedestal.</message>
+		<view>
+			<heading-offset-deg>337.2</heading-offset-deg>
+			<pitch-offset-deg>-22.9</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.5</x-offset-m>
+			<y-offset-m>-0.5</y-offset-m>
+			<z-offset-m>-13.1</z-offset-m>
+			<field-of-view>21.3</field-of-view>
+		</view>
+		<exit>
+			<condition>
+				<greater-than>
+					<property>surface-positions/flap-pos-norm</property>
+					<value>0.176</value>
+				</greater-than>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Before we take off, turn on all 3 landing lights and turn off the taxi light.</message>
+		<view>
+			<heading-offset-deg>327.4</heading-offset-deg>
+			<pitch-offset-deg>13.2</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.5</x-offset-m>
+			<y-offset-m>-0.5</y-offset-m>
+			<z-offset-m>-13.1</z-offset-m>
+			<field-of-view>27.6</field-of-view>
+		</view>
+		<marker>
+			<x-m>-13.7000</x-m>
+			<y-m>-0.1317</y-m>
+			<z-m>-0.3075</z-m>
+			<scale>4.8167</scale>
+		</marker>
+		<exit>
+			<condition>
+				<and>
+					<property>controls/lighting/landing-lights[0]</property>
+					<property>controls/lighting/landing-lights[1]</property>
+					<property>controls/lighting/landing-lights[2]</property>
+					<not>
+						<property>controls/lighting/taxi-lights</property>
+					</not>
+				</and>
+			</condition>
+		</exit>
+	</step>
+	<step>
+		<message>This is the throttle quadrant. Right now, the thrust computers for each engine
+are in "manual" mode, which means you control the engines with your throttle. For takeoff, we will be
+switching them to "TO/GA" mode, which means "takeoff/go around power." This gives us additional power
+during this critical stage of flight.</message>
+		<view>
+			<heading-offset-deg>316.4</heading-offset-deg>
+			<pitch-offset-deg>-43.1</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.5</x-offset-m>
+			<y-offset-m>-0.5</y-offset-m>
+			<z-offset-m>-13.1</z-offset-m>
+			<field-of-view>17.1</field-of-view>
+		</view>
+	</step>
+	<step>
+		<message>Thrust modes for each engine can be cycled by middle-clicking the respective
+thrust lever, or you can use the shortcut key Ctrl-T to cycle both at the same time.</message>
+	</step>
+
+	<step>
+		<message>Assuming there's nobody already there, taxi onto the runway. Don't forget to
+use the tiller, if enabled. When you're lined up, press Ctrl-T twice to move the thrust
+levers into "TO/GA" mode. This will initiate your takeoff.</message>
+		<view>
+			<heading-offset-deg>0.0</heading-offset-deg>
+			<pitch-offset-deg>0.0</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.5</x-offset-m>
+			<y-offset-m>-0.5</y-offset-m>
+			<z-offset-m>-13.1</z-offset-m>
+			<field-of-view>55.0</field-of-view>
+		</view>
+		<exit>
+			<condition>
+				<and>
+					<not>
+						<property>controls/gear/brake-parking</property>
+					</not>
+					<equals>
+						<property>controls/engines/engine[0]/thrust-mode</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>controls/engines/engine[1]/thrust-mode</property>
+						<value>2</value>
+					</equals>
+				</and>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Proceed down the runway. Rotate the nose into the air at approximately 150 knots.
+When you get into the air, press Ctrl-T twice again to move the thrust levers back to the manual position.</message>
+		<exit>
+			<condition>
+				<and>
+					<not>
+						<property>gear/gear[0]/wow</property>
+					</not>
+					<not>
+						<property>gear/gear[1]/wow</property>
+					</not>
+					<not>
+						<property>gear/gear[2]/wow</property>
+					</not>
+					<equals>
+						<property>controls/engines/engine[0]/thrust-mode</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>controls/engines/engine[1]/thrust-mode</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>We're in the air! Retract the flaps and slats and raise the gear.</message>
+		<exit>
+			<condition>
+				<and>
+					<not>
+						<property>controls/gear/gear-down</property>
+					</not>
+					<equals>
+						<property>controls/flight/flaps</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Maintain a steady 2,000-FPM climb and continue towards 10,000 feet. Remember
+to stay below 250 KIAS until you reach 10,000 feet.</message>
+		<exit>
+			<condition>
+				<greater-than>
+					<property>instrumentation/altimeter[0]/indicated-altitude-ft</property>
+					<value>10000</value>
+				</greater-than>
+			</condition>
+		</exit>
+	</step>
+
+	<end>
+		<message>Okay, you've made a successful takeoff and climb. Enjoy the rest of your flight!
+HINT: You can set the thrust levers to "climb" mode to maintain a 300-knot climb at 90% N1.</message>
+	</end>
+
+</PropertyList>

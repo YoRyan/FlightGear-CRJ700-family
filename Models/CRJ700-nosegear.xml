@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Bombardier CRJ700 series -->
+<!-- Nose gear model -->
+
+<PropertyList>
+
+	<path>CRJ700-nosegear.ac</path>
+
+	<model>
+		<name>Landing light</name>
+		<path>Aircraft/CRJ700-family/Models/Lights/landing-nose.xml</path>
+		<offsets>
+			<x-m>-0.11</x-m>
+			<y-m>0.047</y-m>
+			<z-m>0.874</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>Tire smoke</name>
+		<path>Aircraft/Generic/Effects/tyre-smoke-nose.xml</path>
+		<offsets>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.258</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>Rain</name>
+		<path>Aircraft/Generic/Effects/rain-nose.xml</path>
+		<offsets>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.258</z-m>
+		</offsets>
+	</model>
+
+	<animation>
+		<name>Nose gear wheels</name>
+		<type>spin</type>
+		<object-name>NGAxle</object-name>
+		<object-name>NGTires</object-name>
+		<property>gear/gear[0]/rollspeed-ms</property>
+		<factor>37.013</factor>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>Nose gear lower strut</name>
+		<type>translate</type>
+		<object-name>NGLowerScissor</object-name>
+		<object-name>NGLowerStrut</object-name>
+		<object-name>Nose gear wheels</object-name>
+		<property>gear/gear[0]/compression-m</property>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+	<animation>
+		<name>Nose gear upper strut</name>
+		<object-name>NGUpperScissor</object-name>
+		<object-name>NGLowerRetract</object-name>
+		<object-name>NGUpperRetract</object-name>
+		<object-name>NGUpperStrut</object-name>
+		<object-name>NGScissorAnchor</object-name>
+	</animation>
+	<!-- Formula for rotation of a compression scissor:
+	     acos((d - c) / 2l) * R2D - a
+	     Where
+	      d = distance between the scissor axises
+	      c = gear compression
+	      l = length of one scissor arm
+	      a = initial angle of one scissor arm
+	      R2D = radians to degrees (180 / pi) -->
+	<animation>
+		<name>Nose gear lower compression scissor</name>
+		<type>rotate</type>
+		<object-name>NGLowerScissor</object-name>
+		<expression>
+			<difference>
+				<rad2deg>
+					<acos>
+						<div>
+							<difference>
+								<value>0.699</value>
+								<property>gear/gear[0]/compression-m</property>
+							</difference>
+							<value>0.806</value>
+						</div>
+					</acos>
+				</rad2deg>
+				<value>30</value>
+			</difference>
+		</expression>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0.031</x-m>
+			<y-m>0</y-m>
+			<z-m>0.053</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>Nose gear upper compression scissor</name>
+		<type>rotate</type>
+		<object-name>NGUpperScissor</object-name>
+		<expression>
+			<difference>
+				<value>30</value>
+				<rad2deg>
+					<acos>
+						<div>
+							<difference>
+								<value>0.699</value>
+								<property>gear/gear[0]/compression-m</property>
+							</difference>
+							<value>0.806</value>
+						</div>
+					</acos>
+				</rad2deg>
+			</difference>
+		</expression>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0.031</x-m>
+			<y-m>0</y-m>
+			<z-m>0.752</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<name>Nose gear lower retraction scissor</name>
+		<object-name>NGLowerRetract</object-name>
+	</animation>
+	<animation>
+		<name>Nose gear upper retraction scissor</name>
+		<object-name>NGUpperRetract</object-name>
+	</animation>
+	<animation>
+		<name>Nose gear retraction</name>
+		<type>rotate</type>
+		<object-name>Nose gear lower strut</object-name>
+		<object-name>Nose gear upper strut</object-name>
+		<property>gear/gear[0]/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>118</dep></entry>
+			<entry><ind>0.1</ind><dep>118</dep></entry>
+			<entry><ind>0.9</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.055</x-m>
+			<y-m>0</y-m>
+			<z-m>0.969</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>Nose gear lower strut</object-name>
+		<object-name>Nose gear upper compression scissor</object-name>
+		<object-name>NGScissorAnchor</object-name>
+		<property>gear/gear[0]/steering-norm</property>
+		<factor>80</factor>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>-1</z>
+		</axis>
+		<center>
+			<x-m>-0.055</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
+
+	<!-- Reflection shaders -->
+	<effect>
+		<name>Aircraft dirty reflect</name>
+		<inherits-from>Aircraft/CRJ700-family/Models/Effects/CRJ700dirtyreflect</inherits-from>
+		<object-name>NGLowerStrut</object-name>
+	</effect>
+
+</PropertyList>

@@ -1,0 +1,1774 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Bombardier CRJ700 series -->
+<!-- Primary flight display -->
+
+<PropertyList>
+
+	<path>pfd.ac</path>
+
+	<params>
+		<indicated-pitch-deg>instrumentation/attitude-indicator/indicated-pitch-deg</indicated-pitch-deg>
+		<indicated-roll-deg>instrumentation/attitude-indicator/indicated-roll-deg</indicated-roll-deg>
+		<indicated-altitude-ft>instrumentation/altimeter/indicated-altitude-ft</indicated-altitude-ft>
+		<indicated-speed-kt>instrumentation/airspeed-indicator/indicated-speed-kt</indicated-speed-kt>
+		<indicated-mach>instrumentation/airspeed-indicator/indicated-mach</indicated-mach>
+		<indicated-heading-deg>instrumentation/heading-indicator/indicated-heading-deg</indicated-heading-deg>
+		<indicated-vertical-speed-fpm>instrumentation/vertical-speed-indicator/indicated-speed-fpm</indicated-vertical-speed-fpm>
+		<radar-altitude-ft>instrumentation/radar-altimeter/radar-altitude-ft</radar-altitude-ft>
+		<altimeter-setting-inhg>instrumentation/altimeter/setting-inhg</altimeter-setting-inhg>
+		<lightmap-texture-path>Aircraft/Generic/generic-lightmap.png</lightmap-texture-path>
+	</params>
+	<ft-to-m type="float">0.3048</ft-to-m>
+
+	<colors>
+		<blue>
+			<red>0.349</red>
+			<green>0.767</green>
+			<blue>0.808</blue>
+		</blue>
+		<green>
+			<red>0.133</red>
+			<green>0.663</green>
+			<blue>0.145</blue>
+		</green>
+		<pink>
+			<red>0.984</red>
+			<green>0.616</green>
+			<blue>0.616</blue>
+		</pink>
+		<white>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+		</white>
+		<yellow>
+			<red>1</red>
+			<green>1</green>
+			<blue>0</blue>
+		</yellow>
+	</colors>
+
+	<!-- Visible only within 1/2 km -->
+	<animation>
+		<type>range</type>
+		<min-m>0</min-m>
+		<max-m>500</max-m>
+	</animation>
+	<!-- Instrument elements only visible inside -->
+	<animation>
+		<type>select</type>
+		<object-name>LCD</object-name>
+		<condition>
+			<property>sim/current-view/internal</property>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>material</type>
+		<object-name>LCD</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+
+	<text>
+		<name>Autopilot 1/2 bank</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<text>1/2 BNK</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.067</y-m>
+			<z-m>0.077</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Autopilot 1/2 bank</object-name>
+		<condition>
+			<equals>
+				<property>controls/autoflight/bank-angle-select</property>
+				<value>15</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>Autopilot FMS</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<text>FMS1</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.033</y-m>
+			<z-m>0.079</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Autopilot FMS</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>controls/autoflight/lateral-mode</property>
+					<value>2</value>
+				</equals>
+				<equals>
+					<property>controls/autoflight/nav-mode</property>
+					<value>2</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<text>
+		<name>Autopilot LOC1</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<text>LOC1</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.033</y-m>
+			<z-m>0.079</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Autopilot LOC1</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>controls/autoflight/lateral-mode</property>
+					<value>2</value>
+				</equals>
+				<equals>
+					<property>controls/autoflight/nav-mode</property>
+					<value>0</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<text>
+		<name>Autopilot LOC2</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<text>LOC2</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.033</y-m>
+			<z-m>0.079</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Autopilot LOC2</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>controls/autoflight/lateral-mode</property>
+					<value>2</value>
+				</equals>
+				<equals>
+					<property>controls/autoflight/nav-mode</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<text>
+		<name>Autopilot ALTS</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<text>ALTS</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.033</y-m>
+			<z-m>0.072</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Autopilot ALTS</object-name>
+		<condition>
+			<equals>
+				<property>controls/autoflight/vertical-mode</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>Autopilot VS</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<text>VS</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.033</y-m>
+			<z-m>0.072</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Autopilot VS</object-name>
+		<condition>
+			<equals>
+				<property>controls/autoflight/vertical-mode</property>
+				<value>2</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>Autopilot APPR</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<text>APPR</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.006</y-m>
+			<z-m>0.079</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Autopilot APPR</object-name>
+		<condition>
+			<equals>
+				<property>controls/autoflight/lateral-mode</property>
+				<value>3</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>Autopilot HDG</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<text>HDG</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.006</y-m>
+			<z-m>0.079</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Autopilot HDG</object-name>
+		<condition>
+			<equals>
+				<property>controls/autoflight/lateral-mode</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>Autopilot on</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<text>AP</text>
+		<offsets>
+			<x-m>0.0005</x-m>
+			<y-m>-0.042</y-m>
+			<z-m>0.064</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Autopilot on</object-name>
+		<condition>
+			<property>autopilot/internal/autoflight-engaged</property>
+		</condition>
+	</animation>
+	<text>
+		<name>Autopilot IAS</name>
+		<type>number-value</type>
+		<property>controls/autoflight/speed-select</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>IAS %03.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.006</y-m>
+			<z-m>0.072</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Autopilot IAS</object-name>
+		<condition>
+			<equals>
+				<property>controls/autoflight/speed-mode</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>Autopilot Mach</name>
+		<type>number-value</type>
+		<property>controls/autoflight/mach-select</property>
+		<scale>100</scale>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>MACH .%2.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.006</y-m>
+			<z-m>0.072</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Autopilot Mach</object-name>
+		<condition>
+			<equals>
+				<property>controls/autoflight/speed-mode</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>Mach indicator</name>
+		<type>number-value</type>
+		<property alias="../../params/indicated-mach" />
+		<scale>1000</scale>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>M.%03.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.067</y-m>
+			<z-m>0.07</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Altitude setting</name>
+		<type>number-value</type>
+		<property>controls/autoflight/altitude-select</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>%05.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.065</y-m>
+			<z-m>0.081</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Altimeter thousands counter</name>
+		<type>number-value</type>
+		<property alias="../../params/indicated-altitude-ft" />
+		<scale>0.001</scale>
+		<truncate type="bool">true</truncate>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.011</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>%2.f</format>
+		<offsets>
+			<x-m>0.0003</x-m>
+			<y-m>0.05197</y-m>
+			<z-m>0.02434</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Altimeter thousands counter</object-name>
+		<condition>
+			<and>
+				<not>
+					<property>instrumentation/use-metric-altitude</property>
+				</not>
+				<greater-than-equals>
+					<property alias="../../../../../params/indicated-altitude-ft" />
+					<value>0</value>
+				</greater-than-equals>
+			</and>
+		</condition>
+	</animation>
+	<text>
+		<name>Altimeter thousands counter (metric)</name>
+		<type>number-value</type>
+		<property alias="../../params/indicated-altitude-ft" />
+		<scale>0.0003048</scale>
+		<truncate type="bool">true</truncate>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.011</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>%2.f</format>
+		<offsets>
+			<x-m>0.0003</x-m>
+			<y-m>0.05197</y-m>
+			<z-m>0.02434</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Altimeter thousands counter (metric)</object-name>
+		<condition>
+			<and>
+				<property>instrumentation/use-metric-altitude</property>
+				<greater-than-equals>
+					<property alias="../../../../../params/indicated-altitude-ft" />
+					<value>0</value>
+				</greater-than-equals>
+			</and>
+		</condition>
+	</animation>
+	<text>
+		<name>Altimeter negative</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>center-center</alignment>
+		<character-size>0.004</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<text>N
+E
+G</text>
+		<offsets>
+			<x-m>0.0003</x-m>
+			<y-m>0.0467</y-m>
+			<z-m>0.02434</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Altimeter negative</object-name>
+		<condition>
+			<less-than>
+				<property alias="../../../../params/indicated-altitude-ft" />
+				<value>0</value>
+			</less-than>
+		</condition>
+	</animation>
+	<text>
+		<name>Heading bug setting</name>
+		<type>number-value</type>
+		<property>controls/autoflight/heading-select</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>HDG %03.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.04127</y-m>
+			<z-m>-0.02723</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Radar altimeter</name>
+		<type>number-value</type>
+		<property alias="../../params/radar-altitude-ft" />
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>%04.f FT</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.04145</y-m>
+			<z-m>-0.0266</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Radar altimeter</object-name>
+		<condition>
+			<and>
+				<not>
+					<property>instrumentation/use-metric-altitude</property>
+				</not>
+				<less-than-equals>
+					<property alias="../../../../../params/radar-altitude-ft" />
+					<value>2500</value>
+				</less-than-equals>
+			</and>
+		</condition>
+	</animation>
+	<text>
+		<name>Radar altimeter (metric)</name>
+		<type>number-value</type>
+		<property alias="../../params/radar-altitude-ft" />
+		<scale alias="../../ft-to-m" />
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>%04.f M</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>0.04145</y-m>
+			<z-m>-0.0266</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Radar altimeter (metric)</object-name>
+		<condition>
+			<and>
+				<property>instrumentation/use-metric-altitude</property>
+				<less-than-equals>
+					<property alias="../../../../../params/radar-altitude-ft" />
+					<value>2500</value>
+				</less-than-equals>
+			</and>
+		</condition>
+	</animation>
+	<text>
+		<name>Altimeter setting</name>
+		<type>number-value</type>
+		<property alias="../../params/altimeter-setting-inhg" />
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>%02.2f IN</format>
+		<offsets>
+			<x-m>0.0003</x-m>
+			<y-m>0.06691</y-m>
+			<z-m>-0.02112</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Speed knot setting</name>
+		<type>number-value</type>
+		<property>controls/autoflight/speed-select</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>%03.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.05604</y-m>
+			<z-m>-0.02993</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Speed knot setting</object-name>
+		<condition>
+			<equals>
+				<property>controls/autoflight/speed-mode</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>Speed mach setting</name>
+		<type>number-value</type>
+		<property>controls/autoflight/mach-select</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>%1.2f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.05604</y-m>
+			<z-m>-0.02993</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Speed mach setting</object-name>
+		<condition>
+			<equals>
+				<property>controls/autoflight/speed-mode</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>FMS</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<text>FMS</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.06385</y-m>
+			<z-m>-0.04385</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>FMS course</name>
+		<type>number-value</type>
+		<property>autopilot/route-manager/wp[0]/bearing-deg</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>CRS %03.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.06385</y-m>
+			<z-m>-0.04985</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>FMS distance</name>
+		<type>number-value</type>
+		<property>autopilot/route-manager/wp[0]/dist</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>%3.1f NM</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.06385</y-m>
+			<z-m>-0.05585</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>FMS waypoint ID</name>
+		<type>string-value</type>
+		<property>autopilot/route-manager/wp[0]/id</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.06385</y-m>
+			<z-m>-0.06185</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>FMS</object-name>
+		<object-name>FMS course</object-name>
+		<object-name>FMS distance</object-name>
+		<object-name>FMS waypoint ID</object-name>
+		<condition>
+			<and>
+				<property>autopilot/route-manager/active</property>
+				<equals>
+					<property>controls/autoflight/nav-mode</property>
+					<value>2</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<text>
+		<name>VOR1</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<text>VOR1</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.06385</y-m>
+			<z-m>-0.04385</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>VOR1 course</name>
+		<type>number-value</type>
+		<property>instrumentation/nav[0]/heading-deg</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>CRS %03.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.06385</y-m>
+			<z-m>-0.04985</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>VOR1 distance</name>
+		<type>number-value</type>
+		<property>instrumentation/dme[0]/indicated-distance-nm</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>%3.1f NM</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.06385</y-m>
+			<z-m>-0.05585</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>VOR1 ID</name>
+		<type>string-value</type>
+		<property>instrumentation/nav[0]/nav-id</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.06385</y-m>
+			<z-m>-0.06185</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>VOR1</object-name>
+		<object-name>VOR1 course</object-name>
+		<object-name>VOR1 distance</object-name>
+		<object-name>VOR1 ID</object-name>
+		<condition>
+			<equals>
+				<property>controls/autoflight/nav-mode</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>VOR2</name>
+		<type>literal</type>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<text>VOR2</text>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.06385</y-m>
+			<z-m>-0.04385</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>VOR2 course</name>
+		<type>number-value</type>
+		<property>instrumentation/nav[1]/heading-deg</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>CRS %03.f</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.06385</y-m>
+			<z-m>-0.04985</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>VOR2 distance</name>
+		<type>number-value</type>
+		<property>instrumentation/dme[1]/indicated-distance-nm</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>%3.1f NM</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.06385</y-m>
+			<z-m>-0.05585</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>VOR2 ID</name>
+		<type>string-value</type>
+		<property>instrumentation/nav[1]/nav-id</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>left-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.06385</y-m>
+			<z-m>-0.06185</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>VOR2</object-name>
+		<object-name>VOR2 course</object-name>
+		<object-name>VOR2 distance</object-name>
+		<object-name>VOR2 ID</object-name>
+		<condition>
+			<equals>
+				<property>controls/autoflight/nav-mode</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<text>
+		<name>ADF1</name>
+		<type>string-value</type>
+		<property>instrumentation/adf[0]/ident</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.046</y-m>
+			<z-m>-0.06917</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>ADF2</name>
+		<type>string-value</type>
+		<property>instrumentation/adf[1]/ident</property>
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.008</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>%s</format>
+		<offsets>
+			<x-m>0.0001</x-m>
+			<y-m>-0.046</y-m>
+			<z-m>-0.08173</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Vertical speed indicator</name>
+		<type>number-value</type>
+		<property alias="../../params/indicated-vertical-speed-fpm" />
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>%04.1f</format>
+		<offsets>
+			<x-m>0.0003</x-m>
+			<y-m>0.06874</y-m>
+			<z-m>-0.05108</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>material</type>
+		<object-name>ADF2</object-name>
+		<object-name>Heading bug setting</object-name>
+		<ambient>
+			<red alias="../../../colors/blue/red" />
+			<green alias="../../../colors/blue/green" />
+			<blue alias="../../../colors/blue/blue" />
+		</ambient>
+		<diffuse>
+			<red alias="../../../colors/blue/red" />
+			<green alias="../../../colors/blue/green" />
+			<blue alias="../../../colors/blue/blue" />
+		</diffuse>
+		<emission>
+			<red alias="../../../colors/blue/red" />
+			<green alias="../../../colors/blue/green" />
+			<blue alias="../../../colors/blue/blue" />
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Autopilot FMS</object-name>
+		<object-name>Autopilot LOC1</object-name>
+		<object-name>Autopilot LOC2</object-name>
+		<object-name>Autopilot ALTS</object-name>
+		<object-name>Autopilot VS</object-name>
+		<object-name>Autopilot APPR</object-name>
+		<object-name>Autopilot HDG</object-name>
+		<object-name>Autopilot on</object-name>
+		<object-name>Autopilot IAS</object-name>
+		<object-name>Autopilot Mach</object-name>
+		<object-name>ADF1</object-name>
+		<object-name>Radar altimeter</object-name>
+		<object-name>Radar altimeter (metric)</object-name>
+		<object-name>Vertical speed indicator</object-name>
+		<ambient>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</ambient>
+		<diffuse>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</diffuse>
+		<emission>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Mach indicator</object-name>
+		<object-name>Altitude setting</object-name>
+		<object-name>Speed knot setting</object-name>
+		<object-name>Speed mach setting</object-name>
+		<ambient>
+			<red alias="../../../colors/pink/red" />
+			<green alias="../../../colors/pink/green" />
+			<blue alias="../../../colors/pink/blue" />
+		</ambient>
+		<diffuse>
+			<red alias="../../../colors/pink/red" />
+			<green alias="../../../colors/pink/green" />
+			<blue alias="../../../colors/pink/blue" />
+		</diffuse>
+		<emission>
+			<red alias="../../../colors/pink/red" />
+			<green alias="../../../colors/pink/green" />
+			<blue alias="../../../colors/pink/blue" />
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Autopilot 1/2 bank</object-name>
+		<object-name>Altimeter thousands counter</object-name>
+		<object-name>Altimeter thousands counter (metric)</object-name>
+		<object-name>Altimeter setting</object-name>
+		<object-name>FMS</object-name>
+		<object-name>FMS course</object-name>
+		<object-name>FMS distance</object-name>
+		<object-name>FMS waypoint ID</object-name>
+		<object-name>VOR1</object-name>
+		<object-name>VOR1 course</object-name>
+		<object-name>VOR1 distance</object-name>
+		<object-name>VOR1 ID</object-name>
+		<object-name>VOR2</object-name>
+		<object-name>VOR2 course</object-name>
+		<object-name>VOR2 distance</object-name>
+		<object-name>VOR2 ID</object-name>
+		<ambient>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</ambient>
+		<diffuse>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</diffuse>
+		<emission>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Altimeter negative</object-name>
+		<ambient>
+			<red alias="../../../colors/yellow/red" />
+			<green alias="../../../colors/yellow/green" />
+			<blue alias="../../../colors/yellow/blue" />
+		</ambient>
+		<diffuse>
+			<red alias="../../../colors/yellow/red" />
+			<green alias="../../../colors/yellow/green" />
+			<blue alias="../../../colors/yellow/blue" />
+		</diffuse>
+		<emission>
+			<red alias="../../../colors/yellow/red" />
+			<green alias="../../../colors/yellow/green" />
+			<blue alias="../../../colors/yellow/blue" />
+			<factor-prop>controls/lighting/display-norm</factor-prop>
+		</emission>
+	</animation>
+	<animation>
+		<name>Text</name>
+		<object-name>ADF2</object-name>
+		<object-name>Heading bug setting</object-name>
+		<object-name>Autopilot 1/2 bank</object-name>
+		<object-name>Autopilot FMS</object-name>
+		<object-name>Autopilot LOC1</object-name>
+		<object-name>Autopilot LOC2</object-name>
+		<object-name>Autopilot ALTS</object-name>
+		<object-name>Autopilot VS</object-name>
+		<object-name>Autopilot APPR</object-name>
+		<object-name>Autopilot HDG</object-name>
+		<object-name>Autopilot IAS</object-name>
+		<object-name>Autopilot Mach</object-name>
+		<object-name>Autopilot on</object-name>
+		<object-name>ADF1</object-name>
+		<object-name>Radar altimeter</object-name>
+		<object-name>Radar altimeter (metric)</object-name>
+		<object-name>Vertical speed indicator</object-name>
+		<object-name>Mach indicator</object-name>
+		<object-name>Altitude setting</object-name>
+		<object-name>Speed knot setting</object-name>
+		<object-name>Speed mach setting</object-name>
+		<object-name>Altimeter thousands counter</object-name>
+		<object-name>Altimeter thousands counter (metric)</object-name>
+		<object-name>Altimeter negative</object-name>
+		<object-name>Altimeter setting</object-name>
+		<object-name>FMS</object-name>
+		<object-name>FMS course</object-name>
+		<object-name>FMS distance</object-name>
+		<object-name>FMS waypoint ID</object-name>
+		<object-name>VOR1</object-name>
+		<object-name>VOR1 course</object-name>
+		<object-name>VOR1 distance</object-name>
+		<object-name>VOR1 ID</object-name>
+		<object-name>VOR2</object-name>
+		<object-name>VOR2 course</object-name>
+		<object-name>VOR2 distance</object-name>
+		<object-name>VOR2 ID</object-name>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>Off</object-name>
+		<condition>
+			<less-than>
+				<property>systems/electrical/outputs/efis</property>
+				<value>15</value>
+			</less-than>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>textranslate</type>
+		<object-name>SpdTape</object-name>
+		<property alias="../../params/indicated-speed-kt" />
+		<factor>0.001344299</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>IASBug</object-name>
+		<condition>
+			<equals>
+				<property>controls/autoflight/speed-mode</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>IASBug</object-name>
+		<property>autopilot/internal/speed-bug-difference-kt</property>
+		<factor>0.001344299</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>MachBug</object-name>
+		<condition>
+			<equals>
+				<property>controls/autoflight/speed-mode</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>MachBug</object-name>
+		<property>autopilot/internal/mach-bug-difference-kt</property>
+		<factor>0.001344299</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>texmultiple</type>
+		<object-name>Pitch</object-name>
+		<transform>
+			<subtype>textranslate</subtype>
+			<property alias="../../../params/indicated-pitch-deg" />
+			<factor>0.00314</factor>
+			<axis>
+				<x>0</x>
+				<y>1</y>
+			</axis>
+		</transform>
+		<transform>
+			<subtype>texrotate</subtype>
+			<property alias="../../../params/indicated-roll-deg" />
+			<axis>
+				<x>0</x>
+				<y>0</y>
+				<z>-1</z>
+			</axis>
+			<center>
+				<x>0.25</x>
+				<y>0.5</y>
+			</center>
+		</transform>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>RollPtr</object-name>
+		<property alias="../../params/indicated-roll-deg" />
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0.02221</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>Overspeed</object-name>
+		<condition>
+			<property>sim/alarms/overspeed-alarm</property>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>FD</object-name>
+		<condition>
+			<property>autopilot/internal/flight-director-engaged</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>FD</object-name>
+		<property alias="../../params/indicated-pitch-deg" />
+		<factor>0.001466</factor>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>-1</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>FD</object-name>
+		<property>autopilot/internal/target-pitch-deg</property>
+		<factor>0.001466</factor>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>FD</object-name>
+		<property alias="../../params/indicated-roll-deg" />
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0.02221</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>FD</object-name>
+		<property>autopilot/internal/target-roll-deg</property>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0.02221</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>ILS</object-name>
+		<condition>
+			<property>instrumentation/nav[0]/nav-loc</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ILSPtr</object-name>
+		<condition>
+			<and>
+				<property>instrumentation/nav[0]/nav-loc</property>
+				<property>instrumentation/nav[0]/in-range</property>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>ILSPtr</object-name>
+		<property>instrumentation/nav[0]/heading-needle-deflection-norm</property>
+		<factor>0.00295</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>GS</object-name>
+		<condition>
+			<or>
+				<property>autopilot/route-manager/active</property>
+				<property>instrumentation/nav[0]/has-gs</property>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>GSPtr</object-name>
+		<condition>
+			<property>instrumentation/nav[0]/gs-in-range</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>GSPtr</object-name>
+		<property>instrumentation/nav[0]/gs-needle-deflection-norm</property>
+		<factor>0.00295</factor>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>VNAVPtr</object-name>
+		<condition>
+			<and>
+				<property>autopilot/route-manager/active</property>
+				<not>
+					<property>instrumentation/nav[0]/gs-in-range</property>
+				</not>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>VNAVPtr</object-name>
+		<property>autopilot/internal/vnav-difference-ft</property>
+		<interpolation>
+			<entry><ind>-1000</ind><dep>0.0295</dep></entry>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1000</ind><dep>-0.0295</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>AltTape</object-name>
+		<object-name>AltBug</object-name>
+		<condition>
+			<not>
+				<property>instrumentation/use-metric-altitude</property>
+			</not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>AltTapeM</object-name>
+		<object-name>AltBugM</object-name>
+		<condition>
+			<property>instrumentation/use-metric-altitude</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>AltTape</object-name>
+		<property alias="../../params/indicated-altitude-ft" />
+		<factor>0.001</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>AltTapeM</object-name>
+		<property alias="../../params/indicated-altitude-ft" />
+		<factor>0.0003048</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>AltBug</object-name>
+		<property>autopilot/internal/altitude-bug-difference-ft</property>
+		<factor>0.001</factor>
+		<min>-0.499023437</min>
+		<max>0.499023437</max>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>AltBugM</object-name>
+		<property>autopilot/internal/altitude-bug-difference-ft</property>
+		<factor>0.0003048</factor>
+		<min>-0.499023437</min>
+		<max>0.499023437</max>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>HSI</object-name>
+		<object-name>HSIBug</object-name>
+		<object-name>ADF1Ptr</object-name>
+		<object-name>ADF2Ptr</object-name>
+		<object-name>NAVPtr</object-name>
+		<object-name>NAVTrack</object-name>
+		<property alias="../../params/indicated-heading-deg" />
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.06274</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>HSIBug</object-name>
+		<property>controls/autoflight/heading-select</property>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.06274</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ADF1Ptr</object-name>
+		<condition>
+			<property>instrumentation/adf[0]/in-range</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>ADF1Ptr</object-name>
+		<property>instrumentation/adf[0]/indicated-bearing-deg</property>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.06274</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ADF2Ptr</object-name>
+		<condition>
+			<property>instrumentation/adf[1]/in-range</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>ADF2Ptr</object-name>
+		<property>instrumentation/adf[1]/indicated-bearing-deg</property>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.06274</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>NAVPtr</object-name>
+		<object-name>NAVTrack</object-name>
+		<condition>
+			<property>instrumentation/nav[0]/in-range</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>NAVPtr</object-name>
+		<object-name>NAVTrack</object-name>
+		<property>instrumentation/nav[0]/heading-deg</property>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.06274</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>NAVTrack</object-name>
+		<property>instrumentation/nav[0]/heading-needle-deflection-norm</property>
+		<factor>0.0175</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>VSPtr</object-name>
+		<property alias="../../params/indicated-vertical-speed-fpm" />
+		<interpolation>
+			<entry><ind>-4000</ind><dep>90</dep></entry>
+			<entry><ind>-2000</ind><dep>75.5</dep></entry>
+			<entry><ind>-1000</ind><dep>59</dep></entry>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1000</ind><dep>-59</dep></entry>
+			<entry><ind>2000</ind><dep>-75.5</dep></entry>
+			<entry><ind>4000</ind><dep>-90</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.06526</y-m>
+			<z-m>-0.051</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>VNAVAdvise</object-name>
+		<condition>
+			<property>autopilot/route-manager/active</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>VNAVAdvise</object-name>
+		<property>autopilot/route-manager/vnav/target-climb-rate-fpm</property>
+		<interpolation>
+			<entry><ind>-4000</ind><dep>90</dep></entry>
+			<entry><ind>-2000</ind><dep>75.5</dep></entry>
+			<entry><ind>-1000</ind><dep>59</dep></entry>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1000</ind><dep>-59</dep></entry>
+			<entry><ind>2000</ind><dep>-75.5</dep></entry>
+			<entry><ind>4000</ind><dep>-90</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.06526</y-m>
+			<z-m>-0.051</z-m>
+		</center>
+	</animation>
+
+	<!-- Lightmaps -->
+	<effect>
+		<inherits-from>Aircraft/CRJ700-family/Models/Effects/CRJ700lightmap</inherits-from>
+		<parameters>
+			<lightmap-factor-prop>sim/model/lights/panel-lightmap</lightmap-factor-prop>
+			<lightmap-factor n="0">
+				<use alias="../../lightmap-factor-prop" />
+			</lightmap-factor>
+			<lightmap-factor n="1">
+				<use alias="../../lightmap-factor-prop" />
+			</lightmap-factor>
+			<lightmap-factor n="2">
+				<use alias="../../lightmap-factor-prop" />
+			</lightmap-factor>
+			<texture n="3">
+				<image alias="../../../../params/lightmap-texture-path" />
+			</texture>
+		</parameters>
+		<object-name>Border</object-name>
+	</effect>
+	
+	<!-- Rembrandt !! -->
+	<effect>
+		<name>REMBRANDT transparency</name>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>ADF1Ptr</object-name>
+		<object-name>ADF2Ptr</object-name>
+		<object-name>AltBug</object-name>
+		<object-name>AltBugM</object-name>
+		<object-name>AltTape</object-name>
+		<object-name>AltTapeM</object-name>
+		<object-name>GS</object-name>
+		<object-name>HSIBug</object-name>
+		<object-name>IASBug</object-name>
+		<object-name>ILS</object-name>
+		<object-name>MachBug</object-name>
+		<object-name>NAVPtr</object-name>
+		<object-name>Overspeed</object-name>
+		<object-name>SpdTape</object-name>
+		<object-name>Symbols1</object-name>
+		<object-name>Symbols2</object-name>
+	</effect>
+
+</PropertyList>

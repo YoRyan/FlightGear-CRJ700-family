@@ -1,0 +1,27 @@
+h1, h2, h3, h4, h5, h6 {
+ font-family: sans;
+ }
+table {
+ border-collapse: collapse;
+ }
+table th {
+ font-family: sans;
+ border-bottom: 0.125em solid black;
+ }
+table td {
+ border-left: 0.125em solid black;
+ border-right: 0.125em solid black;
+ padding: 0.25em;
+ }
+
+.tip {
+ background-color: yellow;
+ font-family: Sans;
+ font-weight: bold;
+ border: 0.25em solid black;
+ padding: 0.5em;
+ }
+
+#author {
+ font-style: italic;
+ }
