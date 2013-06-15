@@ -3,8 +3,7 @@
 ###########################
 
 ## Main systems update loop
-var Systems =
-{
+var Systems = {
     loopid: 0,
     init: func
     {
@@ -37,8 +36,6 @@ var Systems =
         update_tat();
         eicas_messages_page1.update();
         eicas_messages_page2.update();
-        left_wiper.update();
-        right_wiper.update();
         rat1.update();
         update_copilot_ints();
         update_pass_signs();
@@ -132,45 +129,68 @@ setprop("controls/engines/engine[0]/cutoff", 1);
 setprop("controls/engines/engine[1]/cutoff", 1);
 
 ## Wipers
-var Wiper =
-{
+var Wiper = {
     new: func(inP, outP, onP, pwrP)
     {
         var m = { parents: [Wiper] };
         m.active = 0;
-        m.loopid = 0;
         m.ctl_node = props.globals.getNode(inP, 1);
+        setlistener (inP, func
+        {
+            m.switch();
+        });
         m.out_node = props.globals.getNode(outP, 1);
         m.on_node = props.globals.getNode(onP, 1);
         m.pwr_node = props.globals.getNode(pwrP, 1);
+        setlistener (pwrP, func
+        {
+            m.switch();
+        });
         return m;
+    },
+    switch: func
+    {
+        var switch_val = me.ctl_node.getValue();
+        if (switch_val > 0)
+        {
+            me.on_node.setBoolValue(1);
+            if (!me.active and me.pwr_node.getValue() >= 15)
+            {
+                var wiper_time = 1 / switch_val;
+                interpolate(me.out_node, 1, wiper_time, 0, wiper_time);
+                settimer (func
+                {
+                    me.update();
+                }, wiper_time * 2);
+                me.active = 1;
+            }
+        }
     },
     update: func
     {
-        var switch = me.ctl_node.getValue();
-        if (me.pwr_node.getValue() >= 15)
+        var switch_val = me.ctl_node.getValue();
+        if (switch_val <= 0)
         {
-            if (switch == 0)
-            {
-                me.active = 0;
-                me.on_node.setBoolValue(0);
-            }
-            elsif (!me.active)
-            {
-                me.active = 1;
-                var loopid = me.loopid += 1;
-                var time = 1 / switch;
-                interpolate(me.out_node, 1, time);
-                settimer(func if (loopid == me.loopid) interpolate(me.out_node, 0, time), time);
-            }
-            elsif (me.out_node.getValue() == 0)
-            {
-                me.active = 0;
-            }
+            me.active = 0;
+            me.on_node.setBoolValue(0);
         }
         else
         {
-            me.on_node.setBoolValue(switch == 0 ? 0 : 1);
+            me.on_node.setBoolValue(1);
+            if (me.pwr_node.getValue() >= 15)
+            {
+                var wiper_time = 1 / switch_val;
+                interpolate(me.out_node, 1, wiper_time, 0, wiper_time);
+                settimer (func
+                {
+                    me.update();
+                }, wiper_time * 2);
+                me.active = 1;
+            }
+            else
+            {
+                me.active = 0;
+            }
         }
     }
 };
@@ -178,8 +198,7 @@ var left_wiper = Wiper.new("controls/anti-ice/wiper[0]", "surface-positions/left
 var right_wiper = Wiper.new("controls/anti-ice/wiper[1]", "surface-positions/right-wiper-pos-norm", "controls/anti-ice/wiper-power[1]", "systems/electrical/outputs/wiper[1]");
 
 ## RAT
-var Rat =
-{
+var Rat = {
     new: func(node, trigger_prop)
     {
         var m = { parents: [Rat] };
@@ -225,8 +244,7 @@ var Rat =
 var rat1 = Rat.new("systems/ram-air-turbine", "controls/pneumatic/ram-air-turbine");
 
 ## Aircraft-specific dialogs
-var dialogs =
-{
+var dialogs = {
     autopilot: gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/CRJ700-family/Systems/autopilot-dlg.xml"),
     radio: gui.Dialog.new("sim/gui/dialogs/radio-stack/dialog", "Aircraft/CRJ700-family/Systems/radio-stack-dlg.xml"),
     lights: gui.Dialog.new("sim/gui/dialogs/lights/dialog", "Aircraft/CRJ700-family/Systems/lights-dlg.xml"),

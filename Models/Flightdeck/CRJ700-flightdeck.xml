@@ -499,20 +499,6 @@
     <!-- Wiper blades -->
     <animation>
 	<type>rotate</type>
-	<object-name>LeftWiperBlade</object-name>
-	<property>surface-positions/left-wiper-pos-norm</property>
-	<factor>17</factor>
-	<axis>
-	    <x1-m>-2.3</x1-m>
-	    <y1-m>-0.057</y1-m>
-	    <z1-m>1.202</z1-m>
-	    <x2-m>-2.3</x2-m>
-	    <y2-m>-0.051</y2-m>
-	    <z2-m>1.202</z2-m>
-	</axis>
-    </animation>
-    <animation>
-	<type>rotate</type>
 	<object-name>LeftWiper</object-name>
 	<object-name>LeftWiperBlade</object-name>
 	<property>surface-positions/left-wiper-pos-norm</property>
@@ -528,15 +514,15 @@
     </animation>
     <animation>
 	<type>rotate</type>
-	<object-name>RightWiperBlade</object-name>
-	<property>surface-positions/right-wiper-pos-norm</property>
+	<object-name>LeftWiperBlade</object-name>
+	<property>surface-positions/left-wiper-pos-norm</property>
 	<factor>17</factor>
 	<axis>
 	    <x1-m>-2.3</x1-m>
-	    <y1-m>0.051</y1-m>
+	    <y1-m>-0.057</y1-m>
 	    <z1-m>1.202</z1-m>
 	    <x2-m>-2.3</x2-m>
-	    <y2-m>0.057</y2-m>
+	    <y2-m>-0.051</y2-m>
 	    <z2-m>1.202</z2-m>
 	</axis>
     </animation>
@@ -553,6 +539,20 @@
 	    <x2-m>-2.525</x2-m>
 	    <y2-m>0.146</y2-m>
 	    <z2-m>1.073</z2-m>
+	</axis>
+    </animation>
+    <animation>
+	<type>rotate</type>
+	<object-name>RightWiperBlade</object-name>
+	<property>surface-positions/right-wiper-pos-norm</property>
+	<factor>17</factor>
+	<axis>
+	    <x1-m>-2.3</x1-m>
+	    <y1-m>0.051</y1-m>
+	    <z1-m>1.202</z1-m>
+	    <x2-m>-2.3</x2-m>
+	    <y2-m>0.057</y2-m>
+	    <z2-m>1.202</z2-m>
 	</axis>
     </animation>
 
