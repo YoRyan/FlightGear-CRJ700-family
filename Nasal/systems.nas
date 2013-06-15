@@ -4,43 +4,65 @@
 
 ## Main systems update loop
 var Systems = {
-    loopid: 0,
+    fast_loopid: -1,
+    slow_loopid: -1,
     init: func
     {
         print("CRJ700 aircraft systems ... initialized");
-        Systems.loopid += 1;
-        settimer(func Systems.update(Systems.loopid), 0);
-
+        Systems.start();
         # create crossfeed valve
         var gravity_xflow = aircraft.crossfeed_valve.new(0.5, "controls/fuel/gravity-xflow", 0, 1);
         gravity_xflow.open();
     },
+    start: func
+    {
+        Systems.fast_update(Systems.fast_loopid += 1);
+        Systems.slow_update(Systems.slow_loopid += 1);
+    },
     stop: func
     {
-        Systems.loopid += 1;
+        Systems.fast_loopid += 1;
+        Systems.slow_loopid += 1;
     },
     reinit: func
     {
         print("CRJ700 aircraft systems ... reinitialized");
         setprop("sim/model/start-idling", 0);
         Systems.stop();
-        settimer(func Systems.update(Systems.loopid), 0);
+        Systems.start();
     },
-    update: func(loopid)
+    fast_update: func(loopid)
     {
-        if (loopid != Systems.loopid) return;
+        if (loopid != Systems.fast_loopid) return;
         engine1.update();
         engine2.update();
-        apu1.update();
         update_electrical();
-        update_tat();
         eicas_messages_page1.update();
         eicas_messages_page2.update();
+        if (!props.globals.getNode("sim/crashed").getBoolValue())
+        {
+            settimer(func
+            {
+                Systems.fast_update(loopid);
+            }, 0);
+        }
+    },
+    slow_update: func(loopid)
+    {
+        if (loopid != Systems.slow_loopid) return;
+        apu1.update();
+        update_tat();
         rat1.update();
         update_copilot_ints();
         update_pass_signs();
         update_lightmaps();
-        if (!props.globals.getNode("sim/crashed").getBoolValue()) settimer(func Systems.update(loopid), 0);
+        if (!props.globals.getNode("sim/crashed").getBoolValue())
+        {
+            settimer(func
+            {
+                Systems.slow_update(loopid);
+            }, 3);
+        }
     }
 };
 setlistener("sim/signals/fdm-initialized", func settimer(Systems.init, 2), 0, 0);

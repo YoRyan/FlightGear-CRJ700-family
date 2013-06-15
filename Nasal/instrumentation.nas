@@ -165,9 +165,9 @@ var Mfd =
         setlistener(m.page, func(v)
         {
             var page = v.getValue();
-            var tcas = props.globals.getNode("instrumentation/radar[" ~ m.number ~ "]/display-controls/tcas");
+            var tcas = props.globals.getNode("instrumentation/radar[" ~ m.number ~ "]/display-controls/tcas", 1);
             tcas.setBoolValue(page == 3 ? m.tcas.getBoolValue() : 0);
-            var wx = props.globals.getNode("instrumentation/radar[" ~ m.number ~ "]/display-controls/WX");
+            var wx = props.globals.getNode("instrumentation/radar[" ~ m.number ~ "]/display-controls/WX", 1);
             wx.setBoolValue(page == 6 ? m.wx.getBoolValue() : 0);
         }, 1, 0);
         return m;
