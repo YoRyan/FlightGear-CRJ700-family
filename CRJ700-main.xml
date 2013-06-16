@@ -17,6 +17,10 @@
             <model type="int">4</model>
         </rating>
         
+        <startup>
+            <splash-texture>Aircraft/CRJ700-family/splash.jpg</splash-texture>
+        </startup>
+        
         <model>
             <livery>
                 <file>Blank</file>
@@ -387,10 +391,10 @@
     </fcs>
 
     <gear>
-	<gear n="0">
-	    <!-- to initialize sound properly -->
-	    <position-norm type="float">1</position-norm>
-	</gear>
+        <gear n="0">
+            <!-- to initialize sound properly -->
+            <position-norm type="float">1</position-norm>
+        </gear>
     </gear>
     
     <instrumentation>
