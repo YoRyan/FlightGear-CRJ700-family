@@ -36,6 +36,7 @@ var Systems = {
         if (loopid != Systems.fast_loopid) return;
         engine1.update();
         engine2.update();
+        apu1.update();
         update_electrical();
         eicas_messages_page1.update();
         eicas_messages_page2.update();
@@ -50,7 +51,6 @@ var Systems = {
     slow_update: func(loopid)
     {
         if (loopid != Systems.slow_loopid) return;
-        apu1.update();
         update_tat();
         rat1.update();
         update_copilot_ints();
