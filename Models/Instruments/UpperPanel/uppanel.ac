@@ -336,7 +336,7 @@ OBJECT poly
 name "CompassRef"
 data 8
 Mesh.003
-texture "compassref.tga"
+texture "compassref.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -2670,7 +2670,7 @@ OBJECT poly
 name "EmerOxygenBtn"
 data 8
 Cube.056
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -12400,7 +12400,7 @@ OBJECT poly
 name "UpperPanelHoles"
 data 8
 Mesh.005
-texture "hole.tga"
+texture "hole.png"
 texrep 1 1
 crease 30.000000
 numvert 4

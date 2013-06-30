@@ -10,7 +10,7 @@ OBJECT poly
 name "+/-"
 data 8
 Cylinder
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 26
@@ -274,7 +274,7 @@ OBJECT poly
 name "."
 data 12
 Cylinder.004
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 26
@@ -538,7 +538,7 @@ OBJECT poly
 name "/"
 data 8
 Cube.048
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -591,7 +591,7 @@ OBJECT poly
 name "0"
 data 12
 Cylinder.008
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 26
@@ -855,7 +855,7 @@ OBJECT poly
 name "1"
 data 12
 Cylinder.001
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 26
@@ -1119,7 +1119,7 @@ OBJECT poly
 name "2"
 data 12
 Cylinder.005
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 26
@@ -1383,7 +1383,7 @@ OBJECT poly
 name "3"
 data 12
 Cylinder.009
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 26
@@ -1647,7 +1647,7 @@ OBJECT poly
 name "4"
 data 12
 Cylinder.002
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 26
@@ -1911,7 +1911,7 @@ OBJECT poly
 name "5"
 data 12
 Cylinder.006
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 26
@@ -2175,7 +2175,7 @@ OBJECT poly
 name "6"
 data 12
 Cylinder.010
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 26
@@ -2439,7 +2439,7 @@ OBJECT poly
 name "7"
 data 12
 Cylinder.003
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 26
@@ -2703,7 +2703,7 @@ OBJECT poly
 name "8"
 data 12
 Cylinder.007
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 26
@@ -2967,7 +2967,7 @@ OBJECT poly
 name "9"
 data 12
 Cylinder.011
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 26
@@ -3231,7 +3231,7 @@ OBJECT poly
 name "A"
 data 8
 Cube.025
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -3284,7 +3284,7 @@ OBJECT poly
 name "ArrowDown"
 data 8
 Cube.021
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -3337,7 +3337,7 @@ OBJECT poly
 name "ArrowUp"
 data 8
 Cube.020
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -3390,7 +3390,7 @@ OBJECT poly
 name "B"
 data 8
 Cube.031
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -3443,7 +3443,7 @@ OBJECT poly
 name "C"
 data 8
 Cube.037
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -3496,7 +3496,7 @@ OBJECT poly
 name "CLR"
 data 8
 Cube.003
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -3549,7 +3549,7 @@ OBJECT poly
 name "D"
 data 8
 Cube.043
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -3602,7 +3602,7 @@ OBJECT poly
 name "DEL"
 data 8
 Cube.042
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -3655,7 +3655,7 @@ OBJECT poly
 name "DEP-ARR"
 data 8
 Cube.016
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -3708,7 +3708,7 @@ OBJECT poly
 name "DIR-INTC"
 data 8
 Cube.008
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -3761,7 +3761,7 @@ OBJECT poly
 name "E"
 data 8
 Cube.049
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -3814,7 +3814,7 @@ OBJECT poly
 name "EXEC"
 data 8
 Cube.002
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -3867,7 +3867,7 @@ OBJECT poly
 name "F"
 data 8
 Cube.026
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -3920,7 +3920,7 @@ OBJECT poly
 name "FIX"
 data 8
 Cube.009
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -3973,7 +3973,7 @@ OBJECT poly
 name "FPLN"
 data 8
 Cube.012
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4026,7 +4026,7 @@ OBJECT poly
 name "G"
 data 8
 Cube.032
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4079,7 +4079,7 @@ OBJECT poly
 name "H"
 data 8
 Cube.038
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4132,7 +4132,7 @@ OBJECT poly
 name "HOLD"
 data 8
 Cube.018
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4185,7 +4185,7 @@ OBJECT poly
 name "I"
 data 8
 Cube.044
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4238,7 +4238,7 @@ OBJECT poly
 name "INDEX"
 data 8
 Cube.005
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4291,7 +4291,7 @@ OBJECT poly
 name "J"
 data 8
 Cube.050
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4344,7 +4344,7 @@ OBJECT poly
 name "K"
 data 8
 Cube.027
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4397,7 +4397,7 @@ OBJECT poly
 name "L"
 data 8
 Cube.033
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4450,7 +4450,7 @@ OBJECT poly
 name "L1"
 data 8
 Cube.054
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4503,7 +4503,7 @@ OBJECT poly
 name "L2"
 data 8
 Cube.059
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4556,7 +4556,7 @@ OBJECT poly
 name "L3"
 data 8
 Cube.058
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4609,7 +4609,7 @@ OBJECT poly
 name "L4"
 data 8
 Cube.057
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4662,7 +4662,7 @@ OBJECT poly
 name "L5"
 data 8
 Cube.056
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4715,7 +4715,7 @@ OBJECT poly
 name "L6"
 data 8
 Cube.055
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4768,7 +4768,7 @@ OBJECT poly
 name "LEGS"
 data 8
 Cube.013
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4821,7 +4821,7 @@ OBJECT poly
 name "M"
 data 8
 Cube.039
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4874,7 +4874,7 @@ OBJECT poly
 name "MDCU-MENU"
 data 8
 Cube.023
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4927,7 +4927,7 @@ OBJECT poly
 name "MFD-ADV"
 data 8
 Cube.015
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -4980,7 +4980,7 @@ OBJECT poly
 name "MFD-DATA"
 data 8
 Cube.007
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5033,7 +5033,7 @@ OBJECT poly
 name "MFD-MENU"
 data 8
 Cube.011
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5086,7 +5086,7 @@ OBJECT poly
 name "MSG"
 data 8
 Cube.004
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5139,7 +5139,7 @@ OBJECT poly
 name "N"
 data 8
 Cube.045
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5192,7 +5192,7 @@ OBJECT poly
 name "NEXT-PAGE"
 data 8
 Cube.024
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5245,7 +5245,7 @@ OBJECT poly
 name "O"
 data 8
 Cube.051
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5298,7 +5298,7 @@ OBJECT poly
 name "P"
 data 8
 Cube.028
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5351,7 +5351,7 @@ OBJECT poly
 name "PERF"
 data 8
 Cube.014
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5404,7 +5404,7 @@ OBJECT poly
 name "PREV-PAGE"
 data 8
 Cube.022
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5457,7 +5457,7 @@ OBJECT poly
 name "PROG"
 data 8
 Cube.010
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5510,7 +5510,7 @@ OBJECT poly
 name "Q"
 data 8
 Cube.034
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5563,7 +5563,7 @@ OBJECT poly
 name "R"
 data 8
 Cube.040
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5616,7 +5616,7 @@ OBJECT poly
 name "R1"
 data 8
 Cube.065
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5669,7 +5669,7 @@ OBJECT poly
 name "R2"
 data 8
 Cube.060
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5722,7 +5722,7 @@ OBJECT poly
 name "R3"
 data 8
 Cube.061
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5775,7 +5775,7 @@ OBJECT poly
 name "R4"
 data 8
 Cube.062
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5828,7 +5828,7 @@ OBJECT poly
 name "R5"
 data 8
 Cube.063
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5881,7 +5881,7 @@ OBJECT poly
 name "R6"
 data 8
 Cube.064
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5934,7 +5934,7 @@ OBJECT poly
 name "RADIO"
 data 8
 Cube.006
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -5987,7 +5987,7 @@ OBJECT poly
 name "S"
 data 8
 Cube.046
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -6040,7 +6040,7 @@ OBJECT poly
 name "SEC-FPLN"
 data 8
 Cube.017
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -6093,7 +6093,7 @@ OBJECT poly
 name "SP"
 data 8
 Cube.036
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -6146,7 +6146,7 @@ OBJECT poly
 name "T"
 data 8
 Cube.052
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -6199,7 +6199,7 @@ OBJECT poly
 name "U"
 data 8
 Cube.029
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -6252,7 +6252,7 @@ OBJECT poly
 name "V"
 data 8
 Cube.035
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -6305,7 +6305,7 @@ OBJECT poly
 name "VNAV"
 data 8
 Cube.019
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -6358,7 +6358,7 @@ OBJECT poly
 name "W"
 data 8
 Cube.041
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -6411,7 +6411,7 @@ OBJECT poly
 name "X"
 data 8
 Cube.047
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -6464,7 +6464,7 @@ OBJECT poly
 name "Y"
 data 8
 Cube.053
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -6517,7 +6517,7 @@ OBJECT poly
 name "Z"
 data 8
 Cube.030
-texture "keys.tga"
+texture "keys.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -6570,7 +6570,7 @@ OBJECT poly
 name "Case"
 data 9
 Plane.006
-texture "background.tga"
+texture "background.png"
 texrep 1 1
 crease 30.000000
 numvert 40
@@ -6860,7 +6860,7 @@ OBJECT poly
 name "Display"
 data 5
 Plane
-texture "background.tga"
+texture "background.png"
 texrep 1 1
 crease 30.000000
 numvert 4

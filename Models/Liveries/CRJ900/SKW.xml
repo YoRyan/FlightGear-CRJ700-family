@@ -6,7 +6,7 @@
 		<model>
 			<livery>
 				<name>Delta Connection/SkyWest Airlines</name>
-				<texture>Liveries/CRJ900/SKW.tga</texture>
+				<texture>Liveries/CRJ900/SKW.png</texture>
 				<registration>N823SK</registration>
 			</livery>
 		</model>

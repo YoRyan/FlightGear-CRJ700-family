@@ -14,7 +14,7 @@ OBJECT poly
 name "Eng1LeverClimb_0"
 data 8
 Cube.021
-texture "flightdeck3.tga"
+texture "flightdeck3.png"
 texrep 1 1
 crease 30.000000
 numvert 68
@@ -700,7 +700,7 @@ OBJECT poly
 name "Eng1LeverClimb_1"
 data 8
 Cube.001
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 86
@@ -1401,7 +1401,7 @@ OBJECT poly
 name "Eng1LeverCutoff_0"
 data 8
 Cube.020
-texture "flightdeck3.tga"
+texture "flightdeck3.png"
 texrep 1 1
 crease 30.000000
 numvert 68
@@ -2087,7 +2087,7 @@ OBJECT poly
 name "Eng1LeverCutoff_1"
 data 8
 Cube.002
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 86
@@ -2788,7 +2788,7 @@ OBJECT poly
 name "Eng1LeverMax_0"
 data 8
 Cube.089
-texture "flightdeck3.tga"
+texture "flightdeck3.png"
 texrep 1 1
 crease 30.000000
 numvert 68
@@ -3474,7 +3474,7 @@ OBJECT poly
 name "Eng1LeverMax_1"
 data 8
 Cube.003
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 86
@@ -4175,7 +4175,7 @@ OBJECT poly
 name "Eng1LeverToga_0"
 data 8
 Cube.026
-texture "flightdeck3.tga"
+texture "flightdeck3.png"
 texrep 1 1
 crease 30.000000
 numvert 68
@@ -4861,7 +4861,7 @@ OBJECT poly
 name "Eng1LeverToga_1"
 data 8
 Cube.004
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 86
@@ -5562,7 +5562,7 @@ OBJECT poly
 name "Eng1Reverser_0"
 data 8
 Cube.031
-texture "flightdeck3.tga"
+texture "flightdeck3.png"
 texrep 1 1
 crease 30.000000
 numvert 34
@@ -5910,7 +5910,7 @@ OBJECT poly
 name "Eng1Reverser_1"
 data 8
 Cube.005
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 16
@@ -6037,7 +6037,7 @@ OBJECT poly
 name "Eng1ThrustLever_0"
 data 8
 Cube.029
-texture "flightdeck3.tga"
+texture "flightdeck3.png"
 texrep 1 1
 crease 30.000000
 numvert 34
@@ -6385,7 +6385,7 @@ OBJECT poly
 name "Eng1ThrustLever_1"
 data 8
 Cube.006
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 70
@@ -6972,7 +6972,7 @@ OBJECT poly
 name "Eng2LeverClimb_0"
 data 8
 Cube.023
-texture "flightdeck3.tga"
+texture "flightdeck3.png"
 texrep 1 1
 crease 30.000000
 numvert 68
@@ -7658,7 +7658,7 @@ OBJECT poly
 name "Eng2LeverClimb_1"
 data 8
 Cube.007
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 86
@@ -8359,7 +8359,7 @@ OBJECT poly
 name "Eng2LeverCutoff_0"
 data 8
 Cube.019
-texture "flightdeck3.tga"
+texture "flightdeck3.png"
 texrep 1 1
 crease 30.000000
 numvert 68
@@ -9045,7 +9045,7 @@ OBJECT poly
 name "Eng2LeverCutoff_1"
 data 8
 Cube.008
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 86
@@ -9746,7 +9746,7 @@ OBJECT poly
 name "Eng2LeverMax_0"
 data 8
 Cube.090
-texture "flightdeck3.tga"
+texture "flightdeck3.png"
 texrep 1 1
 crease 30.000000
 numvert 68
@@ -10432,7 +10432,7 @@ OBJECT poly
 name "Eng2LeverMax_1"
 data 8
 Cube.009
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 86
@@ -11133,7 +11133,7 @@ OBJECT poly
 name "Eng2LeverToga_0"
 data 8
 Cube.024
-texture "flightdeck3.tga"
+texture "flightdeck3.png"
 texrep 1 1
 crease 30.000000
 numvert 68
@@ -11819,7 +11819,7 @@ OBJECT poly
 name "Eng2LeverToga_1"
 data 8
 Cube.010
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 86
@@ -12520,7 +12520,7 @@ OBJECT poly
 name "Eng2Reverser_0"
 data 8
 Cube.060
-texture "flightdeck3.tga"
+texture "flightdeck3.png"
 texrep 1 1
 crease 30.000000
 numvert 34
@@ -12868,7 +12868,7 @@ OBJECT poly
 name "Eng2Reverser_1"
 data 8
 Cube.011
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 16
@@ -12995,7 +12995,7 @@ OBJECT poly
 name "Eng2ThrustLever_0"
 data 8
 Cube.030
-texture "flightdeck3.tga"
+texture "flightdeck3.png"
 texrep 1 1
 crease 30.000000
 numvert 34
@@ -13343,7 +13343,7 @@ OBJECT poly
 name "Eng2ThrustLever_1"
 data 8
 Cube.012
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 70
@@ -13930,7 +13930,7 @@ OBJECT poly
 name "GearLever_0"
 data 8
 Cube.088
-texture "flightdeck3.tga"
+texture "flightdeck3.png"
 texrep 1 1
 crease 30.000000
 numvert 82
@@ -14662,7 +14662,7 @@ OBJECT poly
 name "GearLever_1"
 data 8
 Cube.017
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -14725,7 +14725,7 @@ OBJECT poly
 name "GPWSFlapOff"
 data 8
 Cube.014
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -14746,7 +14746,7 @@ OBJECT poly
 name "GPWSTerrainOff"
 data 8
 Cube.015
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -14767,7 +14767,7 @@ OBJECT poly
 name "MachTrimOn"
 data 8
 Cube.102
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -14788,7 +14788,7 @@ OBJECT poly
 name "StabTrim1On"
 data 8
 Cube.106
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -14809,7 +14809,7 @@ OBJECT poly
 name "StabTrim2On"
 data 8
 Cube.104
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -14830,7 +14830,7 @@ OBJECT poly
 name "YawDamper1On"
 data 8
 Cube.093
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -14851,7 +14851,7 @@ OBJECT poly
 name "YawDamper2On"
 data 8
 Cube.096
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -14875,7 +14875,7 @@ OBJECT poly
 name "PedestalUnkowns_0"
 data 8
 Cube.092
-texture "flightdeck3.tga"
+texture "flightdeck3.png"
 texrep 1 1
 crease 30.000000
 numvert 145
@@ -15711,7 +15711,7 @@ OBJECT poly
 name "PedestalUnkowns_1"
 data 8
 Cube.139
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 282
@@ -17761,7 +17761,7 @@ OBJECT poly
 name "SpeedbrakeLever_0"
 data 8
 Cube.069
-texture "flightdeck3.tga"
+texture "flightdeck3.png"
 texrep 1 1
 crease 30.000000
 numvert 24
@@ -17969,7 +17969,7 @@ OBJECT poly
 name "SpeedbrakeLever_1"
 data 8
 Cube.147
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -18015,7 +18015,7 @@ OBJECT poly
 name "APRollLt"
 data 8
 Cube.126
-texture "warning-lights.tga"
+texture "warning-lights.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -18047,7 +18047,7 @@ OBJECT poly
 name "APUExtinLt"
 data 8
 Cube.129
-texture "warning-lights.tga"
+texture "warning-lights.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -18068,7 +18068,7 @@ OBJECT poly
 name "APUFireLt"
 data 8
 Cube.130
-texture "warning-lights.tga"
+texture "warning-lights.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -18232,7 +18232,7 @@ OBJECT poly
 name "AftCargoExtin"
 data 8
 Cube.108
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -18317,7 +18317,7 @@ OBJECT poly
 name "AileronTrimKnob"
 data 12
 Cylinder.303
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 45
@@ -18654,7 +18654,7 @@ OBJECT poly
 name "AirVents"
 data 8
 Mesh.010
-texture "vents.tga"
+texture "vents.png"
 texrep 1 1
 crease 30.000000
 numvert 248
@@ -20645,7 +20645,7 @@ OBJECT poly
 name "BreakerLights"
 data 12
 Cylinder.307
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 45
@@ -21267,7 +21267,7 @@ OBJECT poly
 name "Call"
 data 8
 Cube.099
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -21320,7 +21320,7 @@ OBJECT poly
 name "CallMechanic"
 data 8
 Cube.074
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -21405,7 +21405,7 @@ OBJECT poly
 name "Chime"
 data 8
 Cube.098
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -21458,7 +21458,7 @@ OBJECT poly
 name "Cube"
 data 8
 Cube.091
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -21511,7 +21511,7 @@ OBJECT poly
 name "DisplayLights"
 data 12
 Cylinder.304
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 45
@@ -21848,7 +21848,7 @@ OBJECT poly
 name "Door"
 data 8
 Cube.136
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -21894,7 +21894,7 @@ OBJECT poly
 name "DoorKnob"
 data 12
 Cylinder.300
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 45
@@ -22231,7 +22231,7 @@ OBJECT poly
 name "Emer"
 data 8
 Cube.100
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -22284,7 +22284,7 @@ OBJECT poly
 name "Eng1ExtinLt"
 data 8
 Cube.121
-texture "warning-lights.tga"
+texture "warning-lights.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -22305,7 +22305,7 @@ OBJECT poly
 name "Eng1FireLt"
 data 8
 Cube.114
-texture "warning-lights.tga"
+texture "warning-lights.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -22712,7 +22712,7 @@ OBJECT poly
 name "Eng2ExtinLt"
 data 8
 Cube.128
-texture "warning-lights.tga"
+texture "warning-lights.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -22733,7 +22733,7 @@ OBJECT poly
 name "Eng2FireLt"
 data 8
 Cube.127
-texture "warning-lights.tga"
+texture "warning-lights.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -23140,7 +23140,7 @@ OBJECT poly
 name "EngHighPwr"
 data 8
 Cube.086
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -23225,7 +23225,7 @@ OBJECT poly
 name "EngSyncKnob"
 data 12
 Cylinder.273
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 45
@@ -23847,7 +23847,7 @@ OBJECT poly
 name "FlapSlatLever"
 data 8
 Cube.068
-texture "flightdeck3.tga"
+texture "flightdeck3.png"
 texrep 1 1
 crease 30.000000
 numvert 28
@@ -24077,7 +24077,7 @@ OBJECT poly
 name "FloodLights"
 data 12
 Cylinder.306
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 45
@@ -24414,7 +24414,7 @@ OBJECT poly
 name "Floor"
 data 8
 Cube.013
-texture "floor.tga"
+texture "floor.png"
 texrep 1 1
 crease 30.000000
 numvert 24
@@ -24532,7 +24532,7 @@ OBJECT poly
 name "Frame"
 data 12
 Cylinder.121
-texture "frame.tga"
+texture "frame.png"
 texrep 1 1
 crease 30.000000
 numvert 114
@@ -25126,7 +25126,7 @@ OBJECT poly
 name "Furniture"
 data 8
 Cube.016
-texture "furniture.tga"
+texture "furniture.png"
 texrep 1 1
 crease 30.000000
 numvert 271
@@ -27160,7 +27160,7 @@ OBJECT poly
 name "FwdCargoExtin"
 data 8
 Cube.107
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -27245,7 +27245,7 @@ OBJECT poly
 name "GPWS1Lt"
 data 8
 Cube.122
-texture "warning-lights.tga"
+texture "warning-lights.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -27277,7 +27277,7 @@ OBJECT poly
 name "GPWS2Lt"
 data 8
 Cube.135
-texture "warning-lights.tga"
+texture "warning-lights.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -27309,7 +27309,7 @@ OBJECT poly
 name "GPWSFlap"
 data 8
 Cube.084
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -27394,7 +27394,7 @@ OBJECT poly
 name "GPWSTerrain"
 data 8
 Cube.085
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -27479,7 +27479,7 @@ OBJECT poly
 name "Glareshield"
 data 8
 Cube.018
-texture "glareshield.tga"
+texture "glareshield.png"
 texrep 1 1
 crease 30.000000
 numvert 218
@@ -29321,7 +29321,7 @@ OBJECT poly
 name "LeftASIPlacard"
 data 8
 Mesh.004
-texture "asilimits.tga"
+texture "asilimits.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -29342,7 +29342,7 @@ OBJECT poly
 name "LeftLeftPedal"
 data 8
 Cube.028
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 84
@@ -30112,7 +30112,7 @@ OBJECT poly
 name "LeftRightPedal"
 data 8
 Cube.140
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 84
@@ -30882,7 +30882,7 @@ OBJECT poly
 name "LeftWiper"
 data 8
 Cube.109
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 22
@@ -31052,7 +31052,7 @@ OBJECT poly
 name "LeftWiperBlade"
 data 8
 Cube.111
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 16
@@ -31162,7 +31162,7 @@ OBJECT poly
 name "LeftYoke"
 data 9
 Plane.005
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 676
@@ -39382,7 +39382,7 @@ OBJECT poly
 name "LeftYokeAP"
 data 12
 Cylinder.255
-texture "flightdeck4.tga"
+texture "flightdeck4.png"
 texrep 1 1
 crease 30.000000
 numvert 73
@@ -39945,7 +39945,7 @@ OBJECT poly
 name "LeftYokeBase"
 data 12
 Cylinder.212
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 24
@@ -40181,7 +40181,7 @@ OBJECT poly
 name "LeftYokeChecklist"
 data 9
 Plane.002
-texture "checklist.tga"
+texture "checklist.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -40445,7 +40445,7 @@ OBJECT poly
 name "MachTrim"
 data 8
 Cube.101
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -40815,7 +40815,7 @@ OBJECT poly
 name "MainPanel"
 data 8
 Cube.025
-texture "mainpanel.tga"
+texture "mainpanel.png"
 texrep 1 1
 crease 30.000000
 numvert 32
@@ -41027,7 +41027,7 @@ OBJECT poly
 name "MainPanelCushion"
 data 8
 Cube.137
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 128
@@ -41955,7 +41955,7 @@ OBJECT poly
 name "MasterCautionLt"
 data 8
 Cube.117
-texture "warning-lights.tga"
+texture "warning-lights.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -41987,7 +41987,7 @@ OBJECT poly
 name "MasterWarningLt"
 data 8
 Cube.118
-texture "warning-lights.tga"
+texture "warning-lights.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -42262,7 +42262,7 @@ OBJECT poly
 name "MuteHorn"
 data 8
 Cube.087
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -42632,7 +42632,7 @@ OBJECT poly
 name "PA"
 data 8
 Cube.097
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -42685,7 +42685,7 @@ OBJECT poly
 name "PanelLights"
 data 12
 Cylinder.305
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 45
@@ -43366,7 +43366,7 @@ OBJECT poly
 name "PedestalTop"
 data 8
 Cube.110
-texture "pedestal-background.tga"
+texture "pedestal-background.png"
 texrep 1 1
 crease 30.000000
 numvert 170
@@ -44447,7 +44447,7 @@ OBJECT poly
 name "RightASIPlacard"
 data 4
 Mesh
-texture "asilimits.tga"
+texture "asilimits.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -44468,7 +44468,7 @@ OBJECT poly
 name "RightLeftPedal"
 data 8
 Cube.152
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 84
@@ -45238,7 +45238,7 @@ OBJECT poly
 name "RightRightPedal"
 data 8
 Cube.151
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 84
@@ -46008,7 +46008,7 @@ OBJECT poly
 name "RightWiper"
 data 8
 Cube.113
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 22
@@ -46178,7 +46178,7 @@ OBJECT poly
 name "RightWiperBlade"
 data 8
 Cube.112
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 16
@@ -46288,7 +46288,7 @@ OBJECT poly
 name "RightYoke"
 data 9
 Plane.003
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 676
@@ -54508,7 +54508,7 @@ OBJECT poly
 name "RightYokeAP"
 data 12
 Cylinder.256
-texture "flightdeck4.tga"
+texture "flightdeck4.png"
 texrep 1 1
 crease 30.000000
 numvert 73
@@ -55071,7 +55071,7 @@ OBJECT poly
 name "RightYokeBase"
 data 12
 Cylinder.002
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 24
@@ -55307,7 +55307,7 @@ OBJECT poly
 name "RightYokeChecklist"
 data 9
 Plane.019
-texture "checklist.tga"
+texture "checklist.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -55328,7 +55328,7 @@ OBJECT poly
 name "RudderTrimKnob"
 data 12
 Cylinder.302
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 45
@@ -55665,7 +55665,7 @@ OBJECT poly
 name "Seats"
 data 8
 Cube.141
-texture "seats.tga"
+texture "seats.png"
 texrep 1 1
 crease 30.000000
 numvert 1904
@@ -71171,7 +71171,7 @@ OBJECT poly
 name "Shell"
 data 12
 Cylinder.113
-texture "shell.tga"
+texture "shell.png"
 texrep 1 1
 crease 30.000000
 numvert 287
@@ -73238,7 +73238,7 @@ OBJECT poly
 name "StabTrim1"
 data 8
 Cube.105
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -73323,7 +73323,7 @@ OBJECT poly
 name "StabTrim2"
 data 8
 Cube.103
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -73408,7 +73408,7 @@ OBJECT poly
 name "StallLt"
 data 8
 Cube.116
-texture "warning-lights.tga"
+texture "warning-lights.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -74321,7 +74321,7 @@ OBJECT poly
 name "Tiller"
 data 12
 Cylinder.299
-texture "tiller.tga"
+texture "tiller.png"
 texrep 1 1
 crease 30.000000
 numvert 326
@@ -76790,7 +76790,7 @@ OBJECT poly
 name "TillerPanel"
 data 12
 Cylinder.004
-texture "tiller.tga"
+texture "tiller.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -76811,7 +76811,7 @@ OBJECT poly
 name "UpperPanel"
 data 8
 Cube.148
-texture "upperpanel.tga"
+texture "upperpanel.png"
 texrep 1 1
 crease 30.000000
 numvert 20
@@ -76963,7 +76963,7 @@ OBJECT poly
 name "Warnings"
 data 8
 Mesh.007
-texture "warnings.tga"
+texture "warnings.png"
 texrep 1 1
 crease 30.000000
 numvert 49
@@ -77180,7 +77180,7 @@ OBJECT poly
 name "YawDamper1"
 data 8
 Cube.094
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -77265,7 +77265,7 @@ OBJECT poly
 name "YawDamper2"
 data 8
 Cube.095
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -77635,7 +77635,7 @@ OBJECT poly
 name "YokeFloorBases"
 data 8
 Cube.150
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 16

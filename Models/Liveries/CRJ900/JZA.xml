@@ -6,7 +6,7 @@
 		<model>
 			<livery>
 				<name>Air Canada Jazz (Green)</name>
-				<texture>Liveries/CRJ900/JZA.tga</texture>
+				<texture>Liveries/CRJ900/JZA.png</texture>
 				<registration>C-FBJZ</registration>
 			</livery>
 		</model>

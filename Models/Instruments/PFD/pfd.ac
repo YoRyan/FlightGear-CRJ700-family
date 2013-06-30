@@ -11,7 +11,7 @@ OBJECT poly
 name "ADF1Ptr"
 data 9
 Plane.002
-texture "symbols.tga"
+texture "symbols.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -43,7 +43,7 @@ OBJECT poly
 name "ADF2Ptr"
 data 9
 Plane.003
-texture "symbols.tga"
+texture "symbols.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -75,7 +75,7 @@ OBJECT poly
 name "AGL"
 data 10
 Mesh.11533
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -96,7 +96,7 @@ OBJECT poly
 name "AGL1"
 data 10
 Mesh.11529
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -117,7 +117,7 @@ OBJECT poly
 name "AGL10"
 data 10
 Mesh.11530
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -138,7 +138,7 @@ OBJECT poly
 name "AGL100"
 data 10
 Mesh.11531
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -159,7 +159,7 @@ OBJECT poly
 name "AGL1000"
 data 10
 Mesh.11532
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -180,7 +180,7 @@ OBJECT poly
 name "AIPtr"
 data 10
 Mesh.11502
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 5
@@ -207,7 +207,7 @@ OBJECT poly
 name "AltBug"
 data 9
 Plane.009
-texture "alt-tape.tga"
+texture "alt-tape.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -228,7 +228,7 @@ OBJECT poly
 name "AltBugM"
 data 9
 Plane.015
-texture "alt-tape.tga"
+texture "alt-tape.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -249,7 +249,7 @@ OBJECT poly
 name "AltPtr"
 data 9
 Plane.301
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 16
@@ -317,7 +317,7 @@ OBJECT poly
 name "AltTape"
 data 9
 Plane.019
-texture "alt-tape.tga"
+texture "alt-tape.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -338,7 +338,7 @@ OBJECT poly
 name "AltTapeM"
 data 9
 Plane.014
-texture "alt-tape.tga"
+texture "alt-tape.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -359,7 +359,7 @@ OBJECT poly
 name "FD"
 data 10
 Mesh.11518
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 6
@@ -389,7 +389,7 @@ OBJECT poly
 name "GS"
 data 8
 Mesh.009
-texture "symbols.tga"
+texture "symbols.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -410,7 +410,7 @@ OBJECT poly
 name "GSPtr"
 data 8
 Mesh.007
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -456,7 +456,7 @@ OBJECT poly
 name "HSI"
 data 12
 Cylinder.023
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 17
@@ -600,7 +600,7 @@ OBJECT poly
 name "HdgFrame"
 data 9
 Plane.013
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -621,7 +621,7 @@ OBJECT poly
 name "HdgPtr"
 data 10
 Mesh.11523
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 3
@@ -661,7 +661,7 @@ OBJECT poly
 name "ILS"
 data 4
 Mesh
-texture "symbols.tga"
+texture "symbols.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -682,7 +682,7 @@ OBJECT poly
 name "ILSPtr"
 data 10
 Mesh.11461
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -749,7 +749,7 @@ OBJECT poly
 name "NAVPtr"
 data 9
 Plane.004
-texture "symbols.tga"
+texture "symbols.png"
 texrep 1 1
 crease 30.000000
 numvert 14
@@ -801,7 +801,7 @@ OBJECT poly
 name "NAVTrack"
 data 9
 Plane.005
-texture "symbols.tga"
+texture "symbols.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -822,7 +822,7 @@ OBJECT poly
 name "Off"
 data 9
 Plane.008
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -843,7 +843,7 @@ OBJECT poly
 name "Overspeed"
 data 9
 Plane.016
-texture "symbols.tga"
+texture "symbols.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -864,7 +864,7 @@ OBJECT poly
 name "Pitch"
 data 10
 Mesh.11510
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -885,7 +885,7 @@ OBJECT poly
 name "Roll"
 data 10
 Mesh.11480
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 24
@@ -1021,7 +1021,7 @@ OBJECT poly
 name "RollPtr"
 data 10
 Mesh.11512
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 3
@@ -1040,7 +1040,7 @@ OBJECT poly
 name "Screen"
 data 5
 Plane
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -1061,7 +1061,7 @@ OBJECT poly
 name "SpdPtr"
 data 10
 Mesh.11528
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 3
@@ -1122,7 +1122,7 @@ OBJECT poly
 name "Symbols2"
 data 9
 Plane.007
-texture "symbols.tga"
+texture "symbols.png"
 texrep 1 1
 crease 30.000000
 numvert 16
@@ -1176,7 +1176,7 @@ OBJECT poly
 name "VNAVAdvise"
 data 9
 Plane.017
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -1197,7 +1197,7 @@ OBJECT poly
 name "VNAVPtr"
 data 8
 Mesh.003
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -1243,7 +1243,7 @@ OBJECT poly
 name "VS"
 data 9
 Plane.296
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 6
@@ -1278,7 +1278,7 @@ OBJECT poly
 name "VSPtr"
 data 9
 Plane.297
-texture "pfd.tga"
+texture "pfd.png"
 texrep 1 1
 crease 30.000000
 numvert 7
@@ -1320,7 +1320,7 @@ OBJECT poly
 name "Border"
 data 9
 Plane.011
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 48
@@ -1670,7 +1670,7 @@ OBJECT poly
 name "LeftControl"
 data 8
 Mesh.001
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 28
@@ -1850,7 +1850,7 @@ OBJECT poly
 name "RightControl"
 data 8
 Mesh.002
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 28

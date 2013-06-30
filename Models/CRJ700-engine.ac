@@ -9,7 +9,7 @@ OBJECT poly
 name "Blades"
 data 5
 Plane
-texture "CRJ700-Blank.tga"
+texture "CRJ700-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 336
@@ -1335,7 +1335,7 @@ OBJECT poly
 name "Cone"
 data 9
 Plane.001
-texture "CRJ700-Blank.tga"
+texture "CRJ700-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 17
@@ -1466,7 +1466,7 @@ OBJECT poly
 name "Intake"
 data 12
 Cylinder.092
-texture "engine.tga"
+texture "engine.png"
 texrep 1 1
 crease 30.000000
 numvert 144
@@ -2460,7 +2460,7 @@ OBJECT poly
 name "Interior"
 data 12
 Cylinder.171
-texture "engine.tga"
+texture "engine.png"
 texrep 1 1
 crease 30.000000
 numvert 96
@@ -3234,7 +3234,7 @@ OBJECT poly
 name "Nacelle"
 data 12
 Cylinder.090
-texture "CRJ700-Blank.tga"
+texture "CRJ700-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 120
@@ -4200,7 +4200,7 @@ OBJECT poly
 name "Nozzle"
 data 12
 Cylinder.093
-texture "engine.tga"
+texture "engine.png"
 texrep 1 1
 crease 30.000000
 numvert 96
@@ -4962,7 +4962,7 @@ OBJECT poly
 name "Reverser"
 data 12
 Cylinder.170
-texture "CRJ700-Blank.tga"
+texture "CRJ700-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 72

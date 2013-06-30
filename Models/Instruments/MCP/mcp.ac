@@ -9262,7 +9262,7 @@ OBJECT poly
 name "Panel"
 data 8
 Cube.006
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 8

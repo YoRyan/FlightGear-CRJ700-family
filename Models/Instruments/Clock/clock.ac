@@ -7,7 +7,7 @@ OBJECT poly
 name "Bezel"
 data 12
 Cylinder.005
-texture "clock.tga"
+texture "clock.png"
 texrep 1 1
 crease 30.000000
 numvert 96
@@ -753,7 +753,7 @@ OBJECT poly
 name "CHR"
 data 12
 Cylinder.011
-texture "clock.tga"
+texture "clock.png"
 texrep 1 1
 crease 30.000000
 numvert 25
@@ -944,7 +944,7 @@ OBJECT poly
 name "Face"
 data 8
 Cylinder
-texture "clock.tga"
+texture "clock.png"
 texrep 1 1
 crease 30.000000
 numvert 13
@@ -1039,7 +1039,7 @@ OBJECT poly
 name "MODE"
 data 12
 Cylinder.010
-texture "clock.tga"
+texture "clock.png"
 texrep 1 1
 crease 30.000000
 numvert 25
@@ -1230,7 +1230,7 @@ OBJECT poly
 name "Markings"
 data 9
 Plane.003
-texture "clock.tga"
+texture "clock.png"
 texrep 1 1
 crease 30.000000
 numvert 44
@@ -1361,7 +1361,7 @@ OBJECT poly
 name "RST"
 data 12
 Cylinder.012
-texture "clock.tga"
+texture "clock.png"
 texrep 1 1
 crease 30.000000
 numvert 25
@@ -1552,7 +1552,7 @@ OBJECT poly
 name "SEL"
 data 12
 Cylinder.013
-texture "clock.tga"
+texture "clock.png"
 texrep 1 1
 crease 30.000000
 numvert 25

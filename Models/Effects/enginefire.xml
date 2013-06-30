@@ -7,7 +7,7 @@
 <PropertyList>
 
 	<particlesystem>
-		<texture>fire.tga</texture>
+		<texture>fire.png</texture>
 		<emissive>true</emissive>
 		<lighting>false</lighting>
 		<offsets>

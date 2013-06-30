@@ -69,7 +69,7 @@
 		<object-name>Reverser</object-name>
 		<property-base>sim/model/livery</property-base>
 		<texture-prop>texture</texture-prop>
-		<texture>CRJ700-Blank.tga</texture>
+		<texture>CRJ700-Blank.png</texture>
 	</animation>
 
 	<!-- Reflection shaders -->

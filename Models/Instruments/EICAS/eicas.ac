@@ -12,7 +12,7 @@ OBJECT poly
 name "Flaps1"
 data 9
 Plane.012
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -33,7 +33,7 @@ OBJECT poly
 name "Flaps20"
 data 9
 Plane.009
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 6
@@ -63,7 +63,7 @@ OBJECT poly
 name "Flaps30"
 data 9
 Plane.010
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -84,7 +84,7 @@ OBJECT poly
 name "Flaps45"
 data 9
 Plane.011
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -105,7 +105,7 @@ OBJECT poly
 name "Flaps8"
 data 9
 Plane.006
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -126,7 +126,7 @@ OBJECT poly
 name "GearLInd"
 data 9
 Plane.002
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -147,7 +147,7 @@ OBJECT poly
 name "GearNInd"
 data 9
 Plane.003
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -168,7 +168,7 @@ OBJECT poly
 name "GearRInd"
 data 9
 Plane.004
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -189,7 +189,7 @@ OBJECT poly
 name "ITT1"
 data 9
 Plane.017
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -210,7 +210,7 @@ OBJECT poly
 name "ITT2"
 data 9
 Plane.016
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -231,7 +231,7 @@ OBJECT poly
 name "N11"
 data 9
 Plane.018
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -252,7 +252,7 @@ OBJECT poly
 name "N12"
 data 9
 Plane.019
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -273,7 +273,7 @@ OBJECT poly
 name "N21"
 data 9
 Plane.020
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -294,7 +294,7 @@ OBJECT poly
 name "N22"
 data 9
 Plane.021
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -315,7 +315,7 @@ OBJECT poly
 name "OilPress1"
 data 9
 Plane.023
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -336,7 +336,7 @@ OBJECT poly
 name "OilPress2"
 data 9
 Plane.022
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -357,7 +357,7 @@ OBJECT poly
 name "Symbols1"
 data 9
 Plane.001
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 60
@@ -535,7 +535,7 @@ OBJECT poly
 name "APUEGT"
 data 9
 Plane.024
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -556,7 +556,7 @@ OBJECT poly
 name "APURPM"
 data 9
 Plane.025
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -577,7 +577,7 @@ OBJECT poly
 name "APUReadings"
 data 9
 Plane.301
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -609,7 +609,7 @@ OBJECT poly
 name "AileronTrim"
 data 9
 Plane.026
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -630,7 +630,7 @@ OBJECT poly
 name "ElevatorTrim"
 data 9
 Plane.027
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -651,7 +651,7 @@ OBJECT poly
 name "RudderTrim"
 data 9
 Plane.028
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -672,7 +672,7 @@ OBJECT poly
 name "Symbols2"
 data 9
 Plane.015
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 14
@@ -727,7 +727,7 @@ OBJECT poly
 name "ElecAPUGen"
 data 9
 Plane.029
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -759,7 +759,7 @@ OBJECT poly
 name "ElecBus1"
 data 9
 Plane.014
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -780,7 +780,7 @@ OBJECT poly
 name "ElecBus2"
 data 9
 Plane.031
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -801,7 +801,7 @@ OBJECT poly
 name "ElecExtAC"
 data 9
 Plane.007
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -844,7 +844,7 @@ OBJECT poly
 name "ElecGen1"
 data 9
 Plane.013
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -876,7 +876,7 @@ OBJECT poly
 name "ElecGen2"
 data 9
 Plane.030
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -908,7 +908,7 @@ OBJECT poly
 name "ElecSeg1"
 data 9
 Plane.295
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -940,7 +940,7 @@ OBJECT poly
 name "ElecSeg2"
 data 9
 Plane.296
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -972,7 +972,7 @@ OBJECT poly
 name "ElecSeg3"
 data 9
 Plane.298
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -993,7 +993,7 @@ OBJECT poly
 name "ElecSeg4"
 data 9
 Plane.299
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -1014,7 +1014,7 @@ OBJECT poly
 name "ElecSeg5"
 data 9
 Plane.300
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -1035,7 +1035,7 @@ OBJECT poly
 name "ElecServBus"
 data 9
 Plane.297
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -1056,7 +1056,7 @@ OBJECT poly
 name "Symbols3"
 data 9
 Plane.005
-texture "eicas.tga"
+texture "eicas.png"
 texrep 1 1
 crease 30.000000
 numvert 56
@@ -1241,7 +1241,7 @@ OBJECT poly
 name "Border"
 data 9
 Plane.294
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 48
@@ -1591,7 +1591,7 @@ OBJECT poly
 name "LeftControl"
 data 8
 Mesh.004
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 28
@@ -1792,7 +1792,7 @@ OBJECT poly
 name "RightControl"
 data 8
 Mesh.001
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 28

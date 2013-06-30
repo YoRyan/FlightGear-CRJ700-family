@@ -727,7 +727,7 @@
 		<object-name>Winglets</object-name>
 		<property-base>sim/model/livery</property-base>
 		<texture-prop>texture</texture-prop>
-		<texture>CRJ700-Blank.tga</texture>
+		<texture>CRJ700-Blank.png</texture>
 	</animation>
 
 	<!-- Lightmaps -->
@@ -745,7 +745,7 @@
 				<use alias="../../lightmap-factor-prop" />
 			</lightmap-factor>
 			<texture n="3">
-				<image>Aircraft/CRJ700-family/Models/Effects/Lightmaps/CRJ700-logo-lightmap.tga</image>
+				<image>Aircraft/CRJ700-family/Models/Effects/Lightmaps/CRJ700-logo-lightmap.png</image>
 			</texture>
 		</parameters>
 		<object-name>Fuselage</object-name>
@@ -767,7 +767,7 @@
 				<use alias="../../lightmap-factor-prop" />
 			</lightmap-factor>
 			<texture n="3">
-				<image>Aircraft/CRJ700-family/Models/Effects/Lightmaps/wing-lightmap.tga</image>
+				<image>Aircraft/CRJ700-family/Models/Effects/Lightmaps/wing-lightmap.png</image>
 			</texture>
 		</parameters>
 		<object-name>Wings</object-name>

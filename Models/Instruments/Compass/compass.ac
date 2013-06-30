@@ -7,7 +7,7 @@ OBJECT poly
 name "Airplane"
 data 8
 Cube.003
-texture "compass.tga"
+texture "compass.png"
 texrep 1 1
 crease 30.000000
 numvert 17
@@ -130,7 +130,7 @@ OBJECT poly
 name "Case"
 data 8
 Cube.001
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 38
@@ -422,7 +422,7 @@ OBJECT poly
 name "InnerCase"
 data 8
 Cube.004
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 34
@@ -590,7 +590,7 @@ OBJECT poly
 name "Ring"
 data 8
 Cube.002
-texture "compass.tga"
+texture "compass.png"
 texrep 1 1
 crease 30.000000
 numvert 32

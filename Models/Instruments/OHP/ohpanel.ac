@@ -15,7 +15,7 @@ OBJECT poly
 name "APUFuelBtnOn"
 data 8
 Cube.014
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -36,7 +36,7 @@ OBJECT poly
 name "APUStartBtnOn"
 data 8
 Cube.017
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -57,7 +57,7 @@ OBJECT poly
 name "Eng1StartBtnOn"
 data 8
 Cube.003
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -78,7 +78,7 @@ OBJECT poly
 name "Eng2StartBtnOn"
 data 8
 Cube.002
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -99,7 +99,7 @@ OBJECT poly
 name "LFuelBtnOn"
 data 8
 Cube.020
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -120,7 +120,7 @@ OBJECT poly
 name "RATBtnOn"
 data 8
 Cube.025
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -141,7 +141,7 @@ OBJECT poly
 name "RFuelBtnOn"
 data 8
 Cube.052
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -162,7 +162,7 @@ OBJECT poly
 name "XflowBtnOn"
 data 8
 Cube.050
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -232,7 +232,7 @@ OBJECT poly
 name "Panel_1"
 data 8
 Cube.004
-texture "background.tga"
+texture "background.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -6420,7 +6420,7 @@ OBJECT poly
 name "ACBtn"
 data 8
 Cube.023
-texture "buttons.tga"
+texture "buttons.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -17631,7 +17631,7 @@ OBJECT poly
 name "AITestBtn"
 data 8
 Cube.018
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -20791,7 +20791,7 @@ OBJECT poly
 name "APUFuelBtn"
 data 8
 Cube.015
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -21997,7 +21997,7 @@ OBJECT poly
 name "APUStartBtn"
 data 8
 Cube.016
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -26486,7 +26486,7 @@ OBJECT poly
 name "CONTBtn"
 data 8
 Cube.024
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -32342,7 +32342,7 @@ OBJECT poly
 name "Eng1StartBtn"
 data 8
 Cube.006
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -32427,7 +32427,7 @@ OBJECT poly
 name "Eng1StopBtn"
 data 8
 Cube.008
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -32512,7 +32512,7 @@ OBJECT poly
 name "Eng2StartBtn"
 data 8
 Cube.029
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -32597,7 +32597,7 @@ OBJECT poly
 name "Eng2StopBtn"
 data 8
 Cube.009
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -39024,7 +39024,7 @@ OBJECT poly
 name "IDG1Btn"
 data 8
 Cube.012
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -40077,7 +40077,7 @@ OBJECT poly
 name "IDG1TransferBtn"
 data 8
 Cube.005
-texture "buttons.tga"
+texture "buttons.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -40162,7 +40162,7 @@ OBJECT poly
 name "IDG2Btn"
 data 8
 Cube.013
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -41215,7 +41215,7 @@ OBJECT poly
 name "IDG2TransferBtn"
 data 8
 Cube.007
-texture "buttons.tga"
+texture "buttons.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -42325,7 +42325,7 @@ OBJECT poly
 name "LFuelBtn"
 data 8
 Cube.019
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -50904,7 +50904,7 @@ OBJECT poly
 name "RATBtn"
 data 8
 Cube.022
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -53144,7 +53144,7 @@ OBJECT poly
 name "RFuelBtn"
 data 8
 Cube.051
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -57045,7 +57045,7 @@ OBJECT poly
 name "UnknownButtons"
 data 8
 Cube.021
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 108
@@ -58755,7 +58755,7 @@ OBJECT poly
 name "XflowBtn"
 data 8
 Cube.026
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -58840,7 +58840,7 @@ OBJECT poly
 name "XflowManOverride"
 data 8
 Cube.054
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -58925,7 +58925,7 @@ OBJECT poly
 name "XflowToLeft"
 data 8
 Cube.055
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -59010,7 +59010,7 @@ OBJECT poly
 name "XflowToRight"
 data 8
 Cube.053
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12

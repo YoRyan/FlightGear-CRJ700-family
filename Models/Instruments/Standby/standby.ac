@@ -10,7 +10,7 @@ OBJECT poly
 name "AI"
 data 10
 Mesh.11510
-texture "ati.tga"
+texture "ati.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -31,7 +31,7 @@ OBJECT poly
 name "AltTape"
 data 9
 Plane.012
-texture "alt-tape.tga"
+texture "alt-tape.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -52,7 +52,7 @@ OBJECT poly
 name "GS"
 data 8
 Mesh.011
-texture "ati.tga"
+texture "ati.png"
 texrep 1 1
 crease 30.000000
 numvert 16
@@ -106,7 +106,7 @@ OBJECT poly
 name "GSPtr"
 data 8
 Mesh.012
-texture "ati.tga"
+texture "ati.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -132,7 +132,7 @@ OBJECT poly
 name "Horizon"
 data 4
 Mesh
-texture "ati.tga"
+texture "ati.png"
 texrep 1 1
 crease 30.000000
 numvert 16
@@ -193,7 +193,7 @@ OBJECT poly
 name "ILS"
 data 8
 Mesh.010
-texture "ati.tga"
+texture "ati.png"
 texrep 1 1
 crease 30.000000
 numvert 16
@@ -247,7 +247,7 @@ OBJECT poly
 name "ILSPtr"
 data 8
 Mesh.008
-texture "ati.tga"
+texture "ati.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -273,7 +273,7 @@ OBJECT poly
 name "Roll"
 data 8
 Mesh.001
-texture "ati.tga"
+texture "ati.png"
 texrep 1 1
 crease 30.000000
 numvert 24
@@ -409,7 +409,7 @@ OBJECT poly
 name "RollPtr"
 data 10
 Mesh.11512
-texture "ati.tga"
+texture "ati.png"
 texrep 1 1
 crease 30.000000
 numvert 3
@@ -428,7 +428,7 @@ OBJECT poly
 name "SpdPtr"
 data 8
 Mesh.002
-texture "ati.tga"
+texture "ati.png"
 texrep 1 1
 crease 30.000000
 numvert 3
@@ -447,7 +447,7 @@ OBJECT poly
 name "SpdTape"
 data 9
 Plane.014
-texture "spd-tape.tga"
+texture "spd-tape.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -657,7 +657,7 @@ OBJECT poly
 name "Bezel"
 data 8
 Cube.001
-texture "flightdeck1.tga"
+texture "flightdeck1.png"
 texrep 1 1
 crease 30.000000
 numvert 32

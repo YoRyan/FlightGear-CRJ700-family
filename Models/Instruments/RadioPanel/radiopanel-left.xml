@@ -924,7 +924,7 @@
 				<use alias="../../lightmap-factor-prop" />
 			</lightmap-factor>
 			<texture n="3">
-				<image>Aircraft/CRJ700-family/Models/Effects/Lightmaps/radiopanel-left-lightmap.tga</image>
+				<image>Aircraft/CRJ700-family/Models/Effects/Lightmaps/radiopanel-left-lightmap.png</image>
 			</texture>
 		</parameters>
 		<object-name>Panel</object-name>

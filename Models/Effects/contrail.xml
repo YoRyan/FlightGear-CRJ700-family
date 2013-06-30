@@ -11,7 +11,7 @@
 	<particlesystem>
 		<name>contrail</name>
 		<type>normal</type>
-		<texture>smoke.tga</texture>
+		<texture>smoke.png</texture>
 		<emissive>false</emissive>
 		<lighting>true</lighting>
 

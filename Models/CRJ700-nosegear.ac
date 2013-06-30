@@ -9,7 +9,7 @@ OBJECT poly
 name "NGAxle"
 data 12
 Cylinder.179
-texture "nosegear.tga"
+texture "nosegear.png"
 texrep 1 1
 crease 30.000000
 numvert 32
@@ -163,7 +163,7 @@ OBJECT poly
 name "NGLowerActuator"
 data 12
 Cylinder.188
-texture "nosegear.tga"
+texture "nosegear.png"
 texrep 1 1
 crease 30.000000
 numvert 50
@@ -535,7 +535,7 @@ OBJECT poly
 name "NGLowerRetract"
 data 12
 Cylinder.185
-texture "nosegear.tga"
+texture "nosegear.png"
 texrep 1 1
 crease 30.000000
 numvert 66
@@ -1119,7 +1119,7 @@ OBJECT poly
 name "NGLowerScissor"
 data 12
 Cylinder.182
-texture "nosegear.tga"
+texture "nosegear.png"
 texrep 1 1
 crease 30.000000
 numvert 90
@@ -1980,7 +1980,7 @@ OBJECT poly
 name "NGLowerStrut"
 data 12
 Cylinder.184
-texture "nosegear.tga"
+texture "nosegear.png"
 texrep 1 1
 crease 30.000000
 numvert 170
@@ -3515,7 +3515,7 @@ OBJECT poly
 name "NGScissorAnchor"
 data 8
 Cylinder
-texture "nosegear.tga"
+texture "nosegear.png"
 texrep 1 1
 crease 30.000000
 numvert 24
@@ -3751,7 +3751,7 @@ OBJECT poly
 name "NGTires"
 data 12
 Cylinder.177
-texture "nosegear.tga"
+texture "nosegear.png"
 texrep 1 1
 crease 30.000000
 numvert 1056
@@ -12641,7 +12641,7 @@ OBJECT poly
 name "NGUpperActuator"
 data 12
 Cylinder.187
-texture "nosegear.tga"
+texture "nosegear.png"
 texrep 1 1
 crease 30.000000
 numvert 41
@@ -13035,7 +13035,7 @@ OBJECT poly
 name "NGUpperRetract"
 data 12
 Cylinder.186
-texture "nosegear.tga"
+texture "nosegear.png"
 texrep 1 1
 crease 30.000000
 numvert 138
@@ -14360,7 +14360,7 @@ OBJECT poly
 name "NGUpperScissor"
 data 12
 Cylinder.183
-texture "nosegear.tga"
+texture "nosegear.png"
 texrep 1 1
 crease 30.000000
 numvert 166
@@ -15856,7 +15856,7 @@ OBJECT poly
 name "NGUpperStrut"
 data 12
 Cylinder.169
-texture "nosegear.tga"
+texture "nosegear.png"
 texrep 1 1
 crease 30.000000
 numvert 1937

@@ -961,7 +961,7 @@ OBJECT poly
 name "CockpitFrame"
 data 12
 Cylinder.015
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 114
@@ -1836,7 +1836,7 @@ OBJECT poly
 name "Fuselage"
 data 12
 Cylinder.002
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 1670
@@ -15508,7 +15508,7 @@ OBJECT poly
 name "Belly"
 data 12
 Cylinder.128
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 331
@@ -17970,7 +17970,7 @@ OBJECT poly
 name "GearLDoor2"
 data 12
 Cylinder.129
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 33
@@ -18149,7 +18149,7 @@ OBJECT poly
 name "GearRDoor2"
 data 12
 Cylinder.130
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 33
@@ -18328,7 +18328,7 @@ OBJECT poly
 name "ElevatorL"
 data 12
 Cylinder.094
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 26
@@ -18547,7 +18547,7 @@ OBJECT poly
 name "ElevatorR"
 data 12
 Cylinder.096
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 26
@@ -18766,7 +18766,7 @@ OBJECT poly
 name "EnginePylons"
 data 12
 Cylinder.127
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 98
@@ -19284,7 +19284,7 @@ OBJECT poly
 name "GearNDoorC"
 data 12
 Cylinder.132
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 9
@@ -19331,7 +19331,7 @@ OBJECT poly
 name "GearNDoorL"
 data 8
 Cube.002
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 14
@@ -19414,7 +19414,7 @@ OBJECT poly
 name "GearNDoorR"
 data 8
 Cube.001
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 14
@@ -19497,7 +19497,7 @@ OBJECT poly
 name "Hstabs"
 data 12
 Cylinder.095
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 224
@@ -21303,7 +21303,7 @@ OBJECT poly
 name "LeftDoor"
 data 12
 Cylinder.134
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 28
@@ -21467,7 +21467,7 @@ OBJECT poly
 name "RightDoor"
 data 12
 Cylinder.133
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 26
@@ -21650,7 +21650,7 @@ OBJECT poly
 name "Vstab"
 data 12
 Cylinder.126
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 228
@@ -23586,7 +23586,7 @@ OBJECT poly
 name "Rudder"
 data 12
 Cylinder.125
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 65
@@ -49584,7 +49584,7 @@ OBJECT poly
 name "Winglets"
 data 12
 Cylinder.101
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 122
@@ -50525,7 +50525,7 @@ OBJECT poly
 name "Wings"
 data 12
 Cylinder.070
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 1074
@@ -58421,7 +58421,7 @@ OBJECT poly
 name "AileronL"
 data 12
 Cylinder.078
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 36
@@ -58715,7 +58715,7 @@ OBJECT poly
 name "AileronR"
 data 12
 Cylinder.079
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 36
@@ -59009,7 +59009,7 @@ OBJECT poly
 name "FlapL1"
 data 12
 Cylinder.073
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 159
@@ -60101,7 +60101,7 @@ OBJECT poly
 name "FlapL2"
 data 12
 Cylinder.076
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 190
@@ -61359,7 +61359,7 @@ OBJECT poly
 name "FlapR1"
 data 12
 Cylinder.074
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 159
@@ -62451,7 +62451,7 @@ OBJECT poly
 name "FlapR2"
 data 12
 Cylinder.077
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 190
@@ -63709,7 +63709,7 @@ OBJECT poly
 name "GearLDoor1"
 data 12
 Cylinder.106
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -63730,7 +63730,7 @@ OBJECT poly
 name "GearRDoor1"
 data 12
 Cylinder.109
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -63751,7 +63751,7 @@ OBJECT poly
 name "SlatsL"
 data 12
 Cylinder.071
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 94
@@ -64529,7 +64529,7 @@ OBJECT poly
 name "SlatsR"
 data 12
 Cylinder.080
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 94
@@ -65307,7 +65307,7 @@ OBJECT poly
 name "SpoilerL1"
 data 12
 Cylinder.081
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -65367,7 +65367,7 @@ OBJECT poly
 name "SpoilerL2"
 data 12
 Cylinder.083
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -65427,7 +65427,7 @@ OBJECT poly
 name "SpoilerL3"
 data 12
 Cylinder.085
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -65487,7 +65487,7 @@ OBJECT poly
 name "SpoilerL4"
 data 12
 Cylinder.087
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -65547,7 +65547,7 @@ OBJECT poly
 name "SpoilerR1"
 data 12
 Cylinder.082
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -65607,7 +65607,7 @@ OBJECT poly
 name "SpoilerR2"
 data 12
 Cylinder.084
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -65667,7 +65667,7 @@ OBJECT poly
 name "SpoilerR3"
 data 12
 Cylinder.086
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -65727,7 +65727,7 @@ OBJECT poly
 name "SpoilerR4"
 data 12
 Cylinder.088
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -65787,7 +65787,7 @@ OBJECT poly
 name "WingChrome"
 data 12
 Cylinder.119
-texture "CRJ900-Blank.tga"
+texture "CRJ900-Blank.png"
 texrep 1 1
 crease 30.000000
 numvert 46

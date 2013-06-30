@@ -8,7 +8,7 @@ kids 22
 OBJECT poly
 name "LGAxle"
 loc 0.0000000 0.0000000 2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 32
 0.0182659 0.0182659 -0.1629262
@@ -160,7 +160,7 @@ kids 0
 OBJECT poly
 name "LGLowerFrontScissor"
 loc 0.0000000 0.0000000 2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 231
 -0.1700024 -0.0000003 0.0691305
@@ -2185,7 +2185,7 @@ kids 0
 OBJECT poly
 name "LGLowerRearScissor"
 loc 0.0000000 0.0000000 2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 48
 0.1470816 0.0012469 0.0259410
@@ -2563,7 +2563,7 @@ kids 0
 OBJECT poly
 name "LGLowerRetract"
 loc 0.0000000 0.0000000 2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 96
 -0.0767812 0.7185540 -0.0474650
@@ -3460,7 +3460,7 @@ kids 0
 OBJECT poly
 name "LGLowerStrut"
 loc 0.0000000 0.0000000 2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 197
 -0.1069358 0.0335337 0.0589360
@@ -5013,7 +5013,7 @@ kids 0
 OBJECT poly
 name "LGTires"
 loc 0.0000000 0.0000000 2.0535655
-texture "wheel.tga"
+texture "wheel.png"
 texrep 1 1
 numvert 1060
 -0.3925735 -0.2266540 -0.2753495
@@ -12705,7 +12705,7 @@ kids 0
 OBJECT poly
 name "LGTubing"
 loc 0.0000000 0.0000000 2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 1085
 0.1066155 -0.0089752 -0.0024812
@@ -21260,7 +21260,7 @@ kids 0
 OBJECT poly
 name "LGUpperFrontScissor"
 loc 0.0000000 0.0000000 2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 133
 -0.2913512 0.1772775 -0.0113463
@@ -22539,7 +22539,7 @@ kids 0
 OBJECT poly
 name "LGUpperRearScissor"
 loc 0.0000000 0.0000000 2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 88
 0.2378776 0.1583882 0.0265441
@@ -23337,7 +23337,7 @@ kids 0
 OBJECT poly
 name "LGUpperRetract"
 loc 0.0000000 0.0000000 2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 96
 -0.1415732 0.7948652 -0.2524157
@@ -24248,7 +24248,7 @@ kids 0
 OBJECT poly
 name "LGUpperStrut"
 loc 0.0000000 0.0000000 2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 455
 0.1684255 1.1179579 -0.0431170
@@ -28093,7 +28093,7 @@ kids 0
 OBJECT poly
 name "RGAxle"
 loc 0.0000000 0.0000000 -2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 32
 0.0182659 0.0182659 0.1629262
@@ -28245,7 +28245,7 @@ kids 0
 OBJECT poly
 name "RGLowerFrontScissor"
 loc 0.0000000 0.0000000 -2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 231
 -0.1700024 -0.0000003 -0.0691305
@@ -30270,7 +30270,7 @@ kids 0
 OBJECT poly
 name "RGLowerRearScissor"
 loc 0.0000000 0.0000000 -2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 48
 0.1470816 0.0012469 -0.0259410
@@ -30648,7 +30648,7 @@ kids 0
 OBJECT poly
 name "RGLowerRetract"
 loc 0.0000000 0.0000000 -2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 96
 -0.0767812 0.7185540 0.0474650
@@ -31545,7 +31545,7 @@ kids 0
 OBJECT poly
 name "RGLowerStrut"
 loc 0.0000000 0.0000000 -2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 197
 -0.1069357 0.0335337 -0.0589360
@@ -33098,7 +33098,7 @@ kids 0
 OBJECT poly
 name "RGTires"
 loc 0.0000000 0.0000000 -2.0535655
-texture "wheel.tga"
+texture "wheel.png"
 texrep 1 1
 numvert 1060
 0.3925735 0.2266541 0.2753495
@@ -40790,7 +40790,7 @@ kids 0
 OBJECT poly
 name "RGTubing"
 loc 0.0000000 0.0000000 -2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 1085
 0.1066155 -0.0089752 0.0024812
@@ -49345,7 +49345,7 @@ kids 0
 OBJECT poly
 name "RGUpperFrontScissor"
 loc 0.0000000 0.0000000 -2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 133
 -0.2913512 0.1772775 0.0113463
@@ -50624,7 +50624,7 @@ kids 0
 OBJECT poly
 name "RGUpperRearScissor"
 loc 0.0000000 0.0000000 -2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 88
 0.2378776 0.1583882 -0.0265441
@@ -51422,7 +51422,7 @@ kids 0
 OBJECT poly
 name "RGUpperRetract"
 loc 0.0000000 0.0000000 -2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 96
 -0.1415732 0.7948652 0.2524157
@@ -52333,7 +52333,7 @@ kids 0
 OBJECT poly
 name "RGUpperStrut"
 loc 0.0000000 0.0000000 -2.0535655
-texture "maingear.tga"
+texture "maingear.png"
 texrep 1 1
 numvert 455
 0.1684255 1.1179578 0.0431170

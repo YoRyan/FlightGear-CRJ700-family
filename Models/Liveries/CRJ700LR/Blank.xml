@@ -6,7 +6,7 @@
 		<model>
 			<livery>
 				<name>Blank</name>
-				<texture>CRJ700-Blank.tga</texture>
+				<texture>CRJ700-Blank.png</texture>
 				<registration>G-FGFS</registration>
 			</livery>
 		</model>

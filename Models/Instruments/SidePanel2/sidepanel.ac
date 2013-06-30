@@ -9,7 +9,7 @@ OBJECT poly
 name "DisplayLts"
 data 12
 Cylinder.001
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 45
@@ -346,7 +346,7 @@ OBJECT poly
 name "FloodLts"
 data 12
 Cylinder.006
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 45
@@ -947,7 +947,7 @@ OBJECT poly
 name "Panel"
 data 9
 Plane.006
-texture "background.tga"
+texture "background.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -1000,7 +1000,7 @@ OBJECT poly
 name "PanelLts"
 data 12
 Cylinder.005
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 45
@@ -1758,7 +1758,7 @@ OBJECT poly
 name "Wiper"
 data 8
 Cube.004
-texture "flightdeck2.tga"
+texture "flightdeck2.png"
 texrep 1 1
 crease 30.000000
 numvert 44

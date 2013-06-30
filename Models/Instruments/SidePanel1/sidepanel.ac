@@ -11,7 +11,7 @@ OBJECT poly
 name "RadarTerrainBtnOn"
 data 8
 Cube.002
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -32,7 +32,7 @@ OBJECT poly
 name "TrafficBtnOn"
 data 8
 Cube.001
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -53,7 +53,7 @@ OBJECT poly
 name "BarometerKnob"
 data 12
 Cylinder.023
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 37
@@ -340,7 +340,7 @@ OBJECT poly
 name "BrgBtn1"
 data 8
 Cube.050
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -425,7 +425,7 @@ OBJECT poly
 name "BrgBtn2"
 data 8
 Cube.051
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -510,7 +510,7 @@ OBJECT poly
 name "DisplayModeKnob"
 data 12
 Cylinder.013
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 45
@@ -847,7 +847,7 @@ OBJECT poly
 name "FormatKnob"
 data 8
 Cylinder
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 37
@@ -1155,7 +1155,7 @@ OBJECT poly
 name "NavSourceKnob"
 data 12
 Cylinder.018
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 37
@@ -1442,7 +1442,7 @@ OBJECT poly
 name "Panel"
 data 5
 Plane
-texture "background.tga"
+texture "background.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -1495,7 +1495,7 @@ OBJECT poly
 name "RadarTerrainBtn"
 data 8
 Cube.053
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -1580,7 +1580,7 @@ OBJECT poly
 name "RangeKnob"
 data 12
 Cylinder.017
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 37
@@ -1867,7 +1867,7 @@ OBJECT poly
 name "SelBtn"
 data 8
 Cube.054
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -1952,7 +1952,7 @@ OBJECT poly
 name "SpeedRefKnob"
 data 12
 Cylinder.015
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 45
@@ -2289,7 +2289,7 @@ OBJECT poly
 name "TCASKnob"
 data 12
 Cylinder.016
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 45
@@ -2626,7 +2626,7 @@ OBJECT poly
 name "TCASTestBtn"
 data 8
 Cube.052
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12
@@ -2711,7 +2711,7 @@ OBJECT poly
 name "TrafficBtn"
 data 8
 Cube.055
-texture "controls.tga"
+texture "controls.png"
 texrep 1 1
 crease 30.000000
 numvert 12

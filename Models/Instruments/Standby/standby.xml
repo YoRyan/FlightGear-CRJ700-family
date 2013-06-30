@@ -362,7 +362,7 @@
 				<use alias="../../lightmap-factor-prop" />
 			</lightmap-factor>
 			<texture n="3">
-				<image>Aircraft/CRJ700-family/Models/Effects/Lightmaps/standby-lightmap.tga</image>
+				<image>Aircraft/CRJ700-family/Models/Effects/Lightmaps/standby-lightmap.png</image>
 			</texture>
 		</parameters>
 		<object-name>Bezel</object-name>

@@ -135,7 +135,7 @@
 				<use alias="../../lightmap-factor-prop" />
 			</lightmap-factor>
 			<texture n="3">
-				<image>Aircraft/CRJ700-family/Models/Effects/Lightmaps/CRJ700-interior-lightmap.tga</image>
+				<image>Aircraft/CRJ700-family/Models/Effects/Lightmaps/CRJ700-interior-lightmap.png</image>
 			</texture>
 		</parameters>
 		<object-name>Cabin</object-name>
