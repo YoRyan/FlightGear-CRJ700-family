@@ -9,7 +9,6 @@
         <description>Bombardier CRJ700 series</description>
         <author>Ryan Miller (3d), Ryan Miller (FDM)</author>
         <status>early-production</status>
-        <aircraft-version>1.1.0</aircraft-version>
         <rating>
             <FDM type="int">3</FDM>
             <systems type="int">3</systems>
