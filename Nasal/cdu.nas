@@ -506,20 +506,10 @@ var RouteManager =
 	{
 		rm_input.setValue("@" ~ v);
 	},
-	_load_selector: gui.FileSelector.new(func(path)
-	{
-		rm_node.getNode("file-path", 1).setValue(path.getValue());
-		RouteManager.input("load");
-	}, "Load flight-plan", "Load"),
 	load_flightplan: func
 	{
 		RouteManager._load_selector.open();
 	},
-	_save_selector: gui.FileSelector.new(func(path)
-	{
-		rm_node.getNode("file-path", 1).setValue(path.getValue());
-		RouteManager.input("save");
-	}, "Save flight-plan", "Save"),
 	save_flightplan: func
 	{
 		RouteManager._save_selector.open();
@@ -576,3 +566,19 @@ var RouteManager =
 		RouteManager.insert(i2, id1 ~ "@" ~ alt1);
 	}
 };
+
+# create the file selectors after all other Nasal has been loaded, otherwise
+# we end up with strange nonexistent variable errors
+settimer(func()
+{
+	RouteManager._load_selector = gui.FileSelector.new(func(path)
+	{
+		rm_node.getNode("file-path", 1).setValue(path.getValue());
+		RouteManager.input("load");
+	}, "Load flight-plan", "Load");
+	RouteManager._save_selector = gui.FileSelector.new(func(path)
+	{
+		rm_node.getNode("file-path", 1).setValue(path.getValue());
+		RouteManager.input("save");
+	}, "Save flight-plan", "Save");
+}, 0);
