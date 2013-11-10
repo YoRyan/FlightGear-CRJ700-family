@@ -202,11 +202,43 @@
       </chunk>
       <chunk>
         <type>bool</type>
-        <node>sim/model/lights/beacon/state</node>
+        <node>/controls/lighting/strobe</node>
       </chunk>
       <chunk>
         <type>bool</type>
-        <node>sim/model/lights/strobe/state</node>
+        <node>/controls/lighting/beacon</node>
+      </chunk>
+      <chunk>
+        <type>bool</type>
+        <node>/controls/lighting/dome</node>
+      </chunk>
+      <chunk>
+        <type>bool</type>
+        <node>/controls/lighting/standby-compass</node>
+      </chunk>
+      <chunk>
+        <type>float</type>
+        <node>/controls/lighting/display-norm</node>
+      </chunk>
+      <chunk>
+        <type>float</type>
+        <node>/controls/lighting/panel-norm</node>
+      </chunk>
+      <chunk>
+        <type>float</type>
+        <node>/controls/lighting/panel-flood-norm</node>
+      </chunk>
+      <chunk>
+        <type>bool</type>
+        <node>/controls/anti-ice/wing-heat</node>
+      </chunk>
+      <chunk>
+        <type>bool</type>
+        <node>/controls/anti-ice/engine[0]/inlet-heat</node>
+      </chunk>
+      <chunk>
+        <type>bool</type>
+        <node>/controls/anti-ice/engine[1]/inlet-heat</node>
       </chunk>
     </output>
 
@@ -413,11 +445,43 @@
       </chunk>
       <chunk>
         <type>bool</type>
-        <node>sim/model/lights/beacon/state</node>
+        <node>/controls/lighting/strobe</node>
       </chunk>
       <chunk>
         <type>bool</type>
-        <node>sim/model/lights/strobe/state</node>
+        <node>/controls/lighting/beacon</node>
+      </chunk>
+      <chunk>
+        <type>bool</type>
+        <node>/controls/lighting/dome</node>
+      </chunk>
+      <chunk>
+        <type>bool</type>
+        <node>/controls/lighting/standby-compass</node>
+      </chunk>
+      <chunk>
+        <type>float</type>
+        <node>/controls/lighting/display-norm</node>
+      </chunk>
+      <chunk>
+        <type>float</type>
+        <node>/controls/lighting/panel-norm</node>
+      </chunk>
+      <chunk>
+        <type>float</type>
+        <node>/controls/lighting/panel-flood-norm</node>
+      </chunk>
+      <chunk>
+        <type>bool</type>
+        <node>/controls/anti-ice/wing-heat</node>
+      </chunk>
+      <chunk>
+        <type>bool</type>
+        <node>/controls/anti-ice/engine[0]/inlet-heat</node>
+      </chunk>
+      <chunk>
+        <type>bool</type>
+        <node>/controls/anti-ice/engine[1]/inlet-heat</node>
       </chunk>
     </input>
   </generic>
