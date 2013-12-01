@@ -1,6 +1,7 @@
 ## Bombardier CRJ700 series
 ##
 
+# Utility functions.
 var getprop_safe = func(node)
 {
     var value = getprop(node);
@@ -52,12 +53,26 @@ if (getprop("/sim/flight-model") == "null")
     is_slave = 1;
 }
 
+# Engines and APU.
 var apu = CRJ700.Engine.Apu(0);
 var engines = [
     CRJ700.Engine.Jet(0),
     CRJ700.Engine.Jet(1)
 ];
 
+# Wipers.
+var wipers = [
+    CRJ700.Wiper("/controls/anti-ice/wiper[0]",
+                 "/surface-positions/left-wiper-pos-norm",
+                 "/controls/anti-ice/wiper-power[0]",
+                 "/systems/electrical/outputs/wiper[0]"),
+    CRJ700.Wiper("/controls/anti-ice/wiper[1]",
+                 "/surface-positions/right-wiper-pos-norm",
+                 "/controls/anti-ice/wiper-power[1]",
+                 "/systems/electrical/outputs/wiper[1]")
+];
+
+# Update loops.
 var fast_loop = Loop(0, func
                      {
                          if (!is_slave)
@@ -75,6 +90,10 @@ var fast_loop = Loop(0, func
                          # Instruments.
                          eicas_messages_page1.update();
                          eicas_messages_page2.update();
+
+                         # Model.
+                         wipers[0].update();
+                         wipers[1].update();
                      });
 var slow_loop = Loop(3, func
                      {
@@ -92,6 +111,7 @@ var slow_loop = Loop(3, func
                          update_pass_signs();
                      });
 
+# When the sim is ready, start the update loops and create the crossfeed valve.
 var gravity_xflow = {};
 setlistener("sim/signals/fdm-initialized", func
             {
@@ -184,75 +204,6 @@ setlistener("controls/gear/gear-down", func(v)
 ## Engines at cutoff by default (not specified in -set.xml because that means they will be set to 'true' on a reset)
 setprop("controls/engines/engine[0]/cutoff", 1);
 setprop("controls/engines/engine[1]/cutoff", 1);
-
-## Wipers
-var Wiper = {
-    new: func(inP, outP, onP, pwrP)
-    {
-        var m = { parents: [Wiper] };
-        m.active = 0;
-        m.ctl_node = props.globals.getNode(inP, 1);
-        setlistener (inP, func
-        {
-            m.switch();
-        });
-        m.out_node = props.globals.getNode(outP, 1);
-        m.on_node = props.globals.getNode(onP, 1);
-        m.pwr_node = props.globals.getNode(pwrP, 1);
-        setlistener (pwrP, func
-        {
-            m.switch();
-        });
-        return m;
-    },
-    switch: func
-    {
-        var switch_val = me.ctl_node.getValue();
-        if (switch_val > 0)
-        {
-            me.on_node.setBoolValue(1);
-            if (!me.active and me.pwr_node.getValue() >= 15)
-            {
-                var wiper_time = 1 / switch_val;
-                interpolate(me.out_node, 1, wiper_time, 0, wiper_time);
-                settimer (func
-                {
-                    me.update();
-                }, wiper_time * 2);
-                me.active = 1;
-            }
-        }
-    },
-    update: func
-    {
-        var switch_val = me.ctl_node.getValue();
-        if (switch_val <= 0)
-        {
-            me.active = 0;
-            me.on_node.setBoolValue(0);
-        }
-        else
-        {
-            me.on_node.setBoolValue(1);
-            if (me.pwr_node.getValue() >= 15)
-            {
-                var wiper_time = 1 / switch_val;
-                interpolate(me.out_node, 1, wiper_time, 0, wiper_time);
-                settimer (func
-                {
-                    me.update();
-                }, wiper_time * 2);
-                me.active = 1;
-            }
-            else
-            {
-                me.active = 0;
-            }
-        }
-    }
-};
-var left_wiper = Wiper.new("controls/anti-ice/wiper[0]", "surface-positions/left-wiper-pos-norm", "controls/anti-ice/wiper-power[0]", "systems/electrical/outputs/wiper[0]");
-var right_wiper = Wiper.new("controls/anti-ice/wiper[1]", "surface-positions/right-wiper-pos-norm", "controls/anti-ice/wiper-power[1]", "systems/electrical/outputs/wiper[1]");
 
 ## RAT
 var Rat = {

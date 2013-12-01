@@ -778,6 +778,7 @@
         </interactive_cdu>
         <CRJ700>
             <file>Aircraft/CRJ700-family/Nasal/engine.nas</file>
+            <file>Aircraft/CRJ700-family/Nasal/wiper.nas</file>
             <file>Aircraft/CRJ700-family/Nasal/doors.nas</file>
             <file>Aircraft/CRJ700-family/Nasal/effects.nas</file>
             <file>Aircraft/CRJ700-family/Nasal/electrical.nas</file>
