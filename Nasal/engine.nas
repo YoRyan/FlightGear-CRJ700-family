@@ -365,6 +365,12 @@ Engine.Jet = func(n)
                 jet.running = 1;
             }
         }
+        else
+        {
+            jet.running = 0;
+            jet.n1 = math.max(jet.n1 - 8 * time_delta, 0);
+            jet.fdm_throttle = 0;
+        }
 
         write_props();
     };
