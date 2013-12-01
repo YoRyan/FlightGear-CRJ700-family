@@ -28,7 +28,6 @@ var Wiper = func(control, position, power_signal, power_avail)
     wiper.power_avail = 0.0;
     wiper.power_avail_node = aircraft.makeNode(power_avail);
 
-    var active = 0;
     var going_down = 1;
     var position = 0.0;
 
