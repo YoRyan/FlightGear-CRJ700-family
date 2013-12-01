@@ -1,72 +1,107 @@
 ## Bombardier CRJ700 series
-## Aircraft systems
-###########################
+##
 
-## Main systems update loop
-var Systems = {
-    fast_loopid: -1,
-    slow_loopid: -1,
-    init: func
+var getprop_safe = func(node)
+{
+    var value = getprop(node);
+    if (typeof(value) == "nil")
     {
-        print("CRJ700 aircraft systems ... initialized");
-        Systems.start();
-        # create crossfeed valve
-        var gravity_xflow = aircraft.crossfeed_valve.new(0.5, "controls/fuel/gravity-xflow", 0, 1);
-        gravity_xflow.open();
-    },
-    start: func
+        return 0;
+    }
+    else
     {
-        Systems.fast_update(Systems.fast_loopid += 1);
-        Systems.slow_update(Systems.slow_loopid += 1);
-    },
-    stop: func
-    {
-        Systems.fast_loopid += 1;
-        Systems.slow_loopid += 1;
-    },
-    reinit: func
-    {
-        print("CRJ700 aircraft systems ... reinitialized");
-        setprop("sim/model/start-idling", 0);
-        Systems.stop();
-        Systems.start();
-    },
-    fast_update: func(loopid)
-    {
-        if (loopid != Systems.fast_loopid) return;
-        engine1.update();
-        engine2.update();
-        apu1.update();
-        update_electrical();
-        eicas_messages_page1.update();
-        eicas_messages_page2.update();
-        if (!props.globals.getNode("sim/crashed").getBoolValue())
-        {
-            settimer(func
-            {
-                Systems.fast_update(loopid);
-            }, 0);
-        }
-    },
-    slow_update: func(loopid)
-    {
-        if (loopid != Systems.slow_loopid) return;
-        update_tat();
-        rat1.update();
-        update_copilot_ints();
-        update_pass_signs();
-        update_lightmaps();
-        if (!props.globals.getNode("sim/crashed").getBoolValue())
-        {
-            settimer(func
-            {
-                Systems.slow_update(loopid);
-            }, 3);
-        }
+        return value;
     }
 };
-setlistener("sim/signals/fdm-initialized", func settimer(Systems.init, 2), 0, 0);
-setlistener("sim/signals/reinit", func(v) if (v.getBoolValue()) Systems.reinit(), 0, 0);
+
+var Loop = func(interval, update)
+{
+    var loop = {};
+    var timerId = -1;
+    loop.interval = interval;
+    loop.update = update;
+    loop.loop = func(thisTimerId)
+    {
+        if (thisTimerId == timerId)
+        {
+            loop.update();
+        }
+        settimer(func
+                 {
+                     loop.loop(thisTimerId);
+                 }, loop.interval);
+    };
+    loop.start = func
+    {
+        timerId += 1;
+        settimer(func
+                 {
+                     loop.loop(timerId);
+                 }, 0);
+    };
+    loop.stop = func
+    {
+        timerId += 1;
+    };
+    return loop;
+};
+
+var is_slave = 0;
+if (getprop("/sim/flight-model") == "null")
+{
+    is_slave = 1;
+}
+
+var apu = CRJ700.Engine.Apu(0);
+var engines = [
+    CRJ700.Engine.Jet(0),
+    CRJ700.Engine.Jet(1)
+];
+
+var fast_loop = Loop(0, func
+                     {
+                         if (!is_slave)
+                         {
+                             # Engines and APU.
+                             CRJ700.Engine.poll_fuel_tanks();
+                             CRJ700.Engine.poll_bleed_air();
+                             apu.update();
+                             engines[0].update();
+                             engines[1].update();
+                         }
+                         # Electrical.
+                         update_electrical();
+
+                         # Instruments.
+                         eicas_messages_page1.update();
+                         eicas_messages_page2.update();
+                     });
+var slow_loop = Loop(3, func
+                     {
+                         # Electrical.
+                         rat1.update();
+
+                         # Instruments.
+                         update_tat;
+
+                         # Multiplayer.
+                         update_copilot_ints();
+
+                         # Model.
+                         update_lightmaps();
+                         update_pass_signs();
+                     });
+
+var gravity_xflow = {};
+setlistener("sim/signals/fdm-initialized", func
+            {
+                print("CRJ700 aircraft systems ... initialized");
+                gravity_xflow = aircraft.crossfeed_valve.new(0.5,
+                                                             "controls/fuel/gravity-xflow",
+                                                             0, 1);
+                fast_loop.start();
+                slow_loop.start();
+            }, 0, 0);
 
 ## Startup/shutdown functions
 var startid = 0;
@@ -83,8 +118,8 @@ var startup = func
     {
         if (id == startid)
         {
-            engine1.start();
-            engine2.start();
+            setprop("/controls/engines/engine[0]/starter", 1);
+            setprop("/controls/engines/engine[1]/starter", 1);
             setprop("controls/electric/engine[0]/generator", 1);
             setprop("controls/electric/engine[1]/generator", 1);
             settimer(func
@@ -124,10 +159,10 @@ var instastart = func
     setprop("controls/electric/engine[0]/generator", 1);
     setprop("controls/electric/engine[1]/generator", 1);
     setprop("controls/engines/engine[0]/cutoff", 0);
-    engine1.start();
+    setprop("/controls/engines/engine[0]/starter", 1);
     setprop("engines/engine[0]/rpm", 25);
     setprop("controls/engines/engine[1]/cutoff", 0);
-    engine2.start();
+    setprop("/controls/engines/engine[1]/starter", 1);
     setprop("engines/engine[1]/rpm", 25);
 };
 
