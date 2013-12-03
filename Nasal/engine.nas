@@ -323,7 +323,6 @@ Engine.Jet = func(n)
     {
         read_props();
 
-        #me.starter.setBoolValue(me.starting);
         if (jet.on_fire)
         {
             jet.serviceable = 0;
