@@ -10,6 +10,7 @@ var Engine = {};
 # Default fuel density (for YASim jets this is 6.72 lb/gal).
 Engine.FUEL_DENSITY = 6.72;
 
+# Returns fuel density.
 Engine.fuel_density = func
 {
     var total_gal = getprop_safe("/consumables/fuel/total-fuel-gal_us");
@@ -23,7 +24,9 @@ Engine.fuel_density = func
         return Engine.FUEL_DENSITY;
     }
 };
+# Array of valid (level > 0)  fuel tank nodes.
 Engine.valid_fuel_tanks = [];
+# Updates the array.
 Engine.poll_fuel_tanks = func
 {
     var valid_tanks = [];
@@ -41,7 +44,9 @@ Engine.poll_fuel_tanks = func
         }
     }
 };
+# True if bleed air is available for engine startup.
 Engine.bleed_air = 0;
+# Updates the bleed air variable.
 Engine.poll_bleed_air = func
 {
     var source = getprop("/controls/pneumatic/bleed-source");
@@ -100,6 +105,10 @@ Engine.poll_bleed_air = func
     }
 };
 
+# APU object
+#
+#   n - index of APU: /engines/apu[n]
+#
 Engine.Apu = func(n)
 {
     var apu = {};
@@ -209,6 +218,10 @@ Engine.Apu = func(n)
     return apu;
 };
 
+# Jet object
+#
+#   n - index of jet: /engines/engine[n]
+#
 Engine.Jet = func(n)
 {
     var jet = {};
