@@ -4,7 +4,7 @@
 ## Wiper module simulation
 ##
 
-# Wiper object
+# Wiper class
 #
 #  control - pilot's wiper control
 #     0: off/park

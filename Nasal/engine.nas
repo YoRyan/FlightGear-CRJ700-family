@@ -105,7 +105,7 @@ Engine.poll_bleed_air = func
     }
 };
 
-# APU object
+# APU class
 #
 #   n - index of APU: /engines/apu[n]
 #
@@ -218,7 +218,7 @@ Engine.Apu = func(n)
     return apu;
 };
 
-# Jet object
+# Jet class
 #
 #   n - index of jet: /engines/engine[n]
 #
