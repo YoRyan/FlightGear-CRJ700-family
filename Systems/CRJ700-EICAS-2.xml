@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Bombardier CRJ700 series -->
+<!-- Engine Instrumentation and Crew Alert System messages -->
+<!-- Page 2 -->
+
+<!-- Source: http://www.flycrj.com/downloads/eicasmessagesdodl/CRJ200-EICAS-Message-List.pdf -->
+
+<PropertyList>
+
+	<colors>
+		<amber>
+			<red>1</red>
+			<green>0.682</green>
+			<blue>0</blue>
+		</amber>
+		<green>
+			<red>0.133</red>
+			<green>0.663</green>
+			<blue>0.145</blue>
+		</green>
+		<red>
+			<red>1</red>
+			<green>0</green>
+			<blue>0</blue>
+		</red>
+		<white>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+		</white>
+	</colors>
+
+	<!-- Advisories -->
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Flt splr deploy</text>
+		<color>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</color>
+		<condition>
+			<and>
+				<or>
+					<greater-than>
+						<property>surface-positions/left-speedbrake-pos-norm</property>
+						<value>0.125</value> <!-- 5 degrees -->
+					</greater-than>
+					<greater-than>
+						<property>surface-positions/right-speedbrake-pos-norm</property>
+						<value>0.125</value> <!-- 5 degrees -->
+					</greater-than>
+					<greater-than>
+						<property>surface-positions/spoiler-ground-pos-norm</property>
+						<value>0.1</value> <!-- 4 degrees -->
+					</greater-than>
+				</or>
+				<greater-than>
+					<property>instrumentation/radar-altimeter[0]/radar-altitude-ft</property>
+					<value>300</value>
+				</greater-than>
+				<or>
+					<greater-than-equals>
+						<property>engines/engine[0]/rpm</property>
+						<value>79</value>
+					</greater-than-equals>
+					<greater-than-equals>
+						<property>engines/engine[1]/rpm</property>
+						<value>79</value>
+					</greater-than-equals>
+				</or>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">GLD man arm</text>
+		<color>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</color>
+		<condition>
+			<equals>
+				<property>controls/flight/ground-lift-dump</property>
+				<value>2</value>
+			</equals>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Gnd splr deploy</text>
+		<color>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</color>
+		<condition>
+			<and>
+				<or>
+					<not>
+						<property>gear/gear[1]/wow</property>
+					</not>
+					<not>
+						<property>gear/gear[2]/wow</property>
+					</not>
+				</or>
+				<greater-than>
+					<property>surface-positions/spoiler-ground-pos-norm</property>
+					<value>0</value>
+				</greater-than>
+				<less-than>
+					<property>instrumentation/radar-altimeter[0]/radar-altitude-ft</property>
+					<value>10</value>
+				</less-than>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Grav Xflow open</text>
+		<color>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</color>
+		<condition>
+			<property>controls/fuel/gravity-xflow</property>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Ice</text>
+		<color>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</color>
+		<condition>
+			<or>
+				<property>controls/anti-ice/wing-heat</property>
+				<property>controls/anti-ice/engine[0]/inlet-heat</property>
+				<property>controls/anti-ice/engine[1]/inlet-heat</property>
+			</or>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Ignition A</text>
+		<color>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</color>
+		<condition>
+			<property>controls/engines/engine[0]/starter</property>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Ignition B</text>
+		<color>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</color>
+		<condition>
+			<property>controls/engines/engine[1]/starter</property>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">L cowl anti ice on</text>
+		<color>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</color>
+		<condition>
+			<property>controls/anti-ice/engine[0]/inlet-heat</property>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">R cowl anti ice on</text>
+		<color>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</color>
+		<condition>
+			<property>controls/anti-ice/engine[1]/inlet-heat</property>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">L fuel pump on</text>
+		<color>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</color>
+		<condition>
+			<property>consumables/fuel/tank[0]/selected</property>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">R fuel pump on</text>
+		<color>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</color>
+		<condition>
+			<property>consumables/fuel/tank[1]/selected</property>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">L rev armed</text>
+		<color>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</color>
+		<condition>
+			<property>controls/engines/engine[0]/reverser-armed</property>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">R rev armed</text>
+		<color>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</color>
+		<condition>
+			<property>controls/engines/engine[1]/reverser-armed</property>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Parking brake on</text>
+		<color>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</color>
+		<condition>
+			<and>
+				<property>controls/gear/brake-parking</property>
+				<property>gear/gear[1]/wow</property>
+				<property>gear/gear[2]/wow</property>
+				<less-than>
+					<property>engines/engine[0]/rpm</property>
+					<value>70</value>
+				</less-than>
+				<less-than>
+					<property>engines/engine[1]/rpm</property>
+					<value>70</value>
+				</less-than>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Wing anti ice on</text>
+		<color>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</color>
+		<condition>
+			<property>controls/anti-ice/wing-heat</property>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Cowl anti ice on</text>
+		<color>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</color>
+		<condition>
+			<or>
+				<property>controls/anti-ice/engine[0]/inlet-heat</property>
+				<property>controls/anti-ice/engine[1]/inlet-heat</property>
+			</or>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">0</priority>
+		<text type="string">Wing a/ice ok</text>
+		<color>
+			<red alias="../../../colors/green/red" />
+			<green alias="../../../colors/green/green" />
+			<blue alias="../../../colors/green/blue" />
+		</color>
+		<condition>
+			<property>controls/anti-ice/wing-heat</property>
+		</condition>
+	</message>
+
+	<!-- Statuses -->
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">APU start</text>
+		<color>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</color>
+		<condition>
+			<and>
+				<property>controls/APU/off-on</property>
+				<greater-than>
+					<property>engines/apu/rpm</property>
+					<value>0</value>
+				</greater-than>
+				<less-than>
+					<property>engines/apu/rpm</property>
+					<value>99</value>
+				</less-than>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">L MLG fault</text>
+		<color>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</color>
+		<condition>
+			<not>
+				<property>gear/serviceable</property>
+			</not>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">R MLG fault</text>
+		<color>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</color>
+		<condition>
+			<not>
+				<property>gear/serviceable</property>
+			</not>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">Cont ignition</text>
+		<color>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</color>
+		<condition>
+			<and>
+				<property>controls/engines/engine[0]/starter</property>
+				<property>controls/engines/engine[1]/starter</property>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">FD 1 fail</text>
+		<color>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</color>
+		<condition>
+			<not>
+				<property>autopilot/flight-director-serviceable</property>
+			</not>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">FD 2 fail</text>
+		<color>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</color>
+		<condition>
+			<not>
+				<property>autopilot/flight-director-serviceable</property>
+			</not>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">GLD man disarm</text>
+		<color>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</color>
+		<condition>
+			<equals>
+				<property>controls/flight/ground-lift-dump</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">GPWS fail</text>
+		<color>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</color>
+		<condition>
+			<not>
+				<property>instrumentation/mk-viii/serviceable</property>
+			</not>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">L eng start</text>
+		<color>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</color>
+		<condition>
+			<and>
+				<property>controls/engines/engine[0]/starter</property>
+				<greater-than>
+					<property>engines/engine[0]/rpm</property>
+					<value>0</value>
+				</greater-than>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">R eng start</text>
+		<color>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</color>
+		<condition>
+			<and>
+				<property>controls/engines/engine[1]/starter</property>
+				<greater-than>
+					<property>engines/engine[1]/rpm</property>
+					<value>0</value>
+				</greater-than>
+			</and>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">No smoking</text>
+		<color>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</color>
+		<condition>
+			<property>sim/model/lights/no-smoking-sign</property>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">Ram air open</text>
+		<color>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</color>
+		<condition>
+			<property>controls/pneumatic/ram-air-turbine</property>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">Seat belts</text>
+		<color>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</color>
+		<condition>
+			<property>sim/model/lights/seatbelt-sign</property>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">Terrain not avail</text>
+		<color>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</color>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">YD 1 inop</text>
+		<color>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</color>
+		<condition>
+			<not>
+				<property>autopilot/yaw-damper-serviceable</property>
+			</not>
+		</condition>
+	</message>
+	<message>
+		<priority type="int">1</priority>
+		<text type="string">YD 2 inop</text>
+		<color>
+			<red alias="../../../colors/white/red" />
+			<green alias="../../../colors/white/green" />
+			<blue alias="../../../colors/white/blue" />
+		</color>
+		<condition>
+			<not>
+				<property>autopilot/yaw-damper-serviceable</property>
+			</not>
+		</condition>
+	</message>
+
+</PropertyList>

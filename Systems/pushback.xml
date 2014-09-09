@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Advanced YASim Pushback -->
+<!-- By Ryan M -->
+
+<PropertyList>
+
+	<logic>
+		<name>Pushback engage logic</name>
+		<input>
+			<and>
+				<greater-than>
+					<property>sim/model/pushback/position-norm</property>
+					<value>0.95</value>
+				</greater-than>
+				<less-than>
+					<property>gear/gear[0]/rollspeed-ms</property>
+					<value>15.24</value>
+				</less-than>
+				<property>gear/gear[0]/wow</property>
+			</and>
+		</input>
+		<output>sim/model/pushback/linked</output>
+	</logic>
+	<filter>
+		<name>Pushback cancel force logic</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<debug type="bool">false</debug>
+		<enable>
+			<condition>
+				<not>
+					<property>sim/model/pushback/linked</property>
+				</not>
+			</condition>
+		</enable>
+		<input>
+			<value>0</value>
+		</input>
+		<output>sim/model/pushback/force</output>
+	</filter>
+	<pid-controller>
+		<name>Pushback controller</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<condition>
+				<property>sim/model/pushback/linked</property>
+			</condition>
+		</enable>
+		<input>
+			<property>sim/model/pushback/target-speed-fps</property>
+		</input>
+		<reference>
+			<property>gear/gear[0]/rollspeed-ms</property>
+			<scale>3.28084</scale>
+		</reference>
+		<output>
+			<property>sim/model/pushback/force</property>
+		</output>
+		<config>
+			<Kp>
+				<property>sim/model/pushback/kp</property>
+				<scale>-1</scale>
+			</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>
+				<property>sim/model/pushback/ti</property>
+			</Ti>
+			<Td>
+				<property>sim/model/pushback/td</property>
+			</Td>
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config>
+	</pid-controller>
+
+</PropertyList>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Bombardier CRJ700 series -->
+<!-- Upper panel -->
+
+<PropertyList>
+
+	<path>uppanel.ac</path>
+
+	<panel-marking-emit>
+		<red>1</red>
+		<green>0.871</green>
+		<blue>0.427</blue>
+	</panel-marking-emit>
+	<switch-rotate-deg type="float">35</switch-rotate-deg>
+	<switch-rotate-neg-deg type="float">-35</switch-rotate-neg-deg>
+
+	<!-- Visible only within 1/2 km -->
+	<animation>
+		<type>range</type>
+		<min-m>0</min-m>
+		<max-m>500</max-m>
+	</animation>
+
+	<model>
+		<name>Compass</name>
+		<path>Aircraft/CRJ700-family/Models/Instruments/Compass/compass.xml</path>
+		<offsets>
+			<x-m>0.003</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.075</z-m>
+		</offsets>
+	</model>
+
+	<animation>
+		<type>material</type>
+		<object-name>Markings</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/outputs/panel-lights</property>
+				<value>15</value>
+			</greater-than-equals>
+		</condition>
+		<emission>
+			<red alias="../../../panel-marking-emit/red" />
+			<green alias="../../../panel-marking-emit/green" />
+			<blue alias="../../../panel-marking-emit/blue" />
+			<factor-prop>controls/lighting/panel-overhead-norm</factor-prop>
+		</emission>
+	</animation>
+
+	<!-- Landing lights -->
+	<animation>
+		<type>pick</type>
+		<object-name>LandingLtLSwitch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/landing-lights[0]</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>LandingLtLSwitch</object-name>
+		<property>controls/lighting/landing-lights[0]</property>
+		<factor alias="../../switch-rotate-deg" />
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0.001</x-m>
+			<y-m>0</y-m>
+			<z-m>0.000</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>LandingLtNSwitch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/landing-lights[1]</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>LandingLtNSwitch</object-name>
+		<property>controls/lighting/landing-lights[1]</property>
+		<factor alias="../../switch-rotate-deg" />
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0.001</x-m>
+			<y-m>0</y-m>
+			<z-m>0.000</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>LandingLtRSwitch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/landing-lights[2]</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>LandingLtRSwitch</object-name>
+		<property>controls/lighting/landing-lights[2]</property>
+		<factor alias="../../switch-rotate-deg" />
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0.001</x-m>
+			<y-m>0</y-m>
+			<z-m>0.000</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>TaxiLightSwitch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/taxi-lights</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>TaxiLightSwitch</object-name>
+		<property>controls/lighting/taxi-lights</property>
+		<factor alias="../../switch-rotate-deg" />
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0.001</x-m>
+			<y-m>0</y-m>
+			<z-m>0.000</z-m>
+		</center>
+	</animation>
+
+	<!-- Passenger signs -->
+	<animation>
+		<type>pick</type>
+		<object-name>NoSmokingSwitch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/switches/no-smoking-sign</property>
+				<step>1</step>
+				<max>2</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/switches/no-smoking-sign</property>
+				<step>-1</step>
+				<min>0</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>NoSmokingSwitch</object-name>
+		<property>controls/switches/no-smoking-sign</property>
+		<interpolation>
+			<entry><ind>0</ind><dep alias="../../../../switch-rotate-deg" /></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+			<entry><ind>2</ind><dep alias="../../../../switch-rotate-neg-deg" /></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0.001</x-m>
+			<y-m>0</y-m>
+			<z-m>0.000</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>SeatbeltSwitch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/switches/seatbelt-sign</property>
+				<step>1</step>
+				<max>2</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/switches/seatbelt-sign</property>
+				<step>-1</step>
+				<min>0</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>SeatbeltSwitch</object-name>
+		<property>controls/switches/seatbelt-sign</property>
+		<interpolation>
+			<entry><ind>0</ind><dep alias="../../../../switch-rotate-deg" /></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+			<entry><ind>2</ind><dep alias="../../../../switch-rotate-neg-deg" /></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0.001</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.000</z-m>
+		</center>
+	</animation>
+	
+	<!-- Rembrandt !! -->
+	<effect>
+		<name>REMBRANDT transparency</name>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>Markings</object-name>
+	</effect>
+
+</PropertyList>

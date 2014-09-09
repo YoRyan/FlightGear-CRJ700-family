@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Bombardier CRJ700 series -->
+<!-- Aircraft property settings specific to the CRJ900LR -->
+
+<PropertyList include="CRJ700-main.xml">
+
+	<sim>
+		<description>Bombardier CRJ900LR</description>
+		<author>Ryan Miller (3d), Ryan Miller (FDM)</author>
+		<status>early-production</status>
+		<aircraft-version>1.1.0</aircraft-version>
+		<rating>
+			<FDM type="int">3</FDM>
+			<systems type="int">3</systems>
+			<cockpit type="int">4</cockpit>
+			<model type="int">4</model>
+		</rating>
+		<flight-model>yasim</flight-model>
+		<aero>CRJ900LR</aero>
+
+		<model>
+			<path>Aircraft/CRJ700-family/Models/CRJ900.xml</path>
+			<variant type="int">2</variant>
+			<door>
+				<position-x-m type="float">-13.459</position-x-m>
+				<position-y-m type="float">-1.139</position-y-m>
+				<position-z-m type="float">-1.796</position-z-m>
+				<jetway-hood-deg type="float">3</jetway-hood-deg>
+			</door>
+		</model>
+
+        <dimensions>
+            <radius-m type="float">36.4</radius-m>
+        </dimensions>
+
+        <view n="0">
+            <name>Captain View</name>
+            <internal type="bool" archive="y">true</internal>
+            <config>
+                <x-offset-m archive="y">-0.528</x-offset-m>
+                <y-offset-m archive="y">-0.468</y-offset-m>
+                <z-offset-m archive="y">-15.045</z-offset-m>
+            </config>
+        </view>
+        <view n="100">
+            <name>Cabin View</name>
+            <type>lookfrom</type>
+            <internal type="bool" archive="y">true</internal>
+            <config>
+                <from-model type="bool">true</from-model>
+                <x-offset-m archive="y">0</x-offset-m>
+                <y-offset-m archive="y">-0.468</y-offset-m>
+                <z-offset-m archive="y">0</z-offset-m>
+            </config>
+        </view>
+        <view n="101">
+            <name>First Officer View</name>
+            <type>lookfrom</type>
+            <internal type="bool" archive="y">true</internal>
+            <config>
+                <from-model type="bool">true</from-model>
+                <x-offset-m archive="y">0.528</x-offset-m>
+                <y-offset-m archive="y">-0.468</y-offset-m>
+                <z-offset-m archive="y">-15.045</z-offset-m>
+            </config>
+        </view>
+
+        <weight n="1">
+            <weight-lb>14000</weight-lb>
+            <max-lb>23350</max-lb>
+            <min-lb>0</min-lb>
+        </weight>
+
+        <menubar>
+            <default>
+                <menu n="100">
+                    <label>Bombardier CRJ900LR</label>
+                </menu>
+            </default>
+        </menubar>
+    </sim>
+
+</PropertyList>

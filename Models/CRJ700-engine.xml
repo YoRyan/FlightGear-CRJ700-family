@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<path>CRJ700-engine.ac</path>
+
+	<offsets>
+		<pitch-deg>2.5</pitch-deg>
+	</offsets>
+
+	<params>
+		<n1>engines/engine[0]/n1</n1>
+		<on-fire>engines/engine[0]/on-fire</on-fire>
+		<reverser-pos-norm>engines/engine[0]/reverser-pos-norm</reverser-pos-norm>
+	</params>
+
+	<model>
+		<path>Aircraft/CRJ700-family/Models/Effects/enginefire.xml</path>
+		<condition>
+			<property alias="../../../params/on-fire" />
+		</condition>
+	</model>
+	<model>
+		<path>Aircraft/CRJ700-family/Models/Effects/contrail.xml</path>
+		<overlay>
+			<params>
+				<n1 alias="../../../../params/n1" />
+			</params>
+		</overlay>
+		<offsets>
+			<x-m>2.23</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</offsets>
+	</model>
+
+	<animation>
+		<name>Fan</name>
+		<type>spin</type>
+		<object-name>Cone</object-name>
+		<object-name>Blades</object-name>
+		<property alias="../../params/n1" />
+		<factor>67</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Reverse thrust</name>
+		<type>translate</type>
+		<object-name>Reverser</object-name>
+		<object-name>ReverserRear</object-name>
+		<property alias="../../params/reverser-pos-norm" />
+		<factor>0.2</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Livery select</name>
+		<type>material</type>
+		<object-name>Nacelle</object-name>
+		<object-name>Reverser</object-name>
+		<property-base>sim/model/livery</property-base>
+		<texture-prop>texture</texture-prop>
+		<texture>CRJ700-Blank.png</texture>
+	</animation>
+
+	<!-- Reflection shaders -->
+	<effect>
+		<name>Aircraft reflect</name>
+		<inherits-from>Aircraft/CRJ700-family/Models/Effects/CRJ700reflect</inherits-from>
+		<object-name>Nacelle</object-name>
+		<object-name>Reverser</object-name>
+	</effect>
+	<effect>
+		<name>Aircraft dirty reflect</name>
+		<inherits-from>Aircraft/CRJ700-family/Models/Effects/CRJ700dirtyreflect</inherits-from>
+		<object-name>Intake</object-name>
+	</effect>
+
+</PropertyList>

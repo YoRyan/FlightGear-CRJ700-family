@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Bombardier CRJ700 series -->
+<!-- Aircraft property settings common to the first officer -->
+
+<PropertyList>
+
+	<sim>
+		<author>Ryan Miller (3d), Ryan Miller (FDM)</author>
+		<status>early-production</status>
+		<aircraft-version>1.1.0</aircraft-version>
+		<flight-model>null</flight-model>
+
+		<model>
+			<path>Aircraft/CRJ700-family/Models/CRJ700-firstofficer.xml</path>
+			<yokes type="bool">true</yokes>
+		</model>
+
+		<panel>
+			<!-- Note: Requires 737-300 for instruments -->
+			<path>Aircraft/CRJ700-family/Panels/CRJ700-panel.xml</path>
+			<visibility type="bool">false</visibility>
+		</panel>
+
+		<instrumentation>
+			<path></path>
+		</instrumentation>
+
+		<systems>
+			<!-- Disable the generic electrical system -->
+			<electrical>
+				<path></path>
+			</electrical>
+			<autopilot>
+				<name>Flight control system (copilot)</name>
+				<path>Aircraft/CRJ700-family/Systems/CRJ700-copilot-flight-controls.xml</path>
+			</autopilot>
+		</systems>
+
+		<view n="0">
+			<name>Captain View</name>
+			<internal type="bool" archive="y">true</internal>
+			<config>
+				<x-offset-m archive="y">-0.528</x-offset-m>
+				<y-offset-m archive="y">-0.468</y-offset-m>
+				<z-offset-m archive="y">-13.105</z-offset-m>
+			</config>
+		</view>
+		<view n="100">
+			<name>Cabin View</name>
+			<type>lookfrom</type>
+			<internal type="bool" archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0</x-offset-m>
+				<y-offset-m archive="y">-0.468</y-offset-m>
+				<z-offset-m archive="y">0</z-offset-m>
+			</config>
+		</view>
+		<view n="101">
+			<name>First Officer View</name>
+			<type>lookfrom</type>
+			<internal type="bool" archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0.528</x-offset-m>
+				<y-offset-m archive="y">-0.468</y-offset-m>
+				<z-offset-m archive="y">-13.105</z-offset-m>
+			</config>
+		</view>
+
+		<gui>
+			<dialogs>
+				<dual-control>
+					<dialog>
+						<selected-model type="string">CRJ700</selected-model>
+					</dialog>
+				</dual-control>
+			</dialogs>
+		</gui>
+		
+		<aircraft-data>
+			<path>/sim/view[100]/enabled</path>
+			<path>/sim/view[101]/enabled</path>
+			<path>/sim/model/yokes</path>
+			<path>/controls/gear/enable-tiller</path>
+		</aircraft-data>
+
+		<allow-toggle-cockpit type="bool">true</allow-toggle-cockpit>
+		<virtual-cockpit type="bool">true</virtual-cockpit>
+		
+		<menubar>
+			<default>
+				<menu n="100">
+					<label>Bombardier CRJ700 First Officer</label>
+					<enabled type="bool">true</enabled>
+					<item>
+						<label>Tiller Steering</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+								CRJ700.dialogs.tiller.open();
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>Show/hide yokes</label>
+						<binding>
+							<command>property-toggle</command>
+							<property>sim/model/yokes</property>
+						</binding>
+					</item>
+					<item>
+						<label>Select MP Pilot</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+								CRJ700.dialogs.dual_control.open();
+							</script>
+						</binding>
+					</item>
+				</menu>
+			</default>
+		</menubar>
+
+		<multiplay>
+			<generic>
+				<!-- Flight controls -->
+				<float n="0" alias="/controls/flight/aileron" />
+				<float n="1" alias="/controls/flight/elevator" />
+				<float n="2" alias="/controls/flight/rudder" />
+				<float n="3" alias="/controls/engines/engine[0]/throttle" />
+				<float n="4" alias="/controls/engines/engine[1]/throttle" />
+				<!-- float #5 goes to tiller (see Systems/CRJ700-copilot-flight-controls.xml) -->
+				<float n="6" alias="/controls/gear/brake-left" />
+				<float n="7" alias="/controls/gear/brake-right" />
+				<!-- Radios -->
+				<float n="8" alias="/instrumentation/nav[1]/frequencies/selected-mhz" />
+				<float n="9" alias="/instrumentation/nav[1]/frequencies/standby-mhz" />
+				<float n="10" alias="/instrumentation/comm[1]/frequencies/selected-mhz" />
+				<float n="11" alias="/instrumentation/comm[1]/frequencies/standby-mhz" />
+				<int n="0" alias="/instrumentation/adf[1]/frequencies/selected-khz" />
+				<int n="1" alias="/instrumentation/adf[1]/frequencies/standby-khz" />
+				<!-- Dual control transmission properties -->
+				<int n="2" type="int">0</int>
+			</generic>
+		</multiplay>
+	</sim>
+	
+	<controls>
+		<engines>
+			<arm-reversers type="bool">false</arm-reversers>
+			<reversers type="bool">false</reversers>
+			<thrust-modes-up type="bool">false</thrust-modes-up>
+			<thrust-modes-down type="bool">false</thrust-modes-down>
+		</engines>
+		<flight>
+			<flaps-up type="bool">false</flaps-up>
+			<flaps-down type="bool">false</flaps-down>
+			<speedbrake-cycle type="bool">false</speedbrake-cycle>
+			<ground-lift-dump-up type="bool">false</ground-lift-dump-up>
+			<ground-lift-dump-down type="bool">false</ground-lift-dump-down>
+		</flight>
+		<gear>
+			<brake-parking-toggle type="bool">false</brake-parking-toggle>
+			<enable-tiller type="bool">true</enable-tiller>
+			<tiller-steer-deg type="double">0</tiller-steer-deg>
+		</gear>
+	</controls>
+
+	<input>
+		<keyboard include="Systems/CRJ700-keybindings.xml" />
+	</input>
+
+	<nasal>
+		<CRJ700>
+			<file>Aircraft/CRJ700-family/Nasal/systems-copilot.nas</file>
+			<script>
+				gui.menuEnable("autopilot", 0);
+			</script>
+		</CRJ700>
+		<controls>
+			<file>Aircraft/CRJ700-family/Nasal/controls.nas</file>
+		</controls>
+		<walk>
+			<file>Aircraft/CRJ700-family/Nasal/walk.nas</file>
+		</walk>
+		<!-- Dual control -->
+		<dual_control_tools>
+			<file>Aircraft/Generic/DualControl/dual-control-tools.nas</file>
+		</dual_control_tools>
+		<aircraft_dual_control>
+			<file>Aircraft/CRJ700-family/Nasal/CRJ700-dual-control.nas</file>
+		</aircraft_dual_control>
+		<dual_control>
+			<file>Aircraft/Generic/DualControl/copilot-dual-control.nas</file>
+		</dual_control>
+	</nasal>
+
+</PropertyList>

@@ -1,0 +1,2370 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Bombardier CRJ700 series -->
+<!-- Interactive control display unit definition file -->
+<!-- For use with Ryan's cdu.nas ONLY -->
+
+<PropertyList>
+
+	<rows type="int">13</rows> <!-- 6 data rows, 6 label rows, and 1 message row -->
+	<cols type="int">2</cols>
+	<default-font>
+		<family type="string">Helvetica.txf</family>
+		<red alias="../../colors/white/red" />
+		<green alias="../../colors/white/green" />
+		<blue alias="../../colors/white/blue" />
+	</default-font>
+	<default-page type="string">status-1</default-page>
+
+	<colors>
+		<amber>
+			<red>1</red>
+			<green>0.682</green>
+			<blue>0</blue>
+		</amber>
+		<blue>
+			<red>0.349</red>
+			<green>0.767</green>
+			<blue>0.808</blue>
+		</blue>
+		<green>
+			<red>0</red>
+			<green>1</green>
+			<blue>0</blue>
+		</green>
+		<pink>
+			<red>0.984</red>
+			<green>0.616</green>
+			<blue>0.616</blue>
+		</pink>
+		<white>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+		</white>
+	</colors>
+
+	<!-- INDEX -->
+	<page>
+		<name>index</name>
+		<title>INDEX</title>
+		<live type="bool">false</live>
+		<scroll type="bool">false</scroll>
+		<line>
+			<row type="int">1</row>
+			<col type="int">0</col>
+			<text>&lt;STATUS</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("status-1");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">0</col>
+			<text>&lt;POS INIT</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("pos-init-1");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">5</row>
+			<col type="int">0</col>
+			<text>&lt;FPLN</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("flightplan");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">7</row>
+			<col type="int">0</col>
+			<text>&lt;PERF MENU</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("perf");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">9</row>
+			<col type="int">0</col>
+			<text>&lt;FMS CONTROL</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("fms-control");
+				</script>
+			</binding>
+		</line>
+	</page>
+
+	<!-- STATUS -->
+	<page>
+		<name>status-1</name>
+		<group>status</group>
+		<number type="int">0</number>
+		<title>STATUS</title>
+		<page>1/2</page>
+		<live type="bool">true</live>
+		<scroll type="bool">false</scroll>
+		<line>
+			<row type="int">0</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>NAV DATA</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">0</col>
+			<text>WORLD</text>
+		</line>
+		<line>
+			<row type="int">2</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>ACTIVE DATA BASE</text>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">0</col>
+			<text>------- -------</text>
+		</line>
+		<line>
+			<row type="int">4</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>SEC DATA BASE</text>
+		</line>
+		<line>
+			<row type="int">5</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/amber/red" />
+				<green alias="../../../../colors/amber/green" />
+				<blue alias="../../../../colors/amber/blue" />
+			</font>
+			<text>------- -------</text>
+		</line>
+		<line>
+			<row type="int">6</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>UTC</text>
+		</line>
+		<line>
+			<row type="int">7</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>sim/time/utc/hour</property>
+				<format>%02d:</format>
+			</chunk>
+			<chunk>
+				<property>sim/time/utc/minute</property>
+				<format>%02d</format>
+			</chunk>
+		</line>
+		<line>
+			<row type="int">8</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>PROGRAM</text>
+		</line>
+		<line>
+			<row type="int">9</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>sim/version/flightgear</property>
+				<format>FG %s SG </format>
+			</chunk>
+			<chunk>
+				<property>sim/version/simgear</property>
+				<format>%s</format>
+			</chunk>
+		</line>
+		<line>
+			<row type="int">10</row>
+			<col type="int">0</col>
+			<text>---------------------------------------</text>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">0</col>
+			<text>&lt;INDEX</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("index");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">6</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>DATE</text>
+		</line>
+		<line>
+			<row type="int">7</row>
+			<col type="int">1</col>
+			<chunk>
+				<property>sim/time/utc/day</property>
+				<format>%02d-</format>
+			</chunk>
+			<chunk>
+				<property>sim/time/utc/month</property>
+				<format>%02d-</format>
+			</chunk>
+			<chunk>
+				<property>sim/time/utc/year</property>
+				<format>%04d</format>
+			</chunk>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">1</col>
+			<text>POS INIT&gt;</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("pos-init-1");
+				</script>
+			</binding>
+		</line>
+	</page>
+	<page>
+		<name>status-2</name>
+		<group>status</group>
+		<number type="int">1</number>
+		<title>STATUS</title>
+		<page>2/2</page>
+		<live type="bool">false</live>
+		<scroll type="bool">false</scroll>
+		<line>
+			<row type="int">0</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>PERF DATA BASE</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>sim/aircraft</property>
+				<format>CANADAIR %s</format>
+			</chunk>
+		</line>
+		<line>
+			<row type="int">10</row>
+			<col type="int">0</col>
+			<text>---------------------------------------</text>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">0</col>
+			<text>&lt;INDEX</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("index");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">1</col>
+			<text>POS INIT&gt;</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("pos-init-1");
+				</script>
+			</binding>
+		</line>
+	</page>
+	<!-- POS INIT -->
+	<page>
+		<name>pos-init-1</name>
+		<group>pos-init</group>
+		<number type="int">0</number>
+		<title>POS INIT</title>
+		<page>1/3</page>
+		<live type="bool">true</live>
+		<scroll type="bool">false</scroll>
+		<line>
+			<row type="int">0</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>FMS POS</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>position/indicated-latitude-deg</property>
+				<format>%2.4f, </format>
+			</chunk>
+			<chunk>
+				<property>position/indicated-longitude-deg</property>
+				<format>%3.4f</format>
+			</chunk>
+		</line>
+		<line>
+			<row type="int">2</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>AIRPORT</text>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>sim/airport/closest-airport-id</property>
+				<format>%s</format>
+			</chunk>
+		</line>
+		<line>
+			<row type="int">4</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>PILOT/REF WPT</text>
+		</line>
+		<line>
+			<row type="int">5</row>
+			<col type="int">0</col>
+			<text>-----</text>
+		</line>
+		<line>
+			<row type="int">6</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>GATE</text>
+		</line>
+		<line>
+			<row type="int">7</row>
+			<col type="int">0</col>
+			<text>-----</text>
+		</line>
+		<line>
+			<row type="int">10</row>
+			<col type="int">0</col>
+			<text>---------------------------------------</text>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">0</col>
+			<text>&lt;INDEX</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("index");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">8</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>SET POS   </text>
+		</line>
+		<line>
+			<row type="int">9</row>
+			<col type="int">1</col>
+			<text>UNAVAILABLE</text>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">1</col>
+			<text>FPLN&gt;</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("flightplan");
+				</script>
+			</binding>
+		</line>
+	</page>
+	<page>
+		<name>pos-init-2</name>
+		<group>pos-init</group>
+		<number type="int">1</number>
+		<title>POS INIT</title>
+		<page>2/3</page>
+		<live type="bool">true</live>
+		<scroll type="bool">false</scroll>
+		<line>
+			<row type="int">0</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>FMS POS</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>position/latitude-deg</property>
+				<format>%2.4f, </format>
+			</chunk>
+			<chunk>
+				<property>position/longitude-deg</property>
+				<format>%3.4f</format>
+			</chunk>
+		</line>
+		<line>
+			<row type="int">2</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>GPS 1 POS</text>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>instrumentation/gps/indicated-latitude-deg</property>
+				<format>%2.4f, </format>
+			</chunk>
+			<chunk>
+				<property>instrumentation/gps/indicated-longitude-deg</property>
+				<format>%3.4f</format>
+			</chunk>
+		</line>
+		<line>
+			<row type="int">4</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>GPS 2 POS</text>
+		</line>
+		<line>
+			<row type="int">5</row>
+			<col type="int">0</col>
+			<text>UNAVAILABLE</text>
+		</line>
+		<line>
+			<row type="int">8</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>UPDATE FROM</text>
+		</line>
+		<line>
+			<row type="int">9</row>
+			<col type="int">0</col>
+			<text>&lt;NAVAID</text>
+		</line>
+		<line>
+			<row type="int">10</row>
+			<col type="int">0</col>
+			<text>---------------------------------------</text>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">0</col>
+			<text>&lt;INDEX</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("index");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">0</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>GS</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">1</col>
+			<chunk>
+				<property>velocities/groundspeed-kt</property>
+				<format>%3.f</format>
+			</chunk>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">1</col>
+			<chunk>
+				<property>instrumentation/gps/indicated-ground-speed-kt</property>
+				<format>%3.f</format>
+			</chunk>
+		</line>
+		<line>
+			<row type="int">5</row>
+			<col type="int">1</col>
+			<text>---</text>
+		</line>
+		<line>
+			<row type="int">8</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>NAVAID</text>
+		</line>
+		<line>
+			<row type="int">9</row>
+			<col type="int">1</col>
+			<text>---</text>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">1</col>
+			<text>FPLN&gt;</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("flightplan");
+				</script>
+			</binding>
+		</line>
+	</page>
+	<page>
+		<name>pos-init-3</name>
+		<group>pos-init</group>
+		<number type="int">2</number>
+		<title>POS INIT</title>
+		<page>3/3</page>
+		<live type="bool">true</live>
+		<scroll type="bool">false</scroll>
+		<line>
+			<row type="int">0</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>FMS POS</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>position/latitude-deg</property>
+				<format>%2.4f, </format>
+			</chunk>
+			<chunk>
+				<property>position/longitude-deg</property>
+				<format>%3.4f</format>
+			</chunk>
+		</line>
+		<line>
+			<row type="int">2</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>IRS 1 POS</text>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">0</col>
+			<text>UNAVAILABLE</text>
+		</line>
+		<line>
+			<row type="int">4</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>IRS 1 POS</text>
+		</line>
+		<line>
+			<row type="int">5</row>
+			<col type="int">0</col>
+			<text>UNAVAILABLE</text>
+		</line>
+		<line>
+			<row type="int">10</row>
+			<col type="int">0</col>
+			<text>---------------------------------------</text>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">0</col>
+			<text>&lt;INDEX</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("index");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">0</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>GS</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">1</col>
+			<chunk>
+				<property>velocities/groundspeed-kt</property>
+				<format>%3.f</format>
+			</chunk>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">1</col>
+			<text>---</text>
+		</line>
+		<line>
+			<row type="int">5</row>
+			<col type="int">1</col>
+			<text>---</text>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">1</col>
+			<text>FPLN&gt;</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("flightplan");
+				</script>
+			</binding>
+		</line>
+	</page>
+	<!-- FMS CONTROL -->
+	<page>
+		<name>fms-control</name>
+		<title>FMS CONTROL</title>
+		<live type="bool">false</live>
+		<scroll type="bool">false</scroll>
+		<line>
+			<row type="int">0</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>DISPLAY MODE</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">0</col>
+			<text>TRUE</text>
+		</line>
+		<line>
+			<row type="int">2</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>FMS COORD MODE</text>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">0</col>
+			<text>SYNC</text>
+		</line>
+		<line>
+			<row type="int">6</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>  SELECT SYNC MASTER</text>
+		</line>
+		<line>
+			<row type="int">7</row>
+			<col type="int">0</col>
+			<text>&lt;FMS1</text>
+		</line>
+		<line>
+			<row type="int">9</row>
+			<col type="int">0</col>
+			<text>&lt;FMS2</text>
+		</line>
+		<line>
+			<row type="int">10</row>
+			<col type="int">0</col>
+			<text>---------------------------------------</text>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">0</col>
+			<text>&lt;INDEX</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("index");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">7</row>
+			<col type="int">1</col>
+			<text>CANCEL&gt;</text>
+		</line>
+	</page>
+	<!-- RADIO TUNING -->
+	<page>
+		<name>radio-tuning-1</name>
+		<group>radio-tuning</group>
+		<number type="int">0</number>
+		<title>RADIO TUNING</title>
+		<page>1/2</page>
+		<live type="bool">true</live>
+		<scroll type="bool">false</scroll>
+		<line>
+			<row type="int">0</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>COM 1</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>instrumentation/comm[0]/frequencies/selected-mhz</property>
+				<format>%3.3f</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("instrumentation/comm[0]/frequencies/selected-mhz");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">2</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>RCL 1</text>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">0</col>
+			<text>---.---</text>
+		</line>
+		<line>
+			<row type="int">4</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>NAV 1</text>
+		</line>
+		<line>
+			<row type="int">5</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
+				<format>%3.2f</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("instrumentation/nav[0]/frequencies/selected-mhz");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">6</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>    NAV 1 -- MODE --</text>
+		</line>
+		<line>
+			<row type="int">7</row>
+			<col type="int">0</col>
+			<text>AUTO</text>
+		</line>
+		<line>
+			<row type="int">8</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>ADF 1</text>
+		</line>
+		<line>
+			<row type="int">9</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>instrumentation/adf[0]/frequencies/selected-khz</property>
+				<format>%3.1f</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("instrumentation/adf[0]/frequencies/selected-khz");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">10</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>ATC 1</text>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>instrumentation/transponder[0]/id-code</property>
+				<format>%04d</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("instrumentation/transponder[0]/id-code");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">0</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>COM 2</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">1</col>
+			<chunk>
+				<property>instrumentation/comm[1]/frequencies/selected-mhz</property>
+				<format>%3.3f</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("instrumentation/comm[1]/frequencies/selected-mhz");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">2</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>RCL 2</text>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">1</col>
+			<text>---.---</text>
+		</line>
+		<line>
+			<row type="int">4</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>NAV 2</text>
+		</line>
+		<line>
+			<row type="int">5</row>
+			<col type="int">1</col>
+			<chunk>
+				<property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+				<format>%3.2f</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("instrumentation/nav[1]/frequencies/selected-mhz");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">6</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>NAV 2   </text>
+		</line>
+		<line>
+			<row type="int">7</row>
+			<col type="int">1</col>
+			<text>AUTO</text>
+		</line>
+		<line>
+			<row type="int">8</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>ADF 2</text>
+		</line>
+		<line>
+			<row type="int">9</row>
+			<col type="int">1</col>
+			<chunk>
+				<property>instrumentation/adf[1]/frequencies/selected-khz</property>
+				<format>%3.1f</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("instrumentation/adf[1]/frequencies/selected-khz");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">10</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>ATC 2</text>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">1</col>
+			<chunk>
+				<property>instrumentation/transponder[1]/id-code</property>
+				<format>%04d</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("instrumentation/transponder[1]/id-code");
+				</script>
+			</binding>
+		</line>
+	</page>
+	<!-- FPLN -->
+	<page>
+		<name>flightplan</name>
+		<title>
+			<chunk>
+				<property>instrumentation/fms/flight-number</property>
+				<format>ACT FPLN %s</format>
+			</chunk>
+		</title>
+		<page>1/1</page>
+		<live type="bool">true</live>
+		<scroll type="bool">false</scroll>
+		<line>
+			<row type="int">0</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>ORIGIN</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>autopilot/route-manager/departure/airport</property>
+				<format>%s</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("autopilot/route-manager/departure/airport", 1, 4, 4);
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">2</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>ROUTE</text>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">0</col>
+			<text>------------</text>
+		</line>
+		<line>
+			<row type="int">6</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>VIA</text>
+		</line>
+		<line>
+			<row type="int">7</row>
+			<col type="int">0</col>
+			<text>DIRECT</text>
+		</line>
+		<line>
+			<row type="int">8</row>
+			<col type="int">0</col>
+			<text>-------------------------</text>
+		</line>
+		<line>
+			<row type="int">9</row>
+			<col type="int">0</col>
+			<text>&lt;LOAD FPLN</text> <!--text>&lt;COPY ACTIVE</text-->
+			<binding>
+				<command>nasal</command>
+				<script>
+					interactive_cdu.RouteManager.load_flightplan();
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">0</col>
+			<text>&lt;SAVE FPLN</text> <!--text>&lt;SEC FPLN</text-->
+			<binding>
+				<command>nasal</command>
+				<script>
+					interactive_cdu.RouteManager.save_flightplan();
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">0</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>DEST</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">1</col>
+			<chunk>
+				<property>autopilot/route-manager/destination/airport</property>
+				<format>%s</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("autopilot/route-manager/destination/airport", 1, 4, 4);
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">2</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>ALTN</text>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">1</col>
+			<chunk>
+				<property>autopilot/route-manager/alternate/airport</property>
+				<format>%s</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("autopilot/route-manager/alternate/airport", 1, 4, 4);
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">4</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>ORIG RWY</text>
+		</line>
+		<line>
+			<row type="int">5</row>
+			<col type="int">1</col>
+			<chunk>
+				<property>autopilot/route-manager/departure/runway</property>
+				<format>%s</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var icao = getprop("autopilot/route-manager/departure/airport");
+					var apt = airportinfo(icao);
+					if (apt != nil)
+					{
+						var dialog = gui.Widget.new();
+						var title = "cdu-" ~ icao ~ "-rwy-select";
+						dialog.set("name", title);
+						dialog.set("layout", "vbox");
+						var titlebar = dialog.addChild("group");
+						titlebar.set("layout", "hbox");
+						titlebar.addChild("empty").set("stretch", 1);
+						titlebar.addChild("text").set("label", "Select departure runway for " ~ icao);
+						titlebar.addChild("empty").set("stretch", 1);
+						var w = titlebar.addChild("button");
+						w.set("pref-width", 16);
+						w.set("pref-height", 16);
+						w.set("legend", "");
+						w.set("default", 0);
+						w.set("key", "esc");
+						w.setBinding("dialog-close");
+						dialog.addChild("hrule");
+						var group = dialog.addChild("group");
+						group.set("layout", "hbox");
+						foreach (var rwy; keys(apt.runways))
+						{
+							var button = group.addChild("button");
+							button.set("legend", rwy);
+							button.setBinding("nasal", "setprop(\"autopilot/route-manager/departure/runway\", \"" ~ rwy ~ "\");");
+							button.setBinding("dialog-close");
+						}
+						fgcommand("dialog-new", dialog.prop());
+						fgcommand("dialog-show", props.Node.new({ "dialog-name": title }));
+					}
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">6</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>TO</text>
+		</line>
+		<line>
+			<row type="int">7</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/pink/red" />
+				<green alias="../../../../colors/pink/green" />
+				<blue alias="../../../../colors/pink/blue" />
+			</font>
+			<chunk>
+				<property>autopilot/route-manager/wp[0]/id</property>
+				<format>%s</format>
+			</chunk>
+		</line>
+		<line>
+			<row type="int">8</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>FLIGHT NO</text>
+		</line>
+		<line>
+			<row type="int">9</row>
+			<col type="int">1</col>
+			<chunk>
+				<property>instrumentation/fms/flight-number</property>
+				<format>%s</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("instrumentation/fms/flight-number");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">1</col>
+			<text>PERF INIT&gt;</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("perf-init");
+				</script>
+			</binding>
+		</line>
+	</page>
+	<!-- LEGS -->
+	<page>
+		<name>legs-1</name>
+		<title>ACT LEGS</title>
+		<group>legs</group>
+		<number type="int">0</number>
+		<page>1/2</page>
+		<live type="bool">true</live>
+		<scroll type="bool">true</scroll>
+		<scroll-min-limit type="int">0</scroll-min-limit>
+		<scroll-max-limit type="int">996</scroll-max-limit> <!-- CDU allows up to 1000 waypoints to be inputed -->
+		<line>
+			<row type="int">0</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/amber/red" />
+				<green alias="../../../../colors/amber/green" />
+				<blue alias="../../../../colors/amber/blue" />
+			</font>
+			<condition>
+				<not>
+					<property>autopilot/route-manager/active</property>
+				</not>
+			</condition>
+			<text>MOD LEGS</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">0</col>
+			<nasal>
+				var scroll_pos = CRJ700.cdu1.scroll_pos;
+				var i = scroll_pos + 0;
+				return getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/id");
+			</nasal>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var scroll_pos = CRJ700.cdu1.scroll_pos;
+					var i = scroll_pos + 0;
+					setprop("instrumentation/fms/selected-waypoint", i);
+					CRJ700.cdu1.go_to_page("legs-2");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">2</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<nasal>
+				var scroll_pos = CRJ700.cdu1.scroll_pos;
+				var i = scroll_pos + 0;
+				if (!getprop("autopilot/route-manager/route/wp[" ~ (i + 1) ~ "]/id"))
+				{
+					return "";
+				}
+				var bearing = sprintf("%3.f", getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/leg-bearing-true-deg"));
+				var distance = sprintf("%5.fNM", getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/leg-distance-nm"));
+				return bearing ~ "    " ~ distance;
+			</nasal>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">0</col>
+			<nasal>
+				var scroll_pos = CRJ700.cdu1.scroll_pos;
+				var i = scroll_pos + 1;
+				return getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/id");
+			</nasal>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var scroll_pos = CRJ700.cdu1.scroll_pos;
+					var i = scroll_pos + 1;
+					setprop("instrumentation/fms/selected-waypoint", i);
+					CRJ700.cdu1.go_to_page("legs-2");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">4</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<nasal>
+				var scroll_pos = CRJ700.cdu1.scroll_pos;
+				var i = scroll_pos + 1;
+				if (!getprop("autopilot/route-manager/route/wp[" ~ (i + 1) ~ "]/id"))
+				{
+					return "";
+				}
+				var bearing = sprintf("%3.f", getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/leg-bearing-true-deg"));
+				var distance = sprintf("%5.fNM", getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/leg-distance-nm"));
+				return bearing ~ "    " ~ distance;
+			</nasal>
+		</line>
+		<line>
+			<row type="int">5</row>
+			<col type="int">0</col>
+			<nasal>
+				var scroll_pos = CRJ700.cdu1.scroll_pos;
+				var i = scroll_pos + 2;
+				return getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/id");
+			</nasal>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var scroll_pos = CRJ700.cdu1.scroll_pos;
+					var i = scroll_pos + 2;
+					setprop("instrumentation/fms/selected-waypoint", i);
+					CRJ700.cdu1.go_to_page("legs-2");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">6</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<nasal>
+				var scroll_pos = CRJ700.cdu1.scroll_pos;
+				var i = scroll_pos + 2;
+				if (!getprop("autopilot/route-manager/route/wp[" ~ (i + 1) ~ "]/id"))
+				{
+					return "";
+				}
+				var bearing = sprintf("%3.f", getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/leg-bearing-true-deg"));
+				var distance = sprintf("%5.fNM", getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/leg-distance-nm"));
+				return bearing ~ "    " ~ distance;
+			</nasal>
+		</line>
+		<line>
+			<row type="int">7</row>
+			<col type="int">0</col>
+			<nasal>
+				var scroll_pos = CRJ700.cdu1.scroll_pos;
+				var i = scroll_pos + 3;
+				return getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/id");
+			</nasal>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var scroll_pos = CRJ700.cdu1.scroll_pos;
+					var i = scroll_pos + 3;
+					setprop("instrumentation/fms/selected-waypoint", i);
+					CRJ700.cdu1.go_to_page("legs-2");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">8</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<nasal>
+				var scroll_pos = CRJ700.cdu1.scroll_pos;
+				var i = scroll_pos + 3;
+				if (!getprop("autopilot/route-manager/route/wp[" ~ (i + 1) ~ "]/id"))
+				{
+					return "";
+				}
+				var bearing = sprintf("%3.f", getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/leg-bearing-true-deg"));
+				var distance = sprintf("%5.fNM", getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/leg-distance-nm"));
+				return bearing ~ "    " ~ distance;
+			</nasal>
+		</line>
+		<line>
+			<row type="int">9</row>
+			<col type="int">0</col>
+			<nasal>
+				var scroll_pos = CRJ700.cdu1.scroll_pos;
+				var i = scroll_pos + 4;
+				return getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/id");
+			</nasal>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var scroll_pos = CRJ700.cdu1.scroll_pos;
+					var i = scroll_pos + 4;
+					setprop("instrumentation/fms/selected-waypoint", i);
+					CRJ700.cdu1.go_to_page("legs-2");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">10</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<nasal>
+				var scroll_pos = CRJ700.cdu1.scroll_pos;
+				var i = scroll_pos + 4;
+				if (!getprop("autopilot/route-manager/route/wp[" ~ (i + 1) ~ "]/id"))
+				{
+					return "";
+				}
+				var bearing = sprintf("%3.f", getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/leg-bearing-true-deg"));
+				var distance = sprintf("%5.fNM", getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/leg-distance-nm"));
+				return bearing ~ "    " ~ distance;
+			</nasal>
+		</line>
+		<line>
+			<row type="int">10</row>
+			<col type="int">0</col>
+			<text>---------------------------------------</text>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">0</col>
+			<text>&lt;LEG DATA</text>
+		</line>
+		<line>
+			<row type="int">0</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>SEQUENCE</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">1</col>
+			<text>AUTO</text>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">1</col>
+			<nasal><![CDATA[
+				var scroll_pos = CRJ700.cdu1.scroll_pos;
+				var i = scroll_pos + 1;
+				if (!getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/id"))
+				{
+					return "";
+				}
+				var alt = getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/altitude-ft");
+				return sprintf("---/%5.f", alt < 0 ? 0 : alt);
+			]]></nasal>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var scroll_pos = CRJ700.cdu1.scroll_pos;
+					var i = scroll_pos + 1;
+					setprop("instrumentation/fms/selected-waypoint", i);
+					CRJ700.cdu1.go_to_page("legs-2");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">5</row>
+			<col type="int">1</col>
+			<nasal><![CDATA[
+				var scroll_pos = CRJ700.cdu1.scroll_pos;
+				var i = scroll_pos + 2;
+				if (!getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/id"))
+				{
+					return "";
+				}
+				var alt = getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/altitude-ft");
+				return sprintf("---/%5.f", alt < 0 ? 0 : alt);
+			]]></nasal>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var scroll_pos = CRJ700.cdu1.scroll_pos;
+					var i = scroll_pos + 2;
+					setprop("instrumentation/fms/selected-waypoint", i);
+					CRJ700.cdu1.go_to_page("legs-2");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">7</row>
+			<col type="int">1</col>
+			<nasal><![CDATA[
+				var scroll_pos = CRJ700.cdu1.scroll_pos;
+				var i = scroll_pos + 3;
+				if (!getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/id"))
+				{
+					return "";
+				}
+				var alt = getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/altitude-ft");
+				return sprintf("---/%5.f", alt < 0 ? 0 : alt);
+			]]></nasal>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var scroll_pos = CRJ700.cdu1.scroll_pos;
+					var i = scroll_pos + 3;
+					setprop("instrumentation/fms/selected-waypoint", i);
+					CRJ700.cdu1.go_to_page("legs-2");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">9</row>
+			<col type="int">1</col>
+			<nasal><![CDATA[
+				var scroll_pos = CRJ700.cdu1.scroll_pos;
+				var i = scroll_pos + 4;
+				if (!getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/id"))
+				{
+					return "";
+				}
+				var alt = getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/altitude-ft");
+				return sprintf("---/%5.f", alt < 0 ? 0 : alt);
+			]]></nasal>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var scroll_pos = CRJ700.cdu1.scroll_pos;
+					var i = scroll_pos + 4;
+					setprop("instrumentation/fms/selected-waypoint", i);
+					CRJ700.cdu1.go_to_page("legs-2");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">1</col>
+			<text>LEG WIND&gt;</text>
+		</line>
+	</page>
+	<page>
+		<name>legs-2</name>
+		<title>ACT LEGS</title>
+		<group>legs</group>
+		<number type="int">1</number>
+		<page>2/2</page>
+		<live type="bool">true</live>
+		<scroll type="bool">false</scroll>
+		<nasal><![CDATA[
+			var i = getprop("instrumentation/fms/selected-waypoint");
+			var alt = getprop("autopilot/route-manager/route/wp[" ~ i ~ "]/altitude-ft");
+			var altN = props.globals.getNode("instrumentation/fms/waypoint-altitude-ft");
+			if (alt != nil)
+			{
+				altN.setDoubleValue(alt < 0 ? 0 : alt);
+			}
+			else
+			{
+				altN.setDoubleValue(0);
+			}
+		]]></nasal>
+		<line>
+			<row type="int">1</row>
+			<col type="int">0</col>
+			<text>&lt;DELETE</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					interactive_cdu.RouteManager.delete(getprop("instrumentation/fms/selected-waypoint"));
+					CRJ700.cdu1.go_to_page("legs-1");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">2</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>WPT TO INSRT</text>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/green/red" />
+				<green alias="../../../../colors/green/green" />
+				<blue alias="../../../../colors/green/blue" />
+			</font>
+			<chunk>
+				<property>instrumentation/fms/insert-waypoint-id</property>
+				<format>%s</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("instrumentation/fms/insert-waypoint-id", 1);
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">5</row>
+			<col type="int">0</col>
+			<text>&lt;INSERT</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var insertN = props.globals.getNode("instrumentation/fms/insert-waypoint-id");
+					interactive_cdu.RouteManager.insert(getprop("instrumentation/fms/selected-waypoint"), insertN.getValue());
+					insertN.setValue("-ENTER ID-");
+					CRJ700.cdu1.go_to_page("legs-1");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">6</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>WPT TO SWAP</text>
+		</line>
+		<line>
+			<row type="int">7</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/green/red" />
+				<green alias="../../../../colors/green/green" />
+				<blue alias="../../../../colors/green/blue" />
+			</font>
+			<chunk>
+				<property>instrumentation/fms/swap-waypoint-id</property>
+				<format>%s</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("instrumentation/fms/swap-waypoint-id", 1);
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">9</row>
+			<col type="int">0</col>
+			<text>&lt;SWAP</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var swapN = props.globals.getNode("instrumentation/fms/swap-waypoint-id");
+					interactive_cdu.RouteManager.swap_waypoints(getprop("instrumentation/fms/selected-waypoint"), swapN.getValue() - 1);
+					swapN.setValue("-ENTER NO.-");
+					CRJ700.cdu1.go_to_page("legs-1");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">10</row>
+			<col type="int">0</col>
+			<text>---------------------------------------</text>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">0</col>
+			<text>&lt;LEG DATA</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">1</col>
+			<text>JUMP TO&gt;</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					interactive_cdu.RouteManager.jump_to(getprop("instrumentation/fms/selected-waypoint"));
+					CRJ700.cdu1.go_to_page("legs-1");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">1</col>
+			<text>GEN ROUTE&gt;</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					interactive_cdu.RouteManager.route(getprop("instrumentation/fms/selected-waypoint"));
+					CRJ700.cdu1.go_to_page("legs-1");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">5</row>
+			<col type="int">1</col>
+			<text>CLEAR ALL&gt;</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					interactive_cdu.RouteManager.clear();
+					CRJ700.cdu1.go_to_page("legs-1");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">6</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>ALT SETTING</text>
+		</line>
+		<line>
+			<row type="int">7</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/green/red" />
+				<green alias="../../../../colors/green/green" />
+				<blue alias="../../../../colors/green/blue" />
+			</font>
+			<chunk>
+				<property>instrumentation/fms/waypoint-altitude-ft</property>
+				<format>%5.fFT</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("instrumentation/fms/waypoint-altitude-ft");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">9</row>
+			<col type="int">1</col>
+			<text>SET ALT&gt;</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var i = getprop("instrumentation/fms/selected-waypoint");
+					var altN = props.globals.getNode("instrumentation/fms/waypoint-altitude-ft");
+					interactive_cdu.RouteManager.set_waypoint_altitude(i, altN.getValue());
+					CRJ700.cdu1.go_to_page("legs-1");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">1</col>
+			<text>LEG WIND&gt;</text>
+		</line>
+	</page>
+	<!-- PERF -->
+	<page>
+		<name>perf</name>
+		<title>PERF MENU</title>
+		<live type="bool">false</live>
+		<scroll type="bool">false</scroll>
+		<line>
+			<row type="int">1</row>
+			<col type="int">0</col>
+			<text>&lt;THRUST LIMIT</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("thrust-limit");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">0</col>
+			<text>&lt;PERF INIT</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("perf-init");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">5</row>
+			<col type="int">0</col>
+			<text>&lt;VNAV SETUP</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("vnav");
+				</script>
+			</binding>
+		</line>
+	</page>
+	<!-- THRUST LIMIT -->
+	<page>
+		<name>thrust-limit</name>
+		<title>THRUST LIMIT</title>
+		<live type="bool">true</live>
+		<scroll type="bool">false</scroll>
+		<line>
+			<row type="int">0</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>CLB</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">0</col>
+			<text>91.1</text>
+		</line>
+		<line>
+			<row type="int">2</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>CRZ</text>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">0</col>
+			<text>89.6</text>
+		</line>
+		<line>
+			<row type="int">4</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>MCT</text>
+		</line>
+		<line>
+			<row type="int">5</row>
+			<col type="int">0</col>
+			<text>89.6</text>
+		</line>
+		<line>
+			<row type="int">10</row>
+			<col type="int">0</col>
+			<text>---------------------------------------</text>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">0</col>
+			<text>&lt;PERF MENU</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("perf");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">0</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>TOGA</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">1</col>
+			<chunk>
+				<property>instrumentation/fms/to-ga-maximum-n1</property>
+				<format>%3.1f</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("instrumentation/fms/to-ga-maximum-n1");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">2</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>TGT</text>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">1</col>
+			<text>---.-</text>
+		</line>
+		<line>
+			<row type="int">6</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>WING A/I</text>
+		</line>
+		<line>
+			<row type="int">7</row>
+			<col type="int">1</col>
+			<text>ON</text>
+			<condition>
+				<property>controls/anti-ice/wing-heat</property>
+			</condition>
+		</line>
+		<line>
+			<row type="int">7</row>
+			<col type="int">1</col>
+			<text>OFF</text>
+			<condition>
+				<not>
+					<property>controls/anti-ice/wing-heat</property>
+				</not>
+			</condition>
+		</line>
+		<line>
+			<row type="int">8</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>COWL A/I</text>
+		</line>
+		<line>
+			<row type="int">9</row>
+			<col type="int">1</col>
+			<text>ON</text>
+			<condition>
+				<and>
+					<property>controls/anti-ice/engine[0]/inlet-heat</property>
+					<property>controls/anti-ice/engine[1]/inlet-heat</property>
+				</and>
+			</condition>
+		</line>
+		<line>
+			<row type="int">9</row>
+			<col type="int">1</col>
+			<text>OFF</text>
+			<condition>
+				<or>
+					<not>
+						<property>controls/anti-ice/engine[0]/inlet-heat</property>
+					</not>
+					<not>
+						<property>controls/anti-ice/engine[1]/inlet-heat</property>
+					</not>
+				</or>
+			</condition>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">1</col>
+			<text>PERF INIT&gt;</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("perf-init");
+				</script>
+			</binding>
+		</line>
+	</page>
+	<!-- PERF INIT -->
+	<page>
+		<name>perf-init</name>
+		<title>PERF INIT</title>
+		<page>1/1</page>
+		<live type="bool">true</live>
+		<scroll type="bool">false</scroll>
+		<line>
+			<row type="int">0</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>GROSS WT</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>yasim/gross-weight-lbs</property>
+				<format>%5.1fLBS</format>
+			</chunk>
+		</line>
+		<line>
+			<row type="int">2</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>FUEL</text>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>consumables/fuel/total-fuel-lbs</property>
+				<format>%5.1fLBS</format>
+			</chunk>
+		</line>
+		<line>
+			<row type="int">4</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>PAYLOAD</text>
+		</line>
+		<line>
+			<row type="int">5</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>sim/weight[1]/weight-lb</property>
+				<format>%sLB</format>
+			</chunk>
+		</line>
+		<line>
+			<row type="int">10</row>
+			<col type="int">0</col>
+			<text>---------------------------------------</text>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">0</col>
+			<text>&lt;PERF MENU</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("perf");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">0</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>CRUISE ALT</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">1</col>
+			<chunk>
+				<property>autopilot/route-manager/cruise/altitude-ft</property>
+				<format>%5.fFT</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("autopilot/route-manager/cruise/altitude-ft");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">1</col>
+			<text>FPLN&gt;</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("flightplan");
+				</script>
+			</binding>
+		</line>
+	</page>
+	<!-- VNAV SETUP -->
+	<page>
+		<name>vnav</name>
+		<title>VNAV SETUP</title>
+		<page>1/1</page>
+		<live type="bool">true</live>
+		<scroll type="bool">false</scroll>
+		<line>
+			<row type="int">0</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>CLIMB SPD</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>autopilot/route-manager/vnav/climb-speed-kt</property>
+				<format>%03dKT</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("autopilot/route-manager/vnav/climb-speed-kt");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">2</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>CLIMB VPA</text>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>autopilot/route-manager/vnav/climb-vpa-deg</property>
+				<format>%1.2f</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("autopilot/route-manager/vnav/climb-vpa-deg");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">4</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>DESCENT SPD</text>
+		</line>
+		<line>
+			<row type="int">5</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>autopilot/route-manager/vnav/descent-speed-kt</property>
+				<format>%03dKT</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("autopilot/route-manager/vnav/descent-speed-kt");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">6</row>
+			<col type="int">0</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>DESCENT VPA</text>
+		</line>
+		<line>
+			<row type="int">7</row>
+			<col type="int">0</col>
+			<chunk>
+				<property>autopilot/route-manager/vnav/descent-vpa-deg</property>
+				<format>%1.2f</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("autopilot/route-manager/vnav/descent-vpa-deg");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">10</row>
+			<col type="int">0</col>
+			<text>---------------------------------------</text>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">0</col>
+			<text>&lt;PERF MENU</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("perf");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">0</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>DISPLAY MODE</text>
+		</line>
+		<line>
+			<row type="int">1</row>
+			<col type="int">1</col>
+			<text>TRUE</text>
+		</line>
+		<line>
+			<row type="int">2</row>
+			<col type="int">1</col>
+			<font>
+				<red alias="../../../../colors/blue/red" />
+				<green alias="../../../../colors/blue/green" />
+				<blue alias="../../../../colors/blue/blue" />
+			</font>
+			<text>CRUISE SPD</text>
+		</line>
+		<line>
+			<row type="int">3</row>
+			<col type="int">1</col>
+			<chunk>
+				<property>autopilot/route-manager/cruise/speed-kts</property>
+				<format>%03dKT</format>
+			</chunk>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.activate_input("autopilot/route-manager/cruise/speed-kts");
+				</script>
+			</binding>
+		</line>
+		<line>
+			<row type="int">11</row>
+			<col type="int">1</col>
+			<text>FPLN&gt;</text>
+			<binding>
+				<command>nasal</command>
+				<script>
+					CRJ700.cdu1.go_to_page("flightplan");
+				</script>
+			</binding>
+		</line>
+	</page>
+
+</PropertyList>

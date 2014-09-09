@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<name>Landing</name>
+	<description>This tutorial starts you on approach for runway 28L at San Francisco International Airport. You will learn how to land properly, making use of the ground spoilers and thrust reversers.</description>
+	<timeofday type="string">afternoon</timeofday>
+	<presets>
+		<airport-id>KSFO</airport-id>
+		<runway>28L</runway>
+		<on-ground type="bool">false</on-ground>
+		<latitude-deg>-9999</latitude-deg>
+		<longitude-deg>-9999</longitude-deg>
+		<airspeed-kt>180</airspeed-kt>
+		<altitude-ft>3000</altitude-ft>
+		<glideslope-deg>3</glideslope-deg>
+		<offset-distance-nm>8</offset-distance-nm>
+	</presets>
+
+	<targets>
+		<runway>
+			<longitude-deg>-122.3589</longitude-deg>
+			<latitude-deg>37.61191</latitude-deg>
+		</runway>
+	</targets>
+
+	<init>
+		<set>
+			<property>controls/flight/flaps</property>
+			<value>1</value>
+		</set>
+		<set>
+			<property>controls/gear/brake-parking</property>
+			<value type="bool">false</value>
+		</set>
+		<set>
+			<property>controls/gear/gear-down</property>
+			<value type="bool">true</value>
+		</set>
+		<set>
+			<property>controls/lighting/nav-lights</property>
+			<value type="bool">true</value>
+		</set>
+		<set>
+			<property>controls/lighting/beacon</property>
+			<value type="bool">true</value>
+		</set>
+		<set>
+			<property>controls/lighting/logo-lights</property>
+			<value type="bool">false</value>
+		</set>
+		<set>
+			<property>controls/lighting/wing-lights</property>
+			<value type="bool">false</value>
+		</set>
+		<set>
+			<property>controls/lighting/taxi-lights</property>
+			<value type="bool">false</value>
+		</set>
+		<set>
+			<property>controls/lighting/landing-lights[0]</property>
+			<value type="bool">true</value>
+		</set>
+		<set>
+			<property>controls/lighting/landing-lights[1]</property>
+			<value type="bool">true</value>
+		</set>
+		<set>
+			<property>controls/lighting/landing-lights[2]</property>
+			<value type="bool">true</value>
+		</set>
+		<set>
+			<property>controls/engines/engine[0]/thrust-mode</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>controls/engines/engine[1]/thrust-mode</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>engines/engine[0]/running</property>
+			<value type="bool">true</value>
+		</set>
+		<set>
+			<property>engines/engine[1]/running</property>
+			<value type="bool">true</value>
+		</set>
+		<set>
+			<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
+			<value>109.55</value>
+		</set>
+		<nasal>
+			<script><![CDATA[
+				CRJ700.instastart();
+			]]></script>
+		</nasal>
+	</init>
+
+	<step>
+		<message>In this tutorial, we will learn how to perform a landing in a CRJ700.</message>
+	</step>
+
+	<step>
+		<message>First, let's go over the devices used during a landing. The CRJ700 has 3 ways to slow
+down after touchdown- thrust reversers, ground spoilers, and wheel brakes.</message>
+	</step>
+
+	<step>
+		<message>The thrust reversers direct air flow from the engines forward to slow the aircraft
+down. When armed, they will deploy using the Delete key.</message>
+	</step>
+
+	<step>
+		<message>The ground spoilers are flaps on the wing that deploy upwards on touchdown to mitigate
+lift. On the CRJ700, they are automatically controlled by the flight computer. However, you can use the
+"ground lift dumping" switch on the pedestal to manually arm or disarm them.</message>
+	</step>
+
+	<step>
+		<message>The wheel brakes are regular brakes on the wheels. They are operated using the B key
+or a button on your joystick.</message>
+	</step>
+
+	<step>
+		<message>Before we touch down, arm the thrust reversers by pressing Ctrl-Delete, or use the
+thrust reverser switches on the pedestal.</message>
+		<exit>
+			<condition>
+				<and>
+					<property>controls/engines/engine[0]/reverser-armed</property>
+					<property>controls/engines/engine[1]/reverser-armed</property>
+				</and>
+			</condition>
+		</exit>
+	</step>
+	<step>
+		<message>Now just enjoy the descent and keep the aircraft on a stable 140-knot glideslope.
+Aim for a touchdown speed of about 130 knots. You may use the autopilot's approach function,
+but be sure to disengage it before touchdown, as the CRJ700 is not equipped with autoland!</message>
+		<exit>
+			<condition>
+				<or>
+					<property>gear/gear[1]/wow</property>
+					<property>gear/gear[2]/wow</property>
+				</or>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Now slowly and gently bring the nose down. Then press Delete to engage the thrust
+reversers. Bring the throttles about halfway up- not all the way, because that will damage
+the engines.</message>
+		<exit>
+			<condition>
+				<and>
+					<property>controls/engines/engine[0]/reverser</property>
+					<property>controls/engines/engine[1]/reverser</property>
+				</and>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>At 60 knots, disengage reverse thrust by bringing the throttles back to idle
+and pressing Delete again.</message>
+		<exit>
+			<condition>
+				<and>
+					<not>
+						<property>controls/engines/engine[0]/reverser</property>
+					</not>
+					<not>
+						<property>controls/engines/engine[1]/reverser</property>
+					</not>
+					<less-than>
+						<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						<value>60</value>
+					</less-than>
+				</and>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Turn off the runway and come to a complete stop.</message>
+		<exit>
+			<condition>
+				<less-than>
+					<property>velocities/groundspeed-kt</property>
+					<value>1</value>
+				</less-than>
+			</condition>
+		</exit>
+	</step>
+
+	<end>
+		<message>Congratulations, you have made a successful landing!</message>
+	</end>
+
+</PropertyList>

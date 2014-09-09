@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<sim>
+		<model>
+			<livery>
+				<name>Air Canada Jazz (Yellow)</name>
+				<texture>Liveries/CRJ900/JZA-2.png</texture>
+				<registration>C-FDJZ</registration>
+			</livery>
+		</model>
+	</sim>
+
+</PropertyList>

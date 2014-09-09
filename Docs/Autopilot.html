@@ -1,0 +1,293 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+		<title>FlightGear Flight Simulator - Bombardier CRJ700 Series Authors and Credits</title>
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+		<link rel="stylesheet" type="text/css" href="Files/styles.css">
+	</head>
+	<body>
+		<h1>Bombardier CRJ700 Series</h1>
+
+		<h2>Autopilot system</h2>
+
+		<p>
+		 The CRJ700 features a mostly realistic autopilot system. All the modes work, except backcourse ("B/C") mode, because I have no idea how to begin to implement that.
+		</p>
+
+		<p class="tip">
+		 Tip: You can find a list of autopilot shortcut keys in the aircraft help inside the simulator.
+		</p>
+
+		<h3>Introduction</h3>
+
+		<p>
+		 The CRJ700's autopilot system can be divided into two parts (not including the yaw dampers and flight director, which are discussed below): the autopilot and autothrottle. The autopilot controls the aircraft's pitch and roll with separate lateral modes and vertical modes.
+		</p>
+
+		<p>
+		 Lateral modes:
+		</p>
+
+		<ul>
+			<li>Basic lateral mode*</li>
+			<li>Magnetic heading hold</li>
+			<li>NAV mode</li>
+			<li>Approach mode**</li>
+		</ul>
+
+		<p>
+		 Vertical modes:
+		</p>
+
+		<ul>
+			<li>Basic vertical mode***</li>
+			<li>Altitude hold</li>
+			<li>Vertical speed hold</li>
+		</ul>
+
+		<p>
+		 When the autopilot is first engaged, the basic lateral and vertical modes are activated. Pressing a button to engage any other mode in a category will disable the respective basic mode. Pressing that same button again will cause the autopilot to revert to the basic mode. For example, if the pilot engages the autopilot, it would first be flying in basic vertical mode. If he pushed the altitude hold button, the autopilot would fly altitude hold mode. If he presses the altitude hold button again, the autopilot would revert back to basic vertical mode.
+		</p>
+
+		<p class="tip">
+		 * - Basic lateral mode holds the heading the plane was at when the mode was first activated; <em>however</em>, if the airplane is banked more than 5 degrees in either direction, this mode will hold the bank angle instead of the heading.
+		</p>
+
+		<p class="tip">
+		 ** - Approach mode is a combined lateral <em>and</em> vertical mode. Pressing the approach button will deactivate any other active lateral modes and track the glideslope, however, it will not deactivate the current vertical mode to follow the glideslope down until you revert to basic vertical mode first. For best results, engage only within range of the localizer and leave a vertical mode on until you've intercepted the glideslope.
+		</p>
+
+		<p class="tip">
+		 *** - Basic vertical mode holds the pitch the plane was at when the mode was first activated. You can change that pitch in 0.5° increments using the vertical speed wheel.
+		</p>
+
+		<p>
+		 The autothrottle controls the engines to fly at a set speed. The autothrottle has two modes, IAS and Mach. The autothrottle only takes effect when the thrust modes for each engine are set to normal.
+		</p>
+
+		<p>
+		 The autopilot and autothrottle can be controlled using the MCP ("Mode Control Panel") or autopilot settings dialog.
+		</p>
+
+		<h3>The MCP</h3>
+
+		<p>
+		 <img src="Files/mcp.jpg" alt="The mode control panel">
+		</p>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Control name</th>
+					<th>Function</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>CRS1</td>
+					<td>Adjust the NAV1 course radial</td>
+				</tr>
+				<tr>
+					<td>FD</td>
+					<td>Turn the flight director on/off</td>
+				</tr>
+				<tr>
+					<td>AP ENG</td>
+					<td>Engage/disengage the autopilot</td>
+				</tr>
+				<tr>
+					<td>AP DISC</td>
+					<td>Disengage the autopilot</td>
+				</tr>
+				<tr>
+					<td>XFR</td>
+					<td><em>Not implemented</em></td>
+				</tr>
+				<tr>
+					<td>TURB</td>
+					<td><em>Not implemented</em></td>
+				</tr>
+				<tr>
+					<td>SPEED</td>
+					<td>Engage/disengage the autothrottle</td>
+				</tr>
+				<tr>
+					<td>SPEED knob</td>
+					<td>Adjust the target IAS or Mach speed <strong>(click face to switch between IAS/Mach modes)</strong></td>
+				</tr>
+				<tr>
+					<td>APPR</td>
+					<td>Turn approach mode on/off</td>
+				</tr>
+				<tr>
+					<td>B/C</td>
+					<td><em>Not implemented</em></td>
+				</tr>
+				<tr>
+					<td>HDG</td>
+					<td>Turn heading hold mode on/off</td>
+				</tr>
+				<tr>
+					<td>HDG knob</td>
+					<td>Adjust the heading bug</td>
+				</tr>
+				<tr>
+					<td>CRS1</td>
+					<td>Adjust the NAV1 course radial</td>
+				</tr>
+				<tr>
+					<td>NAV</td>
+					<td>Turn NAV mode on/off</td>
+				</tr>
+				<tr>
+					<td>1/2 BANK</td>
+					<td>Switch bank angle limit between 30° (full) and 15° (half)</td>
+				</tr>
+				<tr>
+					<td>ALT</td>
+					<td>Turn altitude hold mode on/off</td>
+				</tr>
+				<tr>
+					<td>ALT knob</td>
+					<td>Adjust the altitude setting</td>
+				</tr>
+				<tr>
+					<td>VS</td>
+					<td>Turn vertical speed hold mode on/off</td>
+				</tr>
+				<tr>
+					<td>VS wheel</td>
+					<td>Adjust the vertical speed setting or pitch setting</td>
+				</tr>
+				<tr>
+					<td>CRS2</td>
+					<td>Adjust the NAV2 course radial</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h3>The autopilot dialog</h3>
+
+		<p>
+		 <img src="Files/ap-dialog.jpg" alt="The autopilot dialog">
+		</p>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Control name</th>
+					<th>Function</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>AP</td>
+					<td>Engage/disengage the autopilot</td>
+				</tr>
+				<tr>
+					<td>AP DISC</td>
+					<td>Disengage the autopilot</td>
+				</tr>
+				<tr>
+					<td>FD</td>
+					<td>Turn the flight director on/off</td>
+				</tr>
+				<tr>
+					<td>SPEED</td>
+					<td>Engage/disengage the autothrottle</td>
+				</tr>
+				<tr>
+					<td>YD1</td>
+					<td>Turn yaw damper #1 on/off</td>
+				</tr>
+				<tr>
+					<td>YD2</td>
+					<td>Turn yaw damper #2 on/off</td>
+				</tr>
+				<tr>
+					<td>1/2 BANK</td>
+					<td>Switch bank angle limit between 30° (full) and 15° (half)</td>
+				</tr>
+				<tr>
+					<td>NAV SRC</td>
+					<td>Cycle NAV source (see "about nav mode" below)</td>
+				</tr>
+				<tr>
+					<td>IAS</td>
+					<td>Set autothrottle to IAS mode</td>
+				</tr>
+				<tr>
+					<td>MACH</td>
+					<td>Set autothrottle to Mach mode</td>
+				</tr>
+				<tr>
+					<td>HDG</td>
+					<td>Turn heading hold mode on/off</td>
+				</tr>
+				<tr>
+					<td>NAV</td>
+					<td>Turn NAV mode on/off</td>
+				</tr>
+				<tr>
+					<td>APPR</td>
+					<td>Turn approach mode on/off</td>
+				</tr>
+				<tr>
+					<td>ALT</td>
+					<td>Turn altitude hold mode on/off</td>
+				</tr>
+				<tr>
+					<td>VS</td>
+					<td>Turn vertical speed hold mode on/off</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p>
+		 When the autopilot is engaged, the current active modes will appear in the white spaces near the bottom.
+		</p>
+
+		<h3>Flight director</h3>
+
+		<p>
+		 The flight director is a pink horizon on the PFDs that alerts the pilot as to how the autopilot would fly the airplane if it were in command. To use it, turn on the flight director switch on the MCP or in the dialog and set the autopilot accordingly.
+		</p>
+
+		<h3>Yaw damper</h3>
+
+		<p>
+		 The yaw damper cushions out the <a href="http://en.wikipedia.org/wiki/Dutch_roll">Dutch roll</a> effect using the rudder. The CRJ700 has 2 separate yaw damper systems which can be turned on and off using the buttons on the pedestal or in the dialog.
+		</p>
+
+		<h3>About NAV mode</h3>
+
+		<p>
+		 NAV mode has 3 different sources to follow:
+		</p>
+
+		<ul>
+			<li>LOC1 - NAV1 intercept</li>
+			<li>LOC2 - NAV2 intercept</li>
+			<li>FMS1 - follow GPS/Route Manager</li>
+		</ul>
+
+		<p>
+		 In reality, "FMS2" is also included as an option- but there is only one GPS/Route Manager in FG.
+		</p>
+
+		<p>
+		 NAV modes are switched using the knob on the side panel, the autopilot dialog, or the shortcut key F6. The current NAV mode is displayed on the PFD.
+		</p>
+
+		<h3>Autolanding?</h3>
+
+		<p>
+		 The real CRJ700 is not equipped with autoland, so do NOT expect the simulated CRJ700 to land itself with the autopilot. ;-)
+		</p>
+
+		<p class="tip">
+		 Actually, the above statement is a lie. As of version 1.0.2, when the autopilot is left in NAV mode, it will actually land <em>(sort of)</em>.
+		</p>
+	</body>
+</html>

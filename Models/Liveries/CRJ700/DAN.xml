@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<sim>
+		<model>
+			<livery>
+				<name>British Airways Express/Maersk Air</name>
+				<texture>Liveries/CRJ700/DAN.png</texture>
+				<registration>G-MRSI</registration>
+			</livery>
+		</model>
+	</sim>
+
+</PropertyList>

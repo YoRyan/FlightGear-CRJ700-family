@@ -1,0 +1,254 @@
+## Control Display Unit (CDU) for FlightGear Flight Simulator
+
+# AUTHORS
+
+	Gijs de Rooy		- Nasal and XML
+	Ryan Miller		- Nasal and XML
+	Syd Adams		- Boeing model and texture
+
+# WIKI
+
+The FlightGear wiki hosts additional information: http://wiki.flightgear.org/Control_Display_Unit
+	
+# IMPLEMENTATION
+
+First implement a V-speed calculator: http://wiki.flightgear.org/Howto:_Calculate_V-speeds
+
+Add the following tags below the </sim> tag of your aircraft's -set.xml file. 
+
+	<instrumentation>
+		...
+		
+		<cdu>
+			<display>IDENT</display>
+			<ident>
+				<model>747-400</model>
+				<engines>-80C2B1F</engines>
+			</ident>
+			<input type="string"/>
+			<serviceable>true</serviceable>
+		</cdu>
+		
+		...
+	</instrumentation>
+
+If your aircraft uses a YASim FDM, ensure /instrumentation/cdu/yasim-empty-weight-lbs is set to the empty weight of your aircraft.
+
+	<instrumentation>
+		...
+		
+		<cdu>
+			...
+			<yasim-empty-weight-lbs>105000</yasim-empty-weight-lbs>
+			...
+		</cdu>
+		
+		...
+	</instrumentation>
+
+Now create the CDU nasal object and reference the definition file. This can be one you have written yourself (see 'WRITING A DEFINITION FILE' below) or one of the default ones. Currently there is just one:
+	- boeing-cdu.xml
+
+Add this nasal code in your -set.xml file.
+
+	<nasal>
+		...
+
+		<cdu>
+			<file>Aircraft/Instruments-3d/cdu/cdu-control.nas</file>
+			<script>
+			 var cdu = Cdu.new([prop], [path]);
+			</script>
+		</cdu>
+
+		...
+	</nasal>
+
+[prop] is the property path for the CDU instrument. For the default Boeing CDU this is '/instrumentation/cdu'.
+[path] is the path to the CDU definition file. For the default Boeing CDU this is 'Aircraft/Instruments-3d/cdu/boeing-cdu.xml'.
+
+Each single CDU unit must be set in your aircraft's model .xml file, like:
+
+	<model>
+		<path>Aircraft/Instruments-3d/cdu/boeing.xml</path>
+		<offsets>
+			<x-m> 0.858</x-m>
+			<y-m> 0.186</y-m>
+			<z-m> 0.489</z-m>
+			<pitch-deg>-75</pitch-deg>
+		</offsets>
+		<overlay>
+			<texture>boeing_brown.png</texture>
+			<lighting-prop>/controls/lighting/panel-norm</lighting-prop>
+		</overlay>
+	</model>
+
+Currently there are two textures to choose from:
+	- boeing_brown.png
+	- boeing_grey.png
+
+# WRITING A DEFINITION FILE
+
+The CDU script is set up so that a CDU display is a big table with "rows", "columns", and "lines". The lines are the text that you actually see, as well as the title, page number, and input, which are special fields.
+
+Writing a definition file is closely linked with the CDU model itself. See 'CREATING THE MODEL FILE' if you don't want to use one of the built-ins.
+
+Create a new XML file with the following content:
+
+<PropertyList>
+
+	<rows>[rows]</rows>
+	<cols>[cols]</cols>
+	<default-font>
+		<family>[family]</family>
+		<red>[red]</red>
+		<green>[green]</green>
+		<blue>[blue]</blue>
+	</default-font>
+	<default-page>[page]</default-page>
+
+	...
+</PropertyList>
+
+	[rows] is the total number of rows and [cols] is the total number of columns in your new CDU. They depend on the model file you are using.
+	[family] is the font file for the default font, i.e. Helvetica.txf.
+	[red], [green], and [blue] are the color values for the default font, i.e. 0.1, 1, and 0.1.
+	[page] is the name of the default page.
+
+You can also set the font of the title text and input text by copying the <default-font> tag and changing its name to 'title-font' and 'input-font', respectively.
+
+Now let's insert a page:
+
+<PropertyList>
+	...
+
+	<page>
+		<name>[name]</name>
+		<group>[group]</group>
+		<number>[number]</number>
+		<title>[title]</title>
+		...
+	</page>
+
+	...
+</PropertyList>
+
+	[name] is the name of your new page. It is used when switching pages. It *must* be unique, or you'll have problems!
+	[group] and [number] are optional. They are only used when you want to string together pages in a sequence via the 'next page' and 'prev page' buttons on the CDU. To use them, put the same [group] for some pages and give them [number]s in the order you want them to be in, starting from 0.
+	[title] is the title of the page that the user sees, i.e. 'MENU'.
+
+Insert some lines, so your page will actually be useful:
+
+<PropertyList>
+	...
+
+	<page>
+		...
+		<line>
+			<row>[row]</row>
+			<col>[col]</col>
+			<font>
+				...
+			</font>
+			<condition>
+				...
+			</condition>
+			<text>[text]</text>
+			<sprintf>
+				...
+			</sprintf>
+			<binding>
+				...
+			</binding>
+		</line>
+		...
+	</page>
+
+	...
+</PropertyList>
+
+	[row] and [col] are the row and column your line will be positioned at (duh!).
+	<font> is the font settings for this line. Omit to use the defaults. See the following tags for an idea of what you might nest:
+
+		<family>Helvetica.txf</family>
+		<red>1</red>
+		<green>0.1</green>
+		<blue>0.1</blue>
+
+	<condition> is an ordinary condition (see $FG_ROOT/Docs/README.conditions) that determines whether your line is visible or not. Omit for a line that should always be displayed.
+	<binding> is an ordinary XML binding (see $FG_ROOT/Docs/README.commands) that is run when this line is selected by the user. To have the CDU input some information, use:
+
+		<command>nasal</command>
+		<script>[CDU object].activateInput([prop]);</script>
+
+		Where [CDU object] is the nasal name of your CDU object, usually cdu.cdu and [prop] is the property to input the data into.
+
+	To go to another page:
+
+		<command>nasal</command>
+		<script>[CDU object].goToPage([page]);</script>
+
+		Where [page] is the name of the target page.
+
+	For a full list of CDU functions, read 'CREATING THE MODEL FILE' at the end of this document.
+
+	[text] is some *fixed*, *static* text for the line to display. To use dynamic text based on property values, see <sprintf> below:
+
+		<sprintf>
+			<format>[format]</format>
+			<property>[prop]</property>
+			<scale>[scale]</scale>
+			<offset>[offset]</offset>
+		</sprintf>
+
+		[format] is the sprintf() format for the property. See http://en.wikipedia.org/wiki/printf .
+		[prop] is the property.
+		[scale] and [offset] manipulate the property's value before sprintf() like 'factor' and 'offset' in XML animations. The formula is
+		  value = property * scale + offset
+
+		Each <sprintf> is currently limited to one property, however you can use any number of <sprintf>s you want; they will be concated together.
+
+Here's what a finished line might look like:
+
+	<line>
+		<row>1</row>
+		<col>0</col>
+		<condition>
+			<equals>
+				<property>/sim/flight-model</property>
+				<value>yasim</value>
+			</equals>
+		</condition>
+		<sprintf>
+			<format>%5.1f</format>
+			<property>/yasim/gross-weight-lbs</property>
+			<scale>0.001</scale>
+		</sprintf>
+		<binding>
+			<command>nasal</command>
+			<script>gui.showWeightDialog();</script>
+		</binding>
+	</line>
+
+# CREATING THE MODEL FILE
+
+A CDU model is just like any other model file, except for some pick animations. Use OSGText for the display (see $FG_ROOT/Docs/README.osgtext). Each line uses the following properties, so setup your OSGText accordingly:
+
+	{/path/to/your/CDU/node}/display/row[R]/col[C]/value		- the text value of this line
+	{/path/to/your/CDU/node}/display/row[R]/col[C]/color-red	- red color value
+	{/path/to/your/CDU/node}/display/row[R]/col[C]/color-green	- green color value
+	{/path/to/your/CDU/node}/display/row[R]/col[C]/color-blue	- blue color value
+
+Add pick animations to your buttons. The following nasal functions can be used to interact with your CDU:
+
+	{CDU object}.goToPage([page])					- go to another page
+	{CDU object}.previousPage()					- go to the previous page in the current page group (if any)
+	{CDU object}.nextPage()						- go to the next page in the current page group
+	{CDU object}.runLine([row], [col])				- run the binding of the line at [row] and [col]
+	{CDU object}.activateInput([prop])				- command the CDU to input information into the property [prop]
+	{CDU object}.deactivateInput()					- stop information input (done automatically when switching pages)
+	{CDU object}.input([char])					- append [char] to the current input
+	{CDU object}.clearInput()					- clear current input
+	{CDU object}.deleteInput()					- delete last character in current inupt
+	{CDU object}.invertInput()					- if input is numerical, this function will invert its value (*-1, not ^-1) (use with +/- keys)
+	{CDU object}.test()						- put the CDU into 'test mode' for 5 seconds; in test mode, the CDU will have all the text display their respective row and column positions for model debugging purposes

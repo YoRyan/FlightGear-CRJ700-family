@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Bombardier CRJ700 series -->
+<!-- Simulator key bindings -->
+
+<PropertyList>
+	<!-- Developer key bindings (disabled for users) -->
+	<!-- Overrides instant replay shortcut -->
+	<!--key n="18">
+		<name>Ctrl-R</name>
+		<desc>Reload interactive CDU</desc>
+		<binding>
+			<command>nasal</command>
+			<script>
+				CRJ700.cdu1.reload();
+			</script>
+		</binding>
+	</key>
+	<key n="115">
+		<name>s</name>
+		<desc>Instant start</desc>
+		<binding>
+			<command>nasal</command>
+			<script>
+				CRJ700.instastart();
+			</script>
+		</binding>
+	</key-->
+	<!-- Speedbrakes/spoilers -->
+	<key n="2">
+		<name>Ctrl-B</name>
+		<desc>Cycle speedbrake setting</desc>
+		<binding>
+			<command>nasal</command>
+			<script>
+				controls.cycleSpeedbrake();
+			</script>
+			<!--command>property-cycle</command>
+			<property>controls/flight/speedbrake</property>
+			<value>0</value>
+			<value>0.25</value>
+			<value>0.5</value>
+			<value>0.75</value>
+			<value>1</value-->
+		</binding>
+	</key>
+	<key n="106">
+		<name>j</name>
+		<desc>Decrease ground lift dumping setting</desc>
+		<binding>
+			<command>nasal</command>
+			<script>
+				controls.stepGroundDump(-1);
+			</script>
+			<!--command>property-adjust</command>
+			<property>controls/flight/ground-lift-dump</property>
+			<step>-1</step>
+			<min>0</min-->
+		</binding>
+	</key>
+	<key n="107">
+		<name>k</name>
+		<desc>Increase ground lift dumping setting</desc>
+		<binding>
+			<command>nasal</command>
+			<script>
+				controls.stepGroundDump(1);
+			</script>
+			<!--command>property-adjust</command>
+			<property>controls/flight/ground-lift-dump</property>
+			<step>1</step>
+			<max>2</max-->
+		</binding>
+	</key>
+	<!-- Walk -->
+	<key n="114">
+		<name>r</name>
+		<desc>Walk forward toward view</desc>
+		<repeatable type="bool">true</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+				walk.walk_about(0.1);
+			</script>
+		</binding>
+	</key>
+	<key n="82">
+		<name>R</name>
+		<desc>Run forward toward view</desc>
+		<repeatable type="bool">true</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+				walk.walk_about(0.25);
+			</script>
+		</binding>
+	</key>
+	<key n="102">
+		<name>f</name>
+		<desc>Walk backward from view</desc>
+		<repeatable type="bool">true</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+				walk.walk_about(-0.1);
+			</script>
+		</binding>
+	</key>
+	<!-- Tiller steering -->
+	<key n="81">
+		<name>Q</name>
+		<desc>Steer tiller full left</desc>
+		<binding>
+			<command>nasal</command>
+			<script>
+				controls.setTiller(-80);
+			</script>
+			<!--command>property-assign</command>
+			<property>controls/gear/tiller-steer-deg</property>
+			<value>-80</value-->
+		</binding>
+	</key>
+	<key n="113">
+		<name>q</name>
+		<desc>Steer tiller left</desc>
+		<repeatable type="bool">true</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+				controls.stepTiller(-10);
+			</script>
+			<!--command>property-adjust</command>
+			<property>controls/gear/tiller-steer-deg</property>
+			<step>-10</step>
+			<min>-80</min-->
+		</binding>
+	</key>
+	<key n="119">
+		<name>w</name>
+		<desc>Center tiller</desc>
+		<binding>
+			<command>nasal</command>
+			<script>
+				controls.setTiller(0);
+			</script>
+			<!--command>property-assign</command>
+			<property>controls/gear/tiller-steer-deg</property>
+			<value>0</value-->
+		</binding>
+	</key>
+	<key n="101">
+		<name>e</name>
+		<desc>Steer tiller right</desc>
+		<repeatable type="bool">true</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+				controls.stepTiller(10);
+			</script>
+			<!--command>property-adjust</command>
+			<property>controls/gear/tiller-steer-deg</property>
+			<step>10</step>
+			<max>80</max-->
+		</binding>
+	</key>
+	<key n="69">
+		<name>E</name>
+		<desc>Steer tiller full right</desc>
+		<binding>
+			<command>nasal</command>
+			<script>
+				controls.setTiller(80);
+			</script>
+			<!--command>property-assign</command>
+			<property>controls/gear/tiller-steer-deg</property>
+			<value>80</value-->
+		</binding>
+	</key>
+	<key n="87">
+		<name>W</name>
+		<desc>Open tiller dialog</desc>
+		<binding>
+			<command>nasal</command>
+			<script>
+				CRJ700.dialogs.tiller.open();
+			</script>
+		</binding>
+	</key>
+	<!-- Autopilot -->
+	<key n="1">
+		<name>Ctrl-A</name>
+		<desc>Toggle autopilot altitude mode</desc>
+		<binding>
+			<command>property-cycle</command>
+			<property>controls/autoflight/vertical-mode</property>
+			<value>1</value>
+			<value>0</value>
+		</binding>
+	</key>
+	<key n="6">
+		<name>Ctrl-F</name>
+		<desc>Engage/disengage autopilot</desc>
+		<binding>
+			<command>property-toggle</command>
+			<property>controls/autoflight/autopilot/engage</property>
+		</binding>
+	</key>
+	<key n="7">
+		<name>Ctrl-G</name>
+		<desc>Toggle autopilot approach mode</desc>
+		<binding>
+			<command>property-cycle</command>
+			<property>controls/autoflight/lateral-mode</property>
+			<value>3</value>
+			<value>0</value>
+		</binding>
+	</key>
+	<key n="8">
+		<name>Ctrl-H</name>
+		<desc>Toggle autopilot heading mode</desc>
+		<binding>
+			<command>property-cycle</command>
+			<property>controls/autoflight/lateral-mode</property>
+			<value>1</value>
+			<value>0</value>
+		</binding>
+	</key>
+	<key n="14">
+		<name>Ctrl-N</name>
+		<desc>Toggle autopilot NAV mode</desc>
+		<binding>
+			<command>property-cycle</command>
+			<property>controls/autoflight/lateral-mode</property>
+			<value>2</value>
+			<value>0</value>
+		</binding>
+	</key>
+	<key n="16">
+		<name>Ctrl-P</name>
+		<desc>Set autopilot pitch mode</desc>
+		<binding>
+			<command>property-assign</command>
+			<property>controls/autoflight/vertical-mode</property>
+			<value>0</value>
+		</binding>
+	</key>
+	<key n="19">
+		<name>Ctrl-S</name>
+		<desc>Engage/disengage autothrottle</desc>
+		<binding>
+			<command>property-toggle</command>
+			<property>controls/autoflight/autothrottle-engage</property>
+		</binding>
+	</key>
+	<key n="23">
+		<name>Ctrl-W</name>
+		<desc>Set autopilot hold heading/roll mode</desc>
+		<binding>
+			<command>property-assign</command>
+			<property>controls/autoflight/lateral-mode</property>
+			<value>0</value>
+		</binding>
+	</key>
+	<key n="262">
+		<name>F6</name>
+		<desc>Cycle NAV source</desc>
+		<binding>
+			<command>property-cycle</command>
+			<property>controls/autoflight/nav-mode</property>
+			<value>0</value>
+			<value>1</value>
+			<value>2</value>
+		</binding>
+	</key>
+	<!-- Power plant -->
+	<key n="78">
+		<name>N</name>
+		<desc>Decrement engine thrust modes</desc>
+		<binding>
+			<command>nasal</command>
+			<script>
+				controls.incThrustModes(-1);
+			</script>
+		</binding>
+	</key>
+	<key n="110">
+		<name>n</name>
+		<desc>Increment engine thrust modes</desc>
+		<binding>
+			<command>nasal</command>
+			<script>
+				controls.incThrustModes(1);
+			</script>
+		</binding>
+	</key>
+	<key n="127">
+		<name>Delete</name>
+		<desc>Toggle thrust reversers or arm/disarm thrust reversers</desc>
+		<binding>
+			<command>nasal</command>
+			<script>
+				var ctrl = props.globals.getNode("devices/status/keyboard/ctrl").getBoolValue();
+				if (ctrl)
+				{
+					controls.toggleArmReversers();
+				}
+				else
+				{
+					controls.reverseThrust();
+				}
+			</script>
+		</binding>
+	</key>
+	<!-- GUI -->
+	<key n="268">
+		<name>F12</name>
+		<desc>Pop up radio settings dialog</desc>
+		<binding>
+			<command>nasal</command>
+			<script>
+				CRJ700.dialogs.radio.open();
+			</script>
+		</binding>
+	</key>
+</PropertyList>

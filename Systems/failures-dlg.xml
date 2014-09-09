@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+    <name>failures-dlg</name>
+    <layout>vbox</layout>
+
+    <group>
+	<layout>hbox</layout>
+
+	<empty>
+	    <stretch>1</stretch>
+	</empty>
+
+	<text>
+	    <label>Failures</label>
+	</text>
+
+	<empty>
+	    <stretch>1</stretch>
+	</empty>
+
+	<button>
+	    <pref-width>16</pref-width>
+	    <pref-height>16</pref-height>
+	    <legend></legend>
+	    <keynum>27</keynum>
+	    <border>2</border>
+	    <binding>
+		<command>dialog-close</command>
+	    </binding>
+	</button>
+    </group>
+
+    <hrule/>
+
+    <text>
+	<label>Engine fire</label>
+    </text>
+
+    <group>
+	<layout>hbox</layout>
+
+	<checkbox>
+	    <label>Engine 1</label>
+	    <property>engines/engine[0]/on-fire</property>
+	    <binding>
+		<command>dialog-apply</command>
+	    </binding>
+	    <live type="bool">true</live>
+	</checkbox>
+	<checkbox>
+	    <label>Engine 2</label>
+	    <property>engines/engine[1]/on-fire</property>
+	    <binding>
+		<command>dialog-apply</command>
+	    </binding>
+	    <live type="bool">true</live>
+	</checkbox>
+	<checkbox>
+	    <label>APU</label>
+	    <property>engines/apu/on-fire</property>
+	    <binding>
+		<command>dialog-apply</command>
+	    </binding>
+	    <live type="bool">true</live>
+	</checkbox>
+    </group>
+
+    <hrule />
+
+    <text>
+	<label>Systems</label>
+    </text>
+
+    <text>
+	<halign>left</halign>
+	<label>Uncheck a system to fail it.</label>
+    </text>
+
+    <group>
+	<halign>left</halign>
+	<layout>vbox</layout>
+
+	<checkbox>
+	    <halign>left</halign>
+	    <label>APU</label>
+	    <property>engines/apu/serviceable</property>
+	    <binding>
+		<command>dialog-apply</command>
+	    </binding>
+	    <live type="bool">true</live>
+	</checkbox>
+	<checkbox>
+	    <halign>left</halign>
+	    <label>Ram air turbine</label>
+	    <property>systems/ram-air-turbine/serviceable</property>
+	    <binding>
+		<command>dialog-apply</command>
+	    </binding>
+	    <live type="bool">true</live>
+	</checkbox>
+	<checkbox>
+	    <halign>left</halign>
+	    <label>Electrical system</label>
+	    <property>systems/electrical/serviceable</property>
+	    <binding>
+		<command>dialog-apply</command>
+	    </binding>
+	    <live type="bool">true</live>
+	</checkbox>
+	<checkbox>
+	    <halign>left</halign>
+	    <label>Autopilot</label>
+	    <property>autopilot/autoflight-serviceable</property>
+	    <binding>
+		<command>dialog-apply</command>
+	    </binding>
+	    <live type="bool">true</live>
+	</checkbox>
+	<checkbox>
+	    <halign>left</halign>
+	    <label>Autothrottle</label>
+	    <property>autopilot/autothrottle-serviceable</property>
+	    <binding>
+		<command>dialog-apply</command>
+	    </binding>
+	    <live type="bool">true</live>
+	</checkbox>
+	<checkbox>
+	    <halign>left</halign>
+	    <label>Flight director</label>
+	    <property>autopilot/flight-director-serviceable</property>
+	    <binding>
+		<command>dialog-apply</command>
+	    </binding>
+	    <live type="bool">true</live>
+	</checkbox>
+	<checkbox>
+	    <halign>left</halign>
+	    <label>Yaw damper</label>
+	    <property>autopilot/yaw-damper-serviceable</property>
+	    <binding>
+		<command>dialog-apply</command>
+	    </binding>
+	    <live type="bool">true</live>
+	    <enable>
+		<false />
+	    </enable>
+	</checkbox>
+    </group>
+
+    <hrule/>
+
+    <group>
+	<layout>vbox</layout>
+
+	<button>
+	    <legend>Close</legend>
+	    <default>true</default>
+	    <key>Esc</key>
+	    <padding>10</padding>
+	    <binding>
+		<command>dialog-apply</command>
+	    </binding>
+	    <binding>
+		<command>dialog-close</command>
+	    </binding>
+	</button>
+    </group>
+
+</PropertyList>

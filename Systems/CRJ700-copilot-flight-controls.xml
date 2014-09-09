@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Bombardier CRJ700 series -->
+<!-- Flight controls for first officer -->
+
+<PropertyList>
+
+	<!-- Nose gear steering -->
+	<filter>
+		<name>Tiller disabled nose gear steer</name>
+		<type>gain</type>
+		<debug type="bool">false</debug>
+		<gain>80</gain>
+		<enable>
+			<condition>
+				<not>
+					<property>controls/gear/enable-tiller</property>
+				</not>
+			</condition>
+		</enable>
+		<input>
+			<property>controls/flight/rudder</property>
+		</input>
+		<output>sim/multiplay/generic/float[5]</output>
+	</filter>
+	<!-- Rudder can steer up to 8°, tiller steers up to 80° -->
+	<filter>
+		<name>Nose gear rudder steer</name>
+		<type>gain</type>
+		<debug type="bool">false</debug>
+		<gain>8</gain>
+		<enable>
+			<condition>
+				<and>
+					<less-than-equals>
+						<expression>
+							<abs>
+								<property>controls/gear/tiller-steer-deg</property>
+							</abs>
+						</expression>
+						<value>8</value>
+					</less-than-equals>
+					<property>controls/gear/enable-tiller</property>
+				</and>
+			</condition>
+		</enable>
+		<input>
+			<property>controls/flight/rudder</property>
+		</input>
+		<output>sim/multiplay/generic/float[5]</output>
+	</filter>
+	<filter>
+		<name>Nose gear tiller steer</name>
+		<type>gain</type>
+		<debug type="bool">false</debug>
+		<gain>1</gain>
+		<enable>
+			<condition>
+				<and>
+					<greater-than>
+						<expression>
+							<abs>
+								<property>controls/gear/tiller-steer-deg</property>
+							</abs>
+						</expression>
+						<value>8</value>
+					</greater-than>
+					<property>controls/gear/enable-tiller</property>
+				</and>
+			</condition>
+		</enable>
+		<input>
+			<property>controls/gear/tiller-steer-deg</property>
+		</input>
+		<output>sim/multiplay/generic/float[5]</output>
+	</filter>
+
+</PropertyList>

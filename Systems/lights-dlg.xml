@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+	<nasal>
+		<open><![CDATA[
+			var dialog = cmdarg();
+			var Comboalias =
+			{
+				new: func(node, combonode, key)
+				{
+					var m = { parents: [Comboalias] };
+					m.node = aircraft.makeNode(node);
+					m.combonode = aircraft.makeNode(combonode);
+					m.key = key;
+					var init_setting = m.node.getValue();
+					m._setcombonode(init_setting);
+					m._listener = setlistener(combonode, func m.update(), 0, 0);
+					return m;
+				},
+				del: func
+				{
+					removelistener(me._listener);
+				},
+				update: func
+				{
+					var setting = me.combonode.getValue();
+					me._setnode(setting);
+				},
+				_setnode: func(setting)
+				{
+					for (var i = 0; i < size(me.key); i += 1)
+					{
+						var pair = me.key[i];
+						if (pair[1] == setting)
+						{
+							me.node.setValue(pair[0]);
+							return 1;
+						}
+					}
+					return 0;
+				},
+				_setcombonode: func(setting)
+				{
+					for (var i = 0; i < size(me.key); i += 1)
+					{
+						var pair = me.key[i];
+						if (pair[0] == setting)
+						{
+							me.combonode.setValue(pair[1]);
+							return 1;
+						}
+					}
+					return 0;
+				}
+			};
+			var sign_key =
+			[
+				[0, "Auto"],
+				[1, "Off"],
+				[2, "On"]
+			];
+			var no_smoke_sign = Comboalias.new("controls/switches/no-smoking-sign", dialog.getNode("no-smoking-sign", 1), sign_key);
+			var seatbelt_sign = Comboalias.new("controls/switches/seatbelt-sign", dialog.getNode("seatbelt-sign", 1), sign_key);
+		]]></open>
+		<close>
+			no_smoke_sign.del();
+			seatbelt_sign.del();
+		</close>
+	</nasal>
+
+	<name>lights-dlg</name>
+	<layout>vbox</layout>
+
+	<group>
+		<layout>hbox</layout>
+
+		<empty>
+			<stretch>1</stretch>
+		</empty>
+
+		<text>
+			<label>Aircraft Lights</label>
+		</text>
+
+		<empty>
+			<stretch>1</stretch>
+		</empty>
+
+		<button>
+			<pref-width>16</pref-width>
+			<pref-height>16</pref-height>
+			<legend></legend>
+			<keynum>27</keynum>
+			<border>2</border>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+	</group>
+
+	<hrule/>
+
+	<text>
+		<label>Landing lights</label>
+	</text>
+
+	<group>
+		<layout>hbox</layout>
+
+		<checkbox>
+			<halign>left</halign>
+			<label>Port</label>
+			<live type="bool">true</live>
+			<property>controls/lighting/landing-lights[0]</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		<checkbox>
+			<halign>left</halign>
+			<label>Nose gear</label>
+			<live type="bool">true</live>
+			<property>controls/lighting/landing-lights[1]</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		<checkbox>
+			<halign>left</halign>
+			<label>Starboard</label>
+			<live type="bool">true</live>
+			<property>controls/lighting/landing-lights[2]</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+	</group>
+
+	<hrule />
+
+	<group>
+		<layout>table</layout>
+
+		<checkbox>
+			<row>0</row>
+			<col>0</col>
+			<halign>left</halign>
+			<label>Beacon</label>
+			<live type="bool">true</live>
+			<property>controls/lighting/beacon</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+
+		<checkbox>
+			<row>1</row>
+			<col>0</col>
+			<halign>left</halign>
+			<label>Logo lights</label>
+			<live type="bool">true</live>
+			<property>controls/lighting/logo-lights</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+
+		<checkbox>
+			<row>2</row>
+			<col>0</col>
+			<halign>left</halign>
+			<label>Navigation lights</label>
+			<live type="bool">true</live>
+			<property>controls/lighting/nav-lights</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+
+		<checkbox>
+			<row>3</row>
+			<col>0</col>
+			<halign>left</halign>
+			<label>Strobe lights</label>
+			<live type="bool">true</live>
+			<property>controls/lighting/strobe</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+
+		<checkbox>
+			<row>0</row>
+			<col>1</col>
+			<halign>left</halign>
+			<label>Taxi lights</label>
+			<live type="bool">true</live>
+			<property>controls/lighting/taxi-lights</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+
+		<checkbox>
+			<row>1</row>
+			<col>1</col>
+			<halign>left</halign>
+			<label>Wing lights</label>
+			<live type="bool">true</live>
+			<property>controls/lighting/wing-lights</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+
+		<checkbox>
+			<row>2</row>
+			<col>1</col>
+			<halign>left</halign>
+			<label>Flight deck dome light</label>
+			<live type="bool">true</live>
+			<property>controls/lighting/dome</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+	</group>
+	<group>
+		<layout>table</layout>
+
+		<text>
+			<row>0</row>
+			<col>0</col>
+			<halign>left</halign>
+			<label>Flight deck displays</label>
+		</text>
+		<slider>
+			<row>1</row>
+			<col>0</col>
+			<halign>left</halign>
+			<pref-width>150</pref-width>
+			<property>controls/lighting/display-norm</property>
+			<step>0.05</step>
+			<min>0</min>
+			<max>1</max>
+			<live type="bool">true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</slider>
+
+		<text>
+			<row>2</row>
+			<col>0</col>
+			<halign>left</halign>
+			<label>Flight deck panel lights</label>
+		</text>
+		<slider>
+			<row>3</row>
+			<col>0</col>
+			<halign>left</halign>
+			<pref-width>150</pref-width>
+			<property>controls/lighting/panel-norm</property>
+			<step>0.05</step>
+			<min>0</min>
+			<max>1</max>
+			<live type="bool">true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</slider>
+
+		<text>
+			<row>0</row>
+			<col>1</col>
+			<halign>left</halign>
+			<label>Overhead panel lights</label>
+		</text>
+		<slider>
+			<row>1</row>
+			<col>1</col>
+			<halign>left</halign>
+			<pref-width>150</pref-width>
+			<property>controls/lighting/panel-overhead-norm</property>
+			<step>0.05</step>
+			<min>0</min>
+			<max>1</max>
+			<live type="bool">true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</slider>
+
+		<text>
+			<row>2</row>
+			<col>1</col>
+			<halign>left</halign>
+			<label>Flight deck flood lights</label>
+		</text>
+		<slider>
+			<row>3</row>
+			<col>1</col>
+			<halign>left</halign>
+			<pref-width>150</pref-width>
+			<property>controls/lighting/panel-flood-norm</property>
+			<step>0.05</step>
+			<min>0</min>
+			<max>1</max>
+			<live type="bool">true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</slider>
+	</group>
+
+	<hrule />
+
+	<group>
+		<layout>table</layout>
+
+		<text>
+			<row>0</row>
+			<col>0</col>
+			<halign>right</halign>
+			<label>No smoking sign</label>
+		</text>
+		<text>
+			<row>1</row>
+			<col>0</col>
+			<halign>right</halign>
+			<label>Fasten seatbelt sign</label>
+		</text>
+
+		<combo>
+			<row>0</row>
+			<col>1</col>
+			<halign>left</halign>
+			<live type="bool">true</live>
+			<property>sim/gui/dialogs/lights/dialog/no-smoking-sign</property>
+			<value>On</value>
+			<value>Off</value>
+			<value>Auto</value>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</combo>
+		<combo>
+			<row>1</row>
+			<col>1</col>
+			<halign>left</halign>
+			<live type="bool">true</live>
+			<property>sim/gui/dialogs/lights/dialog/seatbelt-sign</property>
+			<value>On</value>
+			<value>Off</value>
+			<value>Auto</value>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</combo>
+	</group>
+
+	<group>
+		<layout>vbox</layout>
+		<text>
+			<halign>center</halign>
+			<label>Cabin lights</label>
+		</text>
+		<slider>
+			<halign>center</halign>
+			<pref-width>150</pref-width>
+			<property>controls/lighting/cabin-norm</property>
+			<step>0.05</step>
+			<min>0</min>
+			<max>1</max>
+			<live type="bool">true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</slider>
+	</group>
+
+	<hrule />
+
+	<group>
+		<layout>vbox</layout>
+
+		<button>
+			<legend>Close</legend>
+			<default>true</default>
+			<key>Esc</key>
+			<padding>10</padding>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+	</group>
+
+</PropertyList>

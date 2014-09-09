@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Bombardier CRJ700 series -->
+<!-- Main gear model -->
+
+<PropertyList>
+
+	<path>CRJ700-maingear.ac</path>
+
+	<model>
+		<name>Left tire smoke</name>
+		<path>Aircraft/Generic/Effects/tyre-smoke-port.xml</path>
+		<offsets>
+			<x-m>0</x-m>
+			<y-m>-2.05357</y-m>
+			<z-m>-0.45331</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>Left rain</name>
+		<path>Aircraft/Generic/Effects/rain-port.xml</path>
+		<offsets>
+			<x-m>0</x-m>
+			<y-m>-2.05357</y-m>
+			<z-m>-0.45331</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>Right tire smoke</name>
+		<path>Aircraft/Generic/Effects/tyre-smoke-stbd.xml</path>
+		<offsets>
+			<x-m>0</x-m>
+			<y-m>2.05357</y-m>
+			<z-m>-0.45331</z-m>
+		</offsets>
+	</model>
+	<model>
+		<name>Right rain</name>
+		<path>Aircraft/Generic/Effects/rain-stbd.xml</path>
+		<offsets>
+			<x-m>0</x-m>
+			<y-m>2.05357</y-m>
+			<z-m>-0.45331</z-m>
+		</offsets>
+	</model>
+	
+	<!-- Left main gear -->
+	<animation>
+		<name>Left main gear wheels</name>
+		<type>spin</type>
+		<object-name>LGAxle</object-name>
+		<object-name>LGTires</object-name>
+		<property>gear/gear[1]/rollspeed-ms</property>
+		<factor>21.057</factor>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>Left main gear lower strut</name>
+		<type>translate</type>
+		<object-name>LGLowerRearScissor</object-name>
+		<object-name>LGLowerFrontScissor</object-name>
+		<object-name>LGLowerStrut</object-name>
+		<object-name>LGTubing</object-name>
+		<object-name>Left main gear wheels</object-name>
+		<property>gear/gear[1]/compression-m</property>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+	<animation>
+		<name>Left main gear upper strut</name>
+		<object-name>LGUpperRearScissor</object-name>
+		<object-name>LGUpperFrontScissor</object-name>
+		<object-name>LGLowerRetract</object-name>
+		<object-name>LGUpperRetract</object-name>
+		<object-name>LGUpperStrut</object-name>
+	</animation>
+	<!-- Formula for rotation of a compression scissor:
+	     acos((d - c) / 2l) * R2D - a
+	     Where
+	      d = distance between the scissor axises
+	      c = gear compression
+	      l = length of one scissor arm
+	      a = initial angle of one scissor arm
+	      R2D = radians to degrees (180 / pi) -->
+	<animation>
+		<name>Left main gear lower-rear compression scissor</name>
+		<type>rotate</type>
+		<object-name>LGLowerRearScissor</object-name>
+		<expression>
+			<difference>
+				<rad2deg>
+					<acos>
+						<div>
+							<difference>
+								<value>0.317</value>
+								<property>gear/gear[1]/compression-m</property>
+							</difference>
+							<value>0.366</value>
+						</div>
+					</acos>
+				</rad2deg>
+				<value>30</value>
+			</difference>
+		</expression>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0.14046</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>Left main gear upper-rear compression scissor</name>
+		<type>rotate</type>
+		<object-name>LGUpperRearScissor</object-name>
+		<expression>
+			<difference>
+				<rad2deg>
+					<acos>
+						<div>
+							<difference>
+								<value>0.317</value>
+								<property>gear/gear[1]/compression-m</property>
+							</difference>
+							<value>0.366</value>
+						</div>
+					</acos>
+				</rad2deg>
+				<value>30</value>
+			</difference>
+		</expression>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0.14041</x-m>
+			<y-m>0</y-m>
+			<z-m>0.31687</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>Left main gear lower-front compression scissor</name>
+		<type>rotate</type>
+		<object-name>LGLowerFrontScissor</object-name>
+		<expression>
+			<difference>
+				<rad2deg>
+					<acos>
+						<div>
+							<difference>
+								<value>0.335</value>
+								<property>gear/gear[1]/compression-m</property>
+							</difference>
+							<value>0.426</value>
+						</div>
+					</acos>
+				</rad2deg>
+				<value>38</value>
+			</difference>
+		</expression>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.17</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>Left main gear upper-front compression scissor</name>
+		<type>rotate</type>
+		<object-name>LGUpperFrontScissor</object-name>
+		<expression>
+			<difference>
+				<rad2deg>
+					<acos>
+						<div>
+							<difference>
+								<value>0.335</value>
+								<property>gear/gear[1]/compression-m</property>
+							</difference>
+							<value>0.426</value>
+						</div>
+					</acos>
+				</rad2deg>
+				<value>38</value>
+			</difference>
+		</expression>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.17</x-m>
+			<y-m>0</y-m>
+			<z-m>0.3352</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>Left main gear upper retraction scissor</name>
+		<type>rotate</type>
+		<object-name>LGUpperRetract</object-name>
+		<property>gear/gear[1]/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>180</dep></entry>
+			<entry><ind>0.2</ind><dep>180</dep></entry>
+			<entry><ind>0.9</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>-0.09556</x1-m>
+			<y1-m>-1.79663</y1-m>
+			<z1-m>0.81558</z1-m>
+			<x2-m>-0.13043</x2-m>
+			<y2-m>-1.80597</y2-m>
+			<z2-m>0.81558</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<name>Left main gear lower retraction scissor</name>
+		<type>rotate</type>
+		<object-name>LGLowerRetract</object-name>
+		<object-name>Left main gear upper retraction scissor</object-name>
+		<property>gear/gear[1]/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>71</dep></entry>
+			<entry><ind>0.2</ind><dep>71</dep></entry>
+			<entry><ind>0.9</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>-0.06652</x1-m>
+			<y1-m>-2.01054</y1-m>
+			<z1-m>0.73764</z1-m>
+			<x2-m>-0.04863</x2-m>
+			<y2-m>-2.00575</y2-m>
+			<z2-m>0.73764</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<name>Left main gear retraction</name>
+		<type>rotate</type>
+		<object-name>Left main gear lower strut</object-name>
+		<object-name>Left main gear upper strut</object-name>
+		<property>gear/gear[1]/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>90</dep></entry>
+			<entry><ind>0.1</ind><dep>90</dep></entry>
+			<entry><ind>0.9</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-1.86</y-m>
+			<z-m>1.337</z-m>
+		</center>
+	</animation>
+	
+	<!-- Right main gear -->
+	<animation>
+		<name>Right main gear wheels</name>
+		<type>spin</type>
+		<object-name>RGAxle</object-name>
+		<object-name>RGTires</object-name>
+		<property>gear/gear[2]/rollspeed-ms</property>
+		<factor>21.057</factor>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>Right main gear lower strut</name>
+		<type>translate</type>
+		<object-name>RGLowerRearScissor</object-name>
+		<object-name>RGLowerFrontScissor</object-name>
+		<object-name>RGLowerStrut</object-name>
+		<object-name>RGTubing</object-name>
+		<object-name>Right main gear wheels</object-name>
+		<property>gear/gear[2]/compression-m</property>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+	<animation>
+		<name>Right main gear upper strut</name>
+		<object-name>RGUpperRearScissor</object-name>
+		<object-name>RGUpperFrontScissor</object-name>
+		<object-name>RGLowerRetract</object-name>
+		<object-name>RGUpperRetract</object-name>
+		<object-name>RGUpperStrut</object-name>
+	</animation>
+	<animation>
+		<name>Right main gear lower-rear compression scissor</name>
+		<type>rotate</type>
+		<object-name>RGLowerRearScissor</object-name>
+		<expression>
+			<difference>
+				<rad2deg>
+					<acos>
+						<div>
+							<difference>
+								<value>0.317</value>
+								<property>gear/gear[2]/compression-m</property>
+							</difference>
+							<value>0.366</value>
+						</div>
+					</acos>
+				</rad2deg>
+				<value>30</value>
+			</difference>
+		</expression>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0.14046</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>Right main gear upper-rear compression scissor</name>
+		<type>rotate</type>
+		<object-name>RGUpperRearScissor</object-name>
+		<expression>
+			<difference>
+				<rad2deg>
+					<acos>
+						<div>
+							<difference>
+								<value>0.317</value>
+								<property>gear/gear[2]/compression-m</property>
+							</difference>
+							<value>0.366</value>
+						</div>
+					</acos>
+				</rad2deg>
+				<value>30</value>
+			</difference>
+		</expression>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0.14041</x-m>
+			<y-m>0</y-m>
+			<z-m>0.31687</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>Right main gear lower-front compression scissor</name>
+		<type>rotate</type>
+		<object-name>RGLowerFrontScissor</object-name>
+		<expression>
+			<difference>
+				<rad2deg>
+					<acos>
+						<div>
+							<difference>
+								<value>0.335</value>
+								<property>gear/gear[2]/compression-m</property>
+							</difference>
+							<value>0.426</value>
+						</div>
+					</acos>
+				</rad2deg>
+				<value>38</value>
+			</difference>
+		</expression>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.17</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>Right main gear upper-front compression scissor</name>
+		<type>rotate</type>
+		<object-name>RGUpperFrontScissor</object-name>
+		<expression>
+			<difference>
+				<rad2deg>
+					<acos>
+						<div>
+							<difference>
+								<value>0.335</value>
+								<property>gear/gear[2]/compression-m</property>
+							</difference>
+							<value>0.426</value>
+						</div>
+					</acos>
+				</rad2deg>
+				<value>38</value>
+			</difference>
+		</expression>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.17</x-m>
+			<y-m>0</y-m>
+			<z-m>0.3352</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>Right main gear upper retraction scissor</name>
+		<type>rotate</type>
+		<object-name>RGUpperRetract</object-name>
+		<property>gear/gear[2]/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>180</dep></entry>
+			<entry><ind>0.2</ind><dep>180</dep></entry>
+			<entry><ind>0.9</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>-0.13043</x1-m>
+			<y1-m>1.80597</y1-m>
+			<z1-m>0.81558</z1-m>
+			<x2-m>-0.09556</x2-m>
+			<y2-m>1.79663</y2-m>
+			<z2-m>0.81558</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<name>Right main gear lower retraction scissor</name>
+		<type>rotate</type>
+		<object-name>RGLowerRetract</object-name>
+		<object-name>Right main gear upper retraction scissor</object-name>
+		<property>gear/gear[2]/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>71</dep></entry>
+			<entry><ind>0.2</ind><dep>71</dep></entry>
+			<entry><ind>0.9</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>-0.04863</x1-m>
+			<y1-m>2.00575</y1-m>
+			<z1-m>0.73764</z1-m>
+			<x2-m>-0.06652</x2-m>
+			<y2-m>2.01054</y2-m>
+			<z2-m>0.73764</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<name>Right main gear retraction</name>
+		<type>rotate</type>
+		<object-name>Right main gear lower strut</object-name>
+		<object-name>Right main gear upper strut</object-name>
+		<property>gear/gear[2]/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-90</dep></entry>
+			<entry><ind>0.1</ind><dep>-90</dep></entry>
+			<entry><ind>0.9</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>1.86</y-m>
+			<z-m>1.337</z-m>
+		</center>
+	</animation>
+
+	<!-- Reflection shaders -->
+	<effect>
+		<name>Aircraft dirty reflect</name>
+		<inherits-from>Aircraft/CRJ700-family/Models/Effects/CRJ700dirtyreflect</inherits-from>
+		<object-name>LGLowerStrut</object-name>
+		<object-name>RGLowerStrut</object-name>
+	</effect>
+
+</PropertyList>
