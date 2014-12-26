@@ -1556,7 +1556,12 @@
     <animation>
 	<type>rotate</type>
 	<object-name>Wind</object-name>
-	<property>environment/wind-from-heading-deg</property>
+	<expression>
+		<dif>
+			<property>instrumentation/heading-indicator/indicated-heading-deg</property>
+			<property>environment/wind-from-heading-deg</property>
+		</dif>
+	</expression>
 	<axis>
 	    <x>1</x>
 	    <y>0</y>
