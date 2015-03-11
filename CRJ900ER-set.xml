@@ -18,7 +18,7 @@
 		</rating>
 		<flight-model>yasim</flight-model>
 		<aero>CRJ900ER</aero>
-
+        <variant-of>CRJ900</variant-of>
 		<model>
 			<path>Aircraft/CRJ700-family/Models/CRJ900.xml</path>
 			<variant type="int">1</variant>
