@@ -33,7 +33,8 @@
 
 	<animation>
 		<type>select</type>
-		<object-name>NeedsPower</object-name>
+		<object-name>RadarTerrainBtnOn</object-name>
+		<object-name>TrafficBtnOn</object-name>
 		<condition>
 			<greater-than-equals>
 				<property>systems/electrical/outputs/efis</property>
@@ -328,12 +329,14 @@
 				<property alias="../../../../params/barometer" />
 				<step type="double">-1</step>
 			</binding>
-		</action>	</animation>
+		</action>	
+	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>BarometerKnob</object-name>
 		<object-name>BaroKnbFace</object-name>
 		<property alias="../../params/barometer" />
+		<factor>10</factor>
 		<axis>
 			<x>-1</x>
 			<y>0</y>
@@ -349,7 +352,6 @@
 	<animation>
 		<type>pick</type>
 		<object-name>HPAinBtn</object-name>
-		<object-name>HPAinBtnOn</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -362,7 +364,6 @@
 	<animation>
 		<type>translate</type>
 		<object-name>HPAinBtn</object-name>
-		<object-name>HPAinBtnOn</object-name>
 		<property alias="../../params/use-QNH" />
 		<factor alias="../../button-translate-m" />
 		<axis>
@@ -370,13 +371,6 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	<animation>
-		<type>select</type>
-		<object-name>HPAinBtnOn</object-name>
-		<condition>
-			<property alias="../../../params/use-QNH" />
-		</condition>
 	</animation>
 
 	<!-- Lightmaps -->
