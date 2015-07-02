@@ -55,6 +55,30 @@ Engine.Apu = func(n)
     var apu = { serviceable : 1, door : 0, running : 0, rpm : 0, egt : 0, on_fire : 0 };
     # Based on the fuel consumption of a 757 APU.
     apu.fuel_burn_pph = 200;
+<<<<<<< HEAD
+
+    apu.controls = {};
+
+    apu.controls.ecu = 0;
+    apu.controls.ecu_node = props.globals.getNode("/controls/APU[" ~ n ~ "]/electronic-control-unit", 1);
+    apu.controls.ecu_node.setBoolValue(apu.controls.ecu);
+
+    apu.controls.fire_ext = 0;
+    apu.controls.fire_ext_node = props.globals.getNode("/controls/APU[" ~ n ~ "]/fire-switch", 1);
+    apu.controls.fire_ext_node.setBoolValue(apu.controls.fire_ext);
+
+    apu.controls.on = 0;
+    apu.controls.on_node = props.globals.getNode("/controls/APU[" ~ n ~ "]/off-on", 1);
+    apu.controls.on_node.setBoolValue(apu.controls.on);
+
+    apu.serviceable = 1;
+    apu.serviceable_node = props.globals.getNode("/engines/apu[" ~ n ~ "]/serviceable", 1);
+    apu.serviceable_node.setBoolValue(apu.serviceable);
+
+    apu.door = 0;
+    apu.door_node = props.globals.getNode("/engines/apu[" ~ n ~ "]/door", 1);
+    apu.door_node.setValue(apu.door);
+=======
 	apu.eicas_door_msg = ["----", "CLSD", "OPEN"];
     apu.controls = { ecu : 0, on : 0, fire_ex : 0 };
 	
@@ -69,6 +93,7 @@ Engine.Apu = func(n)
 
     apu.serviceable_node = props.globals.getNode("/engines/apu[" ~ n ~ "]/serviceable", 1);
     apu.serviceable_node.setBoolValue(apu.serviceable);
+>>>>>>> origin/testing
 
     apu.door_node = props.globals.getNode("/engines/apu[" ~ n ~ "]/door-norm", 1);
     apu.door_node.setValue(apu.door);
@@ -78,6 +103,10 @@ Engine.Apu = func(n)
     apu.running_node = props.globals.getNode("/engines/apu[" ~ n ~ "]/running", 1);
     apu.running_node.setBoolValue(apu.running);
 
+<<<<<<< HEAD
+    apu.rpm = 0;
+=======
+>>>>>>> origin/testing
     apu.rpm_node = props.globals.getNode("/engines/apu[" ~ n ~ "]/rpm", 1);
     apu.rpm_node.setValue(apu.rpm);
 
@@ -92,12 +121,19 @@ Engine.Apu = func(n)
     {
         apu.controls.ecu = apu.controls.ecu_node.getValue();
         apu.controls.on = apu.controls.on_node.getValue();
+<<<<<<< HEAD
+		apu.rpm = apu.rpm_node.getValue();
+		apu.egt = apu.egt_node.getValue();
+		apu.running = apu.running_node.getBoolValue();
+        apu.serviceable = apu.serviceable_node.getBoolValue();
+=======
         apu.controls.fire_ex = apu.controls.fire_ex_node.getValue();
         apu.serviceable = apu.serviceable_node.getBoolValue();
 		apu.door = apu.door_node.getValue();
 		apu.running = apu.running_node.getBoolValue();
 		apu.rpm = apu.rpm_node.getValue();
 		apu.egt = apu.egt_node.getValue();
+>>>>>>> origin/testing
         apu.on_fire = apu.on_fire_node.getBoolValue();
     };
 
@@ -109,6 +145,10 @@ Engine.Apu = func(n)
         apu.on_fire_node.setBoolValue(apu.on_fire);
         apu.serviceable_node.setBoolValue(apu.serviceable);
     };
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/testing
 	
 	#-- for debugging
 	apu.controls_listener = func
@@ -116,7 +156,11 @@ Engine.Apu = func(n)
 		read_props();
 		print("APU ecu " ~ apu.controls.ecu );
 		print("APU on/off " ~ apu.controls.on );
+<<<<<<< HEAD
+		print("APU fire ex " ~ apu.controls.fire_ext );
+=======
 		print("APU fire ex " ~ apu.controls.fire_ex );
+>>>>>>> origin/testing
 	}
 	#setlistener("/controls/APU", apu.controls_listener, 1, 2);
 	
@@ -146,10 +190,18 @@ Engine.Apu = func(n)
 	apu.stop = func
 	{
 		read_props();
+<<<<<<< HEAD
+## do not check off-on so ecu.off can stop APU 
+#        if (!apu.controls.on)
+#        {
+			print("APU off");
+#			apu.running = 0; # done by rpm listener
+=======
         if (!apu.controls.on)
         {
 			print("APU off");
 			#apu.running = 0; # done by rpm listener
+>>>>>>> origin/testing
 			#-- spin down (20s) --
 			interpolate(apu.rpm_node, 0, 20 * apu.rpm / 100);
 			#-- cool down --
@@ -164,12 +216,20 @@ Engine.Apu = func(n)
 				interpolate(apu.egt_node, 197,4, outside_temperature, (197 - outside_temperature)/2);
 			}
 			else {
+<<<<<<< HEAD
+				cooling_time = math.min((apu.egt - outside_temperature)/2, 0);
+				print("APU cool down to " ~ outside_temperature ~ " in " ~ cooling_time ~ "s");
+				interpolate(apu.egt_node, outside_temperature, cooling_time);
+			}
+#        }
+=======
 				cooling_time = (apu.egt - outside_temperature)/2;
 				if (cooling_time < 1) cooling_time = 1;
 				#print("APU cool down to " ~ outside_temperature ~ " in " ~ cooling_time ~ "s");
 				interpolate(apu.egt_node, outside_temperature, cooling_time);
 			}
         }
+>>>>>>> origin/testing
 #        write_props();	
 	}
 	
@@ -193,12 +253,24 @@ Engine.Apu = func(n)
     };
 
 #-- set listeners for rare events, e.g. not necessary to poll in the update loop	
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/testing
 	# APU master switch (ECU = electronic control unit)
 	setlistener(apu.controls.ecu_node, func (node)
 	{
 		if (node.getBoolValue())
 		{
+<<<<<<< HEAD
+			# init values
+			apu.egt_node.setValue(getprop("/environment/temperature-degc"));
+		}
+		else
+		{
+			# just in case the pilot did not stop it via the start/stop button
+			apu.stop();
+=======
 			# init value
 			apu.egt_node.setValue(getprop("/environment/temperature-degc"));
 			# open to 45 deg (=1) in 2s
@@ -210,20 +282,46 @@ Engine.Apu = func(n)
 			# unset start/stop switch, in case the pilot didn't
 			apu.controls.on = 0;
 			apu.controls.on_node.setBoolValue(apu.controls.on);
+>>>>>>> origin/testing
 		}
 	});
 	
 	setlistener(apu.controls.on_node, func (node)
 	{
         if (node.getBoolValue())
+<<<<<<< HEAD
+		{
+			print("APU start ...");
+			apu.start();
+		}
+		else 
+		{
+			print("APU stop ...");
+			apu.stop();
+		}			
+=======
 			apu.start();
 		else 
 			apu.stop();
+>>>>>>> origin/testing
 	});
 	
 	setlistener(apu.on_fire_node, func (node) 
 	{
 		if (node.getBoolValue())
+<<<<<<< HEAD
+        {
+			print("APU on fire!");
+            apu.serviceable_node.setBoolValue(0);
+        }
+	});	
+		
+	setlistener(apu.controls.fire_ext_node, func(node)
+	{
+        if (node.getBoolValue())
+        {
+			print("APU fire ext discharge");
+=======
             apu.serviceable_node.setBoolValue(0);
 	});	
 		
@@ -231,12 +329,31 @@ Engine.Apu = func(n)
 	{
         if (node.getBoolValue())
         {
+>>>>>>> origin/testing
             apu.on_fire_node.setBoolValue(0);
             apu.serviceable_node.setBoolValue(0);
         }
 	});
 	
 	#-- monitor RPM to set running (available) flag; 
+<<<<<<< HEAD
+	#not implemented: avail 2s after rpm reaches 99% 
+	var timer_id = 0;
+	var timer = 0;
+	setlistener(apu.rpm_node, func(node)
+	{
+		rpm = node.getValue();
+		if (rpm < 99)
+		{
+			apu.running_node.setBoolValue(0);
+			
+		}
+		elsif (99 <= rpm and rpm <= 106)
+		{
+			timer_id += 1;
+			var id = timer_id;
+			if (timer == 0)
+=======
 	var rpm_timer = 0;
 	setlistener(apu.rpm_node, func(node)
 	{
@@ -250,10 +367,25 @@ Engine.Apu = func(n)
 		elsif (99 <= rpm and rpm <= 106)
 		{
 			if (rpm_timer == 0)
+>>>>>>> origin/testing
 			{
 				timer = 1;
 				settimer(func 
 				{
+<<<<<<< HEAD
+					print("APU avail 2s timer " ~ id ~ ", " ~ timer_id);
+					if (id == timer_id)
+					{
+						apu.running_node.setBoolValue(1);
+					}
+					timer=0;
+				}, 2);
+			}
+
+		}
+	});
+	
+=======
 					apu.running_node.setBoolValue(1);
 					rpm_timer=0;
 				}, 2);
@@ -270,6 +402,7 @@ Engine.Apu = func(n)
 			apu.eicas_door_node.setValue(apu.eicas_door_msg[2]);
 	});
 
+>>>>>>> origin/testing
     return apu;
 };
 
@@ -289,9 +422,15 @@ Engine.Jet = func(n)
     jet.controls.cutoff_node = props.globals.getNode("/controls/engines/engine[" ~ n ~ "]/cutoff", 1);
     jet.controls.cutoff_node.setBoolValue(jet.controls.cutoff);
 
+<<<<<<< HEAD
+    jet.controls.fire_ext = 0;
+    jet.controls.fire_ext_node = props.globals.getNode("/controls/engines/engine[" ~ n ~ "]/fire-bottle-discharge", 1);
+    jet.controls.fire_ext_node.setBoolValue(jet.controls.fire_ext);
+=======
     jet.controls.fire_ex = 0;
     jet.controls.fire_ex_node = props.globals.getNode("/controls/engines/engine[" ~ n ~ "]/fire-bottle-discharge", 1);
     jet.controls.fire_ex_node.setBoolValue(jet.controls.fire_ex);
+>>>>>>> origin/testing
 
     jet.controls.reverser_arm = 0;
     jet.controls.reverser_arm_node = props.globals.getNode("/controls/engines/engine[" ~ n ~ "]/reverser-armed", 1);
@@ -427,7 +566,11 @@ Engine.Jet = func(n)
 		var apu_rpm = getprop_safe("/engines/apu/rpm");
 		var eng1_rpm = getprop_safe("/engines/engine[0]/rpm");
 		var eng2_rpm = getprop_safe("/engines/engine[1]/rpm");
+<<<<<<< HEAD
+		print("Bleed source " ~ bleed_source);
+=======
 		#print("Bleed source " ~ bleed_source);
+>>>>>>> origin/testing
         # both engines
         if (bleed_source == 0) return eng1_rpm > 20 or eng2_rpm > 20;
         # right engine
@@ -451,7 +594,11 @@ Engine.Jet = func(n)
         }
 	},0,0);	
 		
+<<<<<<< HEAD
+	setlistener(jet.controls.fire_ext_node, func(v)
+=======
 	setlistener(jet.controls.fire_ex_node, func(v)
+>>>>>>> origin/testing
 	{
 		print("Engine fire ex listener");
         if (v.getBoolValue())

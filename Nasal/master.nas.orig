@@ -62,6 +62,21 @@ var wipers = [
 
 
 # Update loops.
+<<<<<<< HEAD
+var fast_loop = Loop(0, func
+                     {
+                         if (!is_slave)
+                         {
+                             # Engines and APU.
+                             CRJ700.Engine.poll_fuel_tanks();
+                             #CRJ700.Engine.poll_bleed_air();
+                             apu.update();
+                             engines[0].update();
+                             engines[1].update();
+                         }
+                         # Electrical.
+                         update_electrical();
+=======
 var fast_loop = Loop(0, func {
 	if (!is_slave)
 	{
@@ -74,6 +89,7 @@ var fast_loop = Loop(0, func {
 	}
 	# Electrical.
 	update_electrical();
+>>>>>>> origin/testing
 
 	# Instruments.
 	eicas_messages_page1.update();
