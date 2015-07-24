@@ -80,7 +80,8 @@ var sound_switchclick = Switch_sound.new("sim/sound/click", 0.5,
 	 "controls/APU/fire-switch-armed",
 	 "controls/electric/dc-service-switch",
 	 "controls/electric/battery-switch",
-	 "controls/electric/ac-service-in-use",
+	 "controls/electric/ac-service-selected",
+	 "controls/electric/ac-service-selected-ext",
 	 "controls/electric/idg1-disc",
 	 "controls/electric/ac-ess-xfer",
 	 "controls/electric/idg2-disc",
@@ -137,7 +138,7 @@ var tiresmoke_system = aircraft.tyresmoke_system.new(0, 1, 2);
 
 ## Lights
 # Exterior lights
-var beacon_light = aircraft.light.new("sim/model/lights/beacon", [0.05, 6], "controls/lighting/beacon");
+var beacon_light = aircraft.light.new("sim/model/lights/beacon", [0.05, 2.1], "controls/lighting/beacon");
 var strobe_light = aircraft.light.new("sim/model/lights/strobe", [0.05, 2], "controls/lighting/strobe");
 
 # No smoking/seatbelt signs

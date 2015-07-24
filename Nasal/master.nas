@@ -52,11 +52,11 @@ var wipers = [
     CRJ700.Wiper("/controls/anti-ice/wiper[0]",
                  "/surface-positions/left-wiper-pos-norm",
                  "/controls/anti-ice/wiper-power[0]",
-                 "/systems/electrical/outputs/wiper[0]"),
+                 "/systems/DC/outputs/wiper-left"),
     CRJ700.Wiper("/controls/anti-ice/wiper[1]",
                  "/surface-positions/right-wiper-pos-norm",
                  "/controls/anti-ice/wiper-power[1]",
-                 "/systems/electrical/outputs/wiper[1]")
+                 "/systems/DC/outputs/wiper-right")
 ];
 
 
@@ -72,9 +72,10 @@ var fast_loop = Loop(0, func {
 		engines[0].update();
 		engines[1].update();
 	}
-	# Electrical.
-	update_electrical();
 
+	update_electrical();
+	update_hydraulic();
+	
 	# Instruments.
 	eicas_messages_page1.update();
 	eicas_messages_page2.update();
@@ -82,14 +83,11 @@ var fast_loop = Loop(0, func {
 	# Model.
 	wipers[0].update();
 	wipers[1].update();
-	hydraulics[0].update();
-	hydraulics[1].update();
-	hydraulics[2].update();
 });
 
 var slow_loop = Loop(3, func {
 	# Electrical.
-	rat1.update();
+	#rat1.update();
 
 	# Instruments.
 	update_tat;
@@ -188,6 +186,7 @@ setlistener("sim/model/start-idling", func(v)
 }, 0, 0);
 
 ## Instant start for tutorials and whatnot
+#broken
 var instastart = func
 {
 	setprop("/consumables/fuel/tank[0]/selected", 1);
@@ -195,12 +194,8 @@ var instastart = func
     setprop("controls/electric/battery-switch", 1);
     setprop("controls/electric/engine[0]/generator", 1);
     setprop("controls/electric/engine[1]/generator", 1);
-    setprop("controls/engines/engine[0]/cutoff", 0);
-    setprop("/controls/engines/engine[0]/starter", 1);
-    setprop("engines/engine[0]/rpm", 25);
-    setprop("controls/engines/engine[1]/cutoff", 0);
-    setprop("/controls/engines/engine[1]/starter", 1);
-    setprop("engines/engine[1]/rpm", 25);
+	engines[0].on();
+	engines[1].on();
 
 	setprop("controls/hydraulic/system[0]/pump-b", 2);
 	setprop("controls/hydraulic/system[1]/pump-b", 2);
@@ -271,7 +266,7 @@ var Rat = {
         }
     }
 };
-var rat1 = Rat.new("systems/ram-air-turbine", "controls/pneumatic/ram-air-turbine");
+#var rat1 = Rat.new("systems/ram-air-turbine", "controls/pneumatic/ram-air-turbine");
 
 ## Aircraft-specific dialogs
 var dialogs = {

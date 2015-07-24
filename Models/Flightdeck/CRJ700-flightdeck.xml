@@ -489,7 +489,7 @@
 	<condition>
 	    <greater-than-equals>
 		<property>systems/AC/outputs/center-panel-int-lights</property>
-		<value>15</value>
+		<value>100</value>
 	    </greater-than-equals>
 	</condition>
 	<emission>
@@ -2391,7 +2391,172 @@
 	</center>
     </animation>
 
-    <!-- Aileron/rudder trim -->
+    <!-- EICAS controls -->
+    <animation>
+		<type>pick</type>
+		<object-name>EICAS_Pri</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/eicas[1]/page</property>
+				<value>1</value>
+			</binding>
+		</action>
+		<hovered><binding>
+			<command>set-tooltip</command>
+			<tooltip-id>EP_Pri</tooltip-id>
+			<label>EICAS Pri</label>
+		</binding></hovered>
+    </animation>
+    <animation>
+		<type>pick</type>
+		<object-name>EICAS_Stat</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/eicas[1]/page</property>
+				<value>2</value>
+			</binding>
+		</action>
+		<hovered><binding>
+			<command>set-tooltip</command>
+			<tooltip-id>EP_Stat</tooltip-id>
+			<label>EICAS Status</label>
+		</binding></hovered>		
+    </animation>
+    <!--animation>
+		<type>pick</type>
+		<object-name>EICAS_ECS</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/eicas[1]/page</property>
+				<value>1</value>
+			</binding>
+		</action>
+		<hovered><binding>
+			<command>set-tooltip</command>
+			<tooltip-id>EP_ECS</tooltip-id>
+			<label>EICAS ECS</label>
+		</binding></hovered>		
+    </animation-->
+    <animation>
+		<type>pick</type>
+		<object-name>EICAS_Hyd</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/eicas[1]/page</property>
+				<value>6</value>
+			</binding>
+		</action>
+		<hovered><binding>
+			<command>set-tooltip</command>
+			<tooltip-id>EP_Hyd</tooltip-id>
+			<label>EICAS Hydraulic</label>
+		</binding></hovered>		
+    </animation>
+    <animation>
+		<type>pick</type>
+		<object-name>EICAS_Elec</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>instrumentation/eicas[1]/page</property>
+				<value>3</value>
+				<value>4</value>
+			</binding>
+		</action>
+		<hovered><binding>
+			<command>set-tooltip</command>
+			<tooltip-id>EP_Elec</tooltip-id>
+			<label>EICAS Electrical</label>
+		</binding></hovered>		
+    </animation>
+	<!--animation>
+		<type>pick</type>
+		<object-name>EICAS_Fuel</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/eicas[1]/page</property>
+				<value>7</value>
+			</binding>
+		</action>
+		<hovered><binding>
+			<command>set-tooltip</command>
+			<tooltip-id>EP_Fuel</tooltip-id>
+			<label>EICAS Fuel</label>
+		</binding></hovered>		
+    </animation>
+    <animation>
+		<type>pick</type>
+		<object-name>EICAS_FCTL</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/eicas[1]/page</property>
+				<value></value>
+			</binding>
+		</action>
+		<hovered><binding>
+			<command>set-tooltip</command>
+			<tooltip-id>EP_FCTL</tooltip-id>
+			<label>EICAS Flight Controlls</label>
+		</binding></hovered>		
+    </animation>	
+    <animation>
+		<type>pick</type>
+		<object-name>EICAS_AICE</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/eicas[1]/page</property>
+				<value></value>
+			</binding>
+		</action>
+		<hovered><binding>
+			<command>set-tooltip</command>
+			<tooltip-id>EP_AICE</tooltip-id>
+			<label>EICAS Anti Ice</label>
+		</binding></hovered>		
+    </animation-->	
+    <animation>
+		<type>pick</type>
+		<object-name>EICAS_Doors</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/eicas[1]/page</property>
+				<value>5</value>
+			</binding>
+		</action>
+		<hovered><binding>
+			<command>set-tooltip</command>
+			<tooltip-id>EP_Doors</tooltip-id>
+			<label>EICAS Doors</label>
+		</binding></hovered>		
+    </animation>	
+	
+	<!-- Aileron/rudder trim -->
     <animation>
 	<type>pick</type>
 	<object-name>AileronTrimKnob</object-name>
