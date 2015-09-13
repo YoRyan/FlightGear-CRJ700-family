@@ -132,7 +132,7 @@ var pilot_send_S_properties =
 	"controls/lighting/landing-lights[1]",
 	"controls/lighting/landing-lights[2]",
 	"controls/lighting/taxi-lights",
-	"controls/electric/external-power",
+	"controls/electric/dc-service-switch",
 	"controls/electric/battery-switch",
 	"controls/electric/engine[0]/generator",
 	"controls/electric/APU-generator",
@@ -305,7 +305,7 @@ var get_copilot_decoders = func(pilot)
 		foreach (var propN; pilot_send_S_encoders[i])
 		{
 			var prop = propN.getPath();
-			prop = substr(propP, 1, size(propP) - 1);
+			prop = substr(prop, 1, size(prop) - 1);
 			var _get_action = func(prop)
 			{
 				return func(v)
