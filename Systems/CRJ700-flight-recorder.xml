@@ -12,6 +12,7 @@
 		<name>Bombardier CRJ700 flight recorder</name>
 
 		<!-- Generic signals -->
+		<!--signals include="/Aircraft/Generic/flightrecorder/components/environment.xml" /-->
 		<signals include="/Aircraft/Generic/flightrecorder/components/position.xml" />
 		<signals include="/Aircraft/Generic/flightrecorder/components/controls.xml" />
 		<signals include="/Aircraft/Generic/flightrecorder/components/surfaces.xml" />
@@ -54,8 +55,17 @@
 					<type>float</type>
 					<property>engines/engine[%i]/reverser-pos-norm</property>
 				</signal>
+				<signal>
+					<type>bool</type>
+					<property>engines/engine[%i]/running-nasal</property>
+				</signal>
+
 			</signals>
 			<!-- APU -->
+			<signal>
+				<type>bool</type>
+				<property>controls/APU/electronic-control-unit</property>
+			</signal>
 			<signal>
 				<type>float</type>
 				<property>engines/apu/egt-degc</property>
@@ -67,6 +77,10 @@
 			<signal>
 				<type>bool</type>
 				<property>engines/apu/on-fire</property>
+			</signal>
+			<signal>
+				<type>float</type>
+				<property>engines/apu/door-norm</property>
 			</signal>
 			<!-- Lighting controls -->
 			<signal>
@@ -137,6 +151,20 @@
 				<property>controls/switches/no-smoking-sign</property>
 			</signal>
 
+			<!-- other controls -->
+			<signals>
+				<count type="int">3</count>
+				<signal>
+					<type>bool</type>
+					<property>controls/hydraulic/system[%i]/pump-a</property>
+				</signal>
+				<signal>
+					<type>int</type>
+					<property>controls/hydraulic/system[%i]/pump-b</property>
+				</signal>
+			</signals>
+			
+			
 			<!-- Landing gear -->
 			<signal>
 				<type>float</type>
@@ -164,6 +192,22 @@
 			</signal>
 			<signal>
 				<type>float</type>
+				<property>controls/flight/slats-cmd</property>
+			</signal>
+			<signal>
+				<type>float</type>
+				<property>controls/flight/flaps-cmd</property>
+			</signal>
+			<signal>
+				<type>bool</type>
+				<property>controls/flight/flaps-start-snd</property>
+			</signal>
+			<signal>
+				<type>bool</type>
+				<property>controls/flight/flaps-stop-snd</property>
+			</signal>
+			<signal>
+				<type>float</type>
 				<property>surface-positions/spoiler-ground-pos-norm</property>
 			</signal>
 			<signal>
@@ -174,6 +218,31 @@
 				<type>float</type>
 				<property>surface-positions/right-speedbrake-pos-norm</property>
 			</signal>
+
+			<signal>
+				<type>float</type>
+				<property>/sim/model/door-positions/pax-left</property>
+			</signal>
+			<signal>
+				<type>float</type>
+				<property>/sim/model/door-positions/pax-right</property>
+			</signal>
+			<signal>
+				<type>float</type>
+				<property>/sim/model/door-positions/av-bay</property>
+			</signal>
+			<signal>
+				<type>float</type>
+				<property>/sim/model/door-positions/fwd-cargo</property>
+			</signal>
+			<signal>
+				<type>float</type>
+				<property>/sim/model/door-positions/ctr-cargo</property>
+			</signal>
+			<signal>
+				<type>float</type>
+				<property>/sim/model/door-positions/aft-cargo</property>
+			</signal>	
 		</signals>
 	</config>
 

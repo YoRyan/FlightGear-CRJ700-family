@@ -8,6 +8,7 @@
 	<path>pfd.ac</path>
 
 	<params>
+		<powerN>/systems/DC/outputs/pfd1</powerN>
 		<indicated-pitch-deg>instrumentation/attitude-indicator/indicated-pitch-deg</indicated-pitch-deg>
 		<indicated-roll-deg>instrumentation/attitude-indicator/indicated-roll-deg</indicated-roll-deg>
 		<indicated-altitude-ft>instrumentation/altimeter/indicated-altitude-ft</indicated-altitude-ft>
@@ -17,6 +18,7 @@
 		<indicated-vertical-speed-fpm>instrumentation/vertical-speed-indicator/indicated-speed-fpm</indicated-vertical-speed-fpm>
 		<radar-altitude-ft>instrumentation/radar-altimeter/radar-altitude-ft</radar-altitude-ft>
 		<altimeter-setting-inhg>instrumentation/altimeter/setting-inhg</altimeter-setting-inhg>
+		<altimeter-setting-hpa>instrumentation/altimeter/setting-hpa</altimeter-setting-hpa>
 		<lightmap-texture-path>Aircraft/Generic/generic-lightmap.png</lightmap-texture-path>
 	</params>
 	<ft-to-m type="float">0.3048</ft-to-m>
@@ -33,9 +35,9 @@
 			<blue>0.145</blue>
 		</green>
 		<pink>
-			<red>0.984</red>
-			<green>0.616</green>
-			<blue>0.616</blue>
+			<red>0.9</red>
+			<green>0.440</green>
+			<blue>0.74</blue>
 		</pink>
 		<white>
 			<red>1</red>
@@ -645,6 +647,15 @@ G</text>
 			</and>
 		</condition>
 	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Altimeter setting</object-name>
+		<condition>
+			<not>
+				<property>instrumentation/use-QNH</property>
+			</not>
+		</condition>
+	</animation>	
 	<text>
 		<name>Altimeter setting</name>
 		<type>number-value</type>
@@ -658,7 +669,34 @@ G</text>
 		<offsets>
 			<x-m>0.0003</x-m>
 			<y-m>0.06691</y-m>
-			<z-m>-0.02112</z-m>
+			<z-m>-0.022</z-m>
+		</offsets>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<animation>
+		<type>select</type>
+		<object-name>Altimeter-hpa</object-name>
+		<condition>
+			<property>instrumentation/use-QNH</property>
+		</condition>
+	</animation>	
+	<text>
+		<name>Altimeter-hpa</name>
+		<type>number-value</type>
+		<property alias="../../params/altimeter-setting-hpa" />
+		<axis-alignment>yz-plane</axis-alignment>
+		<alignment>right-center</alignment>
+		<character-size>0.005</character-size>
+		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<font>helvetica_bold.txf</font>
+		<format>%4.0f hPa</format>
+		<offsets>
+			<x-m>0.0003</x-m>
+			<y-m>0.06691</y-m>
+			<z-m>-0.022</z-m>
 		</offsets>
 		<font-resolution>
 			<width type="int">32</width>
@@ -842,7 +880,7 @@ G</text>
 	<text>
 		<name>VOR1 course</name>
 		<type>number-value</type>
-		<property>instrumentation/nav[0]/heading-deg</property>
+		<property>instrumentation/nav[0]/radials/selected-deg</property>
 		<axis-alignment>yz-plane</axis-alignment>
 		<alignment>left-center</alignment>
 		<character-size>0.005</character-size>
@@ -934,7 +972,7 @@ G</text>
 	<text>
 		<name>VOR2 course</name>
 		<type>number-value</type>
-		<property>instrumentation/nav[1]/heading-deg</property>
+		<property>instrumentation/nav[1]/radials/selected-deg</property>
 		<axis-alignment>yz-plane</axis-alignment>
 		<alignment>left-center</alignment>
 		<character-size>0.005</character-size>
@@ -1050,10 +1088,10 @@ G</text>
 		<property alias="../../params/indicated-vertical-speed-fpm" />
 		<axis-alignment>yz-plane</axis-alignment>
 		<alignment>right-center</alignment>
-		<character-size>0.005</character-size>
-		<character-aspect-ratio>1.5</character-aspect-ratio>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio>1.4</character-aspect-ratio>
 		<font>helvetica_bold.txf</font>
-		<format>%04.1f</format>
+		<format>%04.0f</format>
 		<offsets>
 			<x-m>0.0003</x-m>
 			<y-m>0.06874</y-m>
@@ -1097,7 +1135,7 @@ G</text>
 		<object-name>Autopilot on</object-name>
 		<object-name>Autopilot IAS</object-name>
 		<object-name>Autopilot Mach</object-name>
-		<object-name>ADF1</object-name>
+		
 		<object-name>Radar altimeter</object-name>
 		<object-name>Radar altimeter (metric)</object-name>
 		<object-name>Vertical speed indicator</object-name>
@@ -1124,6 +1162,7 @@ G</text>
 		<object-name>Altitude setting</object-name>
 		<object-name>Speed knot setting</object-name>
 		<object-name>Speed mach setting</object-name>
+		<object-name>ADF1</object-name>
 		<ambient>
 			<red alias="../../../colors/pink/red" />
 			<green alias="../../../colors/pink/green" />
@@ -1147,6 +1186,7 @@ G</text>
 		<object-name>Altimeter thousands counter</object-name>
 		<object-name>Altimeter thousands counter (metric)</object-name>
 		<object-name>Altimeter setting</object-name>
+		<object-name>Altimeter-hpa</object-name>
 		<object-name>FMS</object-name>
 		<object-name>FMS course</object-name>
 		<object-name>FMS distance</object-name>
@@ -1242,7 +1282,7 @@ G</text>
 		<object-name>Off</object-name>
 		<condition>
 			<less-than>
-				<property>systems/electrical/outputs/efis</property>
+				<property alias="../../../../params/powerN" />
 				<value>15</value>
 			</less-than>
 		</condition>
@@ -1648,7 +1688,7 @@ G</text>
 		<type>rotate</type>
 		<object-name>NAVPtr</object-name>
 		<object-name>NAVTrack</object-name>
-		<property>instrumentation/nav[0]/heading-deg</property>
+		<property>instrumentation/nav[0]/radials/selected-deg</property>
 		<axis>
 			<x>-1</x>
 			<y>0</y>

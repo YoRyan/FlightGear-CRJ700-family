@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<PropertyList>
+	<title>Cruise</title>
+	<item>
+		<name>Passenger Signs</name>
+		<value>AS NEEDED</value>
+	</item>
+	<item>
+		<name>Prepare descent / approach</name>
+	</item>
+	<item>
+		<name>Get landing RW </name>
+		<value>from ATC or by weather</value>
+	</item>
+	<item>
+		<name>ILS frequency</name>
+		<value>LOOK UP</value>
+	</item>	
+	<item>
+		<name>Top of descent</name>
+		<value>CALCULATE</value>
+	</item>
+	
+</PropertyList>
