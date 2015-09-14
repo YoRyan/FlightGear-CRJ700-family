@@ -14,7 +14,7 @@ See LICENSE (duh).
 
 ## Credits
 
-FDM and model made by myself, Ryan Miller.
+FDM and model made by myself, Ryan Young.
 
 Liveries and models also contributed by fellow FlightGear fans:
 * ["Zbyszek"](http://www.flightgear.pl/)
