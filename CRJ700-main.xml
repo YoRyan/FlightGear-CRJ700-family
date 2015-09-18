@@ -7,7 +7,7 @@
 
     <sim>
         <description>Bombardier CRJ700 series</description>
-        <author>Ryan Miller (3d), Ryan Miller (FDM)</author>
+        <author>Ryan Young ("Skyop") and contributors</author>
         <status>early-production</status>
         <rating>
             <FDM type="int">3</FDM>
